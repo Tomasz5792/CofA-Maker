@@ -1,2 +1,2 @@
 # CofA-Maker
-CofA Maker Powerapp
+CofA Maker PowerApp
