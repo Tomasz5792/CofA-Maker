@@ -1,0 +1,863 @@
+Screen_Product_Selection As screen:
+    Fill: =Colour_Viridor_White
+
+    Title_Select_CoA_2 As label:
+        Align: =TextPosition.Left
+        Color: =RGBA(255, 255, 255, 1)
+        Fill: =Colour_Viridor_GreenTint
+        Font: =Font.'Segoe UI'
+        Height: =244
+        PaddingLeft: =20
+        Size: =Text_size_Title
+        Text: =
+        Width: =622
+        Y: =162
+        ZIndex: =1
+
+    "Gallery_Select_Product As gallery.'BrowseLayout_Vertical_OneImageThreeColumnVariant_ver4.0'":
+        Fill: =Colour_Viridor_PurpleTint
+        Height: =60
+        Items: |+
+            =["PET Plus","PET Flake Standard","HDPE Natural","PP","PET Std","","","PP P&G"]
+            
+            //For future when needed
+            //"HDPE Self Coloured",
+            
+        Layout: =Layout.Vertical
+        OnSelect: |-
+            =If(ThisItem.Value <> "",
+            Set(Var_Product_Selected, ThisItem);
+            Set(Var_Product_Selected_Text, ThisItem.Value)
+            );
+            
+            Set(Var_Customer_Selected, Blank());
+            
+            //Set(Var_Product_Selected,ThisItem);
+            //Set(Var_Product_Selected_Text,ThisItem.Value);
+        ShowScrollbar: =false
+        TemplatePadding: =0
+        TemplateSize: =60
+        Width: =622
+        WrapCount: =4
+        Y: =102
+        ZIndex: =2
+
+        Label1_2 As label:
+            Align: =Align.Center
+            Color: =If(ThisItem.Value=Var_Product_Selected_Text,Colour_Viridor_White,Color.Black)
+            Fill: =If(ThisItem.Value=Var_Product_Selected_Text,Colour_Viridor_Purple,Color.Transparent)
+            Height: |-
+                =If(ThisItem.Value="PP",30,
+                If(ThisItem.Value="PP P&G",30,
+                If(ThisItem.Value="PET Plus",30,
+                If(ThisItem.Value="PET Std",30,
+                60))))
+            HoverColor: =Colour_Viridor_White
+            HoverFill: |
+                =If(ThisItem.Value="",Color.Transparent,Colour_Viridor_Green)
+            LineHeight: =1
+            OnSelect: =Select(Parent)
+            PaddingBottom: =10
+            PaddingLeft: =10
+            PaddingRight: =10
+            PaddingTop: =10
+            PressedColor: =If(ThisItem.Value="",Color.Transparent,Color.White)
+            PressedFill: =If(ThisItem.Value="",Color.Transparent,Colour_Viridor_Purple)
+            Size: =Text_size_Menu
+            Text: =ThisItem.Value
+            Width: =Parent.Width/4
+            Y: |-
+                =If(ThisItem.Value="PP P&G",-30,
+                If(ThisItem.Value="PET Std",-30,
+                0))
+            ZIndex: =1
+
+    Gallery_CoA_Main As gallery.galleryVertical:
+        Fill: =Color.Transparent
+        Height: =648
+        Items: |+
+            =If(
+            Var_Product_Selected_Text="PET Plus",Col_Table_PET_Plus_Std,
+            Var_Product_Selected_Text="PET Std",Col_Table_PET_Std,
+            Var_Product_Selected_Text="PET Flake Standard",Col_Table_PET_Flake,
+            Var_Product_Selected_Text="HDPE Natural",Col_Table_HDPE_Nat,
+            Var_Product_Selected_Text="PP",Col_Table_PP,
+            Var_Product_Selected_Text="PP P&G",Col_Table_PP_PnG
+            )
+            
+        Layout: =Layout.Vertical
+        ShowScrollbar: =false
+        TemplatePadding: =1
+        TemplateSize: |-
+            =If(
+            Var_Product_Selected_Text="PET",9.5,
+            Var_Product_Selected_Text="PET Standard",9.5,
+            Var_Product_Selected_Text="PET Flake",9.5,
+            Var_Product_Selected_Text="HDPE Natural",8.7,
+            Var_Product_Selected_Text="HDPE Self Coloured",9.5,
+            Var_Product_Selected_Text="PP",9.5,
+            9.5)
+        Width: =706
+        WrapCount: =5
+        X: =641
+        Y: =120
+        ZIndex: =3
+
+        Label2_10 As label:
+            BorderStyle: =BorderStyle.None
+            BorderThickness: =1
+            Color: =If(ThisItem.Colour_Column="CoA_Colour_Dark",Color.White,Color.Black)
+            Fill: |-
+                =If(ThisItem.Colour_Column="CoA_Colour_Dark",Colour_CoA_Blue_Dark,
+                If(ThisItem.Colour_Column="CoA_Colour_Light_1",Colour_CoA_Blue_Light_1,
+                If(ThisItem.Colour_Column="CoA_Colour_Light_2",Colour_CoA_Blue_Light_2,
+                If(ThisItem.Colour_Column="Transparent",Color.Transparent,
+                Color.Red))))
+            Font: =Font.Arial
+            FontWeight: =If(ThisItem.Font_Weight="bold",FontWeight.Semibold,FontWeight.Lighter)
+            Height: =ThisItem.Height
+            OnSelect: =
+            PaddingRight: =0
+            Size: =Text_size_CoA
+            Text: =ThisItem.Text
+            Width: =ThisItem.Width
+            ZIndex: =1
+
+    Title_Select_CoA As label:
+        Align: =TextPosition.Left
+        Color: =RGBA(255, 255, 255, 1)
+        Fill: =RGBA(0, 155, 62, 100)
+        Font: =Font.'Segoe UI'
+        Height: =51
+        PaddingLeft: =14
+        Size: =Text_size_Title
+        Text: ="Select CoA"
+        Width: =1366
+        ZIndex: =4
+
+    Gallery_CoA_All As gallery.galleryVertical:
+        Fill: =Color.Transparent
+        Height: =173
+        Items: |+
+            =Col_Table_All_CoA
+            
+        Layout: =Layout.Vertical
+        ShowScrollbar: =false
+        TemplatePadding: =1
+        TemplateSize: =Gallery_CoA_Main.TemplateHeight
+        Visible: |-
+            =true
+            
+            //If(
+            //Var_Product_Selected_Text="PET",false,
+            //Var_Product_Selected_Text="PET Standard",false,
+            //Var_Product_Selected_Text="PET Flake",false,
+            //Var_Product_Selected_Text="HDPE Natural",true,
+            //Var_Product_Selected_Text="HDPE Self Coloured",false,
+            //Var_Product_Selected_Text="PP",false,
+            //false)
+        Width: =706
+        WrapCount: =10
+        X: =641
+        Y: =120
+        ZIndex: =5
+
+        Label2_11 As label:
+            BorderStyle: =BorderStyle.None
+            BorderThickness: =1
+            Color: =If(ThisItem.Colour_Column="CoA_Colour_Dark",Color.White,Color.Black)
+            Fill: |-
+                =If(ThisItem.Colour_Column="CoA_Colour_Dark",Colour_CoA_Blue_Dark,
+                If(ThisItem.Colour_Column="CoA_Colour_Light_1",Colour_CoA_Blue_Light_1,
+                If(ThisItem.Colour_Column="CoA_Colour_Light_2",Colour_CoA_Blue_Light_2,
+                If(ThisItem.Colour_Column="Transparent",Color.Transparent,
+                Color.Red))))
+            Font: =Font.Arial
+            FontWeight: =FontWeight.Lighter
+            Height: |+
+                =If(
+                Var_Product_Selected_Text="PET",ThisItem.Height_1,
+                Var_Product_Selected_Text="PET Standard",ThisItem.Height_1,
+                Var_Product_Selected_Text="PET Flake",ThisItem.Height_1,
+                Var_Product_Selected_Text="HDPE Natural",ThisItem.Height_2,
+                Var_Product_Selected_Text="PP",ThisItem.Height_1,
+                ThisItem.Height_1)
+                
+            OnSelect: =
+            PaddingRight: =0
+            Size: =Text_size_CoA
+            Text: =ThisItem.Text
+            Width: =ThisItem.Width
+            ZIndex: =1
+
+    Button_Back_1 As icon.CancelBadge:
+        Color: =Color.White
+        Height: =38
+        HoverColor: =Colour_Viridor_Purple
+        Icon: =Icon.BackArrow
+        OnSelect: =Back()
+        PressedColor: =Colour_Viridor_GreenTint
+        Tooltip: ="Back"
+        Width: =38
+        X: =1322
+        Y: =7
+        ZIndex: =6
+
+    Button_Home_1 As icon.CancelBadge:
+        Color: =Color.White
+        Height: =38
+        HoverColor: =Colour_Viridor_Purple
+        Icon: =Icon.Home
+        OnSelect: =Navigate(Screen_Start,ScreenTransition.None);
+        PressedColor: =Colour_Viridor_GreenTint
+        Tooltip: ="Home"
+        Width: =38
+        X: =Button_Back_1.X-50
+        Y: =Button_Back_1.Y
+        ZIndex: =7
+
+    Button_Print_2 As icon.CancelBadge:
+        Color: =Color.White
+        Height: =38
+        HoverColor: =Colour_Viridor_Purple
+        Icon: =Icon.Add
+        OnSelect: =If(Var_Product_Selected.Value="",Navigate(Screen_Product_Selection,ScreenTransition.None),Navigate(Screen_CofA,ScreenTransition.None))
+        PressedColor: =Colour_Viridor_GreenTint
+        Tooltip: ="Create CofA"
+        Width: =38
+        X: =Button_Back_1.X-100
+        Y: =Button_Back_1.Y
+        ZIndex: =8
+
+    Gallery_Results_Main_2 As gallery.galleryVertical:
+        Fill: =Color.Transparent
+        Height: =647
+        Items: |
+            =If(
+            Or(Var_Product_Selected_Text="PET Plus",Var_Product_Selected_Text="PET Std"),
+            ForAll([{Text:"",Height:CoA_Height_All},{Text:"",Height:CoA_Height_All},{Text:"",Height:CoA_Height_All},{Text:"",Height:CoA_Height_All},{Text:"",Height:CoA_Height_All},{Text:"",Height:CoA_Height_All},{Text:Var_Customer_Selected.Customer_Reference,Height:CoA_Height_All},{Text:"",Height:CoA_Height_All},{Text:Text_Input_Delivery_Number.Text,Height:CoA_Height_All},{Text:"",Height:CoA_Height_All},{Text:Text_Input_Date_1.Text,Height:CoA_Height_All},{Text:"",Height:CoA_Height_All},{Text:"Avonmouth, UK",Height:CoA_Height_All}], {Value: ThisRecord}),
+            
+            Var_Product_Selected_Text="PET Flake Standard",
+            ForAll([{Text:"",Height:CoA_Height_All},{Text:"",Height:CoA_Height_All},{Text:"",Height:CoA_Height_All},{Text:"",Height:CoA_Height_All},{Text:"",Height:CoA_Height_All},{Text:"",Height:CoA_Height_All},{Text:Var_Customer_Selected.Customer_Reference,Height:CoA_Height_All},{Text:"",Height:CoA_Height_All},{Text:Text_Input_Delivery_Number.Text,Height:CoA_Height_All},{Text:"",Height:CoA_Height_All},{Text:Text_Input_Date_1.Text,Height:CoA_Height_All},{Text:"",Height:CoA_Height_All},{Text:"Avonmouth, UK",Height:CoA_Height_All}], {Value: ThisRecord}),
+            
+            Var_Product_Selected_Text="HDPE Natural",
+            ForAll([{Text:"",Height:CoA_Height_All},{Text:"",Height:CoA_Height_All},{Text:"",Height:CoA_Height_All},{Text:"",Height:CoA_Height_All},{Text:"",Height:CoA_Height_All},{Text:"",Height:CoA_Height_All},{Text:Var_Customer_Selected.Customer_Reference,Height:CoA_Height_All},{Text:"",Height:CoA_Height_All},{Text:Text_Input_Delivery_Number.Text,Height:CoA_Height_All},{Text:"",Height:CoA_Height_All},{Text:Text_Input_Date_1.Text,Height:CoA_Height_All},{Text:"",Height:CoA_Height_All},{Text:"Avonmouth, UK",Height:CoA_Height_All}], {Value: ThisRecord}),
+            
+            Var_Product_Selected_Text="PP",
+            ForAll([{Text:"",Height:CoA_Height_All},{Text:"",Height:CoA_Height_All},{Text:"",Height:CoA_Height_All},{Text:"",Height:CoA_Height_All},{Text:"",Height:CoA_Height_All},{Text:"",Height:CoA_Height_All},{Text:Var_Customer_Selected.Customer_Reference,Height:CoA_Height_All},{Text:"",Height:CoA_Height_All},{Text:Text_Input_Delivery_Number.Text,Height:CoA_Height_All},{Text:"",Height:CoA_Height_All},{Text:Text_Input_Date_1.Text,Height:CoA_Height_All},{Text:"",Height:CoA_Height_All},{Text:"Avonmouth, UK",Height:CoA_Height_All}], {Value: ThisRecord}),
+            
+            Var_Product_Selected_Text="PP P&G",
+            ForAll([{Text:"",Height:CoA_Height_All},{Text:"",Height:CoA_Height_All},{Text:"",Height:CoA_Height_All},{Text:"",Height:CoA_Height_All},{Text:"",Height:CoA_Height_All},{Text:"",Height:CoA_Height_All},{Text:Var_Customer_Selected.Customer_Reference,Height:CoA_Height_All},{Text:"",Height:CoA_Height_All},{Text:Text_Input_Delivery_Number.Text,Height:CoA_Height_All},{Text:"",Height:CoA_Height_All},{Text:Text_Input_Date_1.Text,Height:CoA_Height_All},{Text:"",Height:CoA_Height_All},{Text:"Avonmouth, UK",Height:CoA_Height_All}], {Value: ThisRecord})
+            
+            )
+            
+            //[{Text:"1",Height:CoA_Height_All},{Text:"",Height:CoA_Height_All},{Text:"2",Height:CoA_Height_All},{Text:"",Height:CoA_Height_All},{Text:"3",Height:CoA_Height_All},{Text:"",Height:CoA_Height_All},{Text:"4",Height:CoA_Height_All},{Text:"",Height:CoA_Height_All},{Text:"5",Height:CoA_Height_All},{Text:"",Height:CoA_Height_All},{Text:"6",Height:CoA_Height_All},{Text:"",Height:CoA_Height_All},{Text:"7",Height:CoA_Height_All},{Text:"",Height:CoA_Height_All},{Text:"8",Height:CoA_Height_All},{Text:"",Height:CoA_Height_All},{Text:"9",Height:CoA_Height_All},{Text:"",Height:CoA_Height_All},{Text:"10",Height:CoA_Height_All},{Text:"",Height:CoA_Height_All},{Text:"",Height:CoA_Height_All},{Text:"11",Height:CoA_Height_All},{Text:"",Height:CoA_Height_All},{Text:"12",Height:CoA_Height_All},{Text:"",Height:CoA_Height_All},{Text:"13",Height:CoA_Height_All},{Text:"",Height:CoA_Height_All},{Text:"14",Height:CoA_Height_All},{Text:"",Height:CoA_Height_All},{Text:"15",Height:CoA_Height_All},{Text:"",Height:CoA_Height_All},{Text:"",Height:CoA_Height_All},{Text:"16",Height:CoA_Height_All},{Text:"",Height:CoA_Height_All},{Text:"17",Height:CoA_Height_All},{Text:"",Height:CoA_Height_All},{Text:"18",Height:CoA_Height_All},{Text:"",Height:CoA_Height_All},{Text:"19",Height:CoA_Height_All},{Text:"",Height:CoA_Height_All},{Text:CoA_Height_All,Height:CoA_Height_All},{Text:"",Height:CoA_Height_All},{Text:"21",Height:CoA_Height_All}]
+        Layout: =Layout.Vertical
+        ShowScrollbar: =false
+        TemplatePadding: =1
+        TemplateSize: |+
+            =If(
+            Var_Product_Selected_Text="PET",9.5,
+            Var_Product_Selected_Text="PET Standard",9.5,
+            Var_Product_Selected_Text="PET Flake",9.5,
+            Var_Product_Selected_Text="HDPE Natural",8.7,
+            Var_Product_Selected_Text="HDPE Self Coloured",9.5,
+            Var_Product_Selected_Text="PP",9.5,
+            9.5)
+            
+            
+        Width: =233
+        X: =1133
+        Y: =121
+        ZIndex: =9
+
+        Label2_14 As label:
+            BorderStyle: =BorderStyle.None
+            BorderThickness: =1
+            Fill: =Color.Transparent
+            Font: =Font.Arial
+            FontWeight: =FontWeight.Lighter
+            Height: =ThisItem.Value.Height
+            OnSelect: =
+            Size: =Text_size_CoA
+            Text: =ThisItem.Value.Text
+            Width: =Parent.Width
+            ZIndex: =1
+
+    Gallery_Results_Main_1 As gallery.galleryVertical:
+        Fill: =Color.Transparent
+        Height: =647
+        Items: |
+            =If(
+            Or(Var_Product_Selected_Text="PET Plus",Var_Product_Selected_Text="PET Std"),
+            ForAll([{Text:"",Height:CoA_Height_All},{Text:"",Height:CoA_Height_All},{Text:"",Height:CoA_Height_All},{Text:"",Height:CoA_Height_All},{Text:"",Height:CoA_Height_All},{Text:"",Height:CoA_Height_All},{Text:Var_Customer_Selected.Customer,Height:CoA_Height_All},{Text:"",Height:CoA_Height_All},{Text:Text_Input_Order_Number,Height:CoA_Height_All},{Text:"",Height:CoA_Height_All},{Text:Var_CoA_Selected_PET.Production_Date_App,Height:CoA_Height_All},{Text:"",Height:CoA_Height_All},{Text:Var_CoA_Selected_PET.Batch_No_Storage_Silo,Height:CoA_Height_All},{Text:"",Height:CoA_Height_All},{Text:"",Height:CoA_Height_All},{Text:"",Height:CoA_Height_All},{Text:"",Height:CoA_Height_All},{Text:"",Height:CoA_Height_All},{Text:"",Height:CoA_Height_All},{Text:"",Height:CoA_Height_All},{Text:"",Height:CoA_Height_All},{Text:"",Height:CoA_Height_All},{Text:"",Height:CoA_Height_All},{Text:"",Height:CoA_Height_All},{Text:"",Height:CoA_Height_All},{Text:"",Height:CoA_Height_All},{Text:Var_CoA_Selected_PET.'Bulk Density',Height:CoA_Height_All},{Text:"",Height:CoA_Height_All},{Text:Var_CoA_Selected_PET.IV_App,Height:CoA_Height_All},{Text:"",Height:CoA_Height_All},{Text:Var_CoA_Selected_PET.Moisture_App,Height:CoA_Height_All},{Text:"",Height:CoA_Height_All},{Text:Var_CoA_Selected_PET.pH_App,Height:CoA_Height_All},{Text:"",Height:CoA_Height_All},{Text:"",Height:CoA_Height_All},{Text:"",Height:CoA_Height_All},{Text:"",Height:CoA_Height_All},{Text:Var_CoA_Selected_PET.'Pellets in a gram Average',Height:31.5},{Text:"",Height:CoA_Height_All},{Text:"",Height:CoA_Height_All},{Text:Var_CoA_Selected_PET.'Melting Point',Height:CoA_Height_All},{Text:"",Height:CoA_Height_All},{Text:Var_CoA_Selected_PET.'Acetaldehyde Average',Height:CoA_Height_All},{Text:"",Height:CoA_Height_All},{Text:Var_CoA_Selected_PET.Fines,Height:CoA_Height_All},{Text:"",Height:CoA_Height_All},{Text:Var_CoA_Selected_PET.Crystallinity,Height:CoA_Height_All},{Text:"",Height:CoA_Height_All},{Text:Var_CoA_Selected_PET.'L*_App',Height:CoA_Height_All},{Text:"",Height:CoA_Height_All},{Text:Var_CoA_Selected_PET.'a*_App',Height:CoA_Height_All},{Text:"",Height:CoA_Height_All},{Text:Var_CoA_Selected_PET.'b*_App',Height:CoA_Height_All},{Text:"",Height:CoA_Height_All},{Text:Var_CoA_Selected_PET.'Pellet shapes',Height:CoA_Height_All},{Text:"",Height:CoA_Height_All},{Text:Var_CoA_Selected_PET.'Volatile Measurement (Limonene)',Height:31.5}], {Value: ThisRecord}),
+            
+            Var_Product_Selected_Text="PET Flake Standard",
+            ForAll([{Text:"",Height:CoA_Height_All},{Text:"",Height:CoA_Height_All},{Text:"",Height:CoA_Height_All},{Text:"",Height:CoA_Height_All},{Text:"",Height:CoA_Height_All},{Text:"",Height:CoA_Height_All},{Text:Var_Customer_Selected.Customer,Height:CoA_Height_All},{Text:"",Height:CoA_Height_All},{Text:Text_Input_Order_Number,Height:CoA_Height_All},{Text:"",Height:CoA_Height_All},{Text:Var_CoA_Selected_PET_Flake.Production_Date_App,Height:CoA_Height_All},{Text:"",Height:CoA_Height_All},{Text:Var_CoA_Selected_PET_Flake.Batch_No_Storage_Silo,Height:CoA_Height_All},{Text:"",Height:CoA_Height_All},{Text:"",Height:CoA_Height_All},{Text:"",Height:CoA_Height_All},{Text:"",Height:CoA_Height_All},{Text:"",Height:CoA_Height_All},{Text:"",Height:CoA_Height_All},{Text:"",Height:CoA_Height_All},{Text:"",Height:CoA_Height_All},{Text:"",Height:CoA_Height_All},{Text:"",Height:CoA_Height_All},{Text:"",Height:CoA_Height_All},{Text:"",Height:CoA_Height_All},{Text:"",Height:CoA_Height_All},{Text:"",Height:CoA_Height_All},{Text:"",Height:CoA_Height_All},{Text:"",Height:CoA_Height_All},{Text:Var_CoA_Selected_PET_Flake.'Bulk Density',Height:CoA_Height_All},{Text:"",Height:CoA_Height_All},{Text:Var_CoA_Selected_PET_Flake.IV_App,Height:CoA_Height_All},{Text:"",Height:CoA_Height_All},{Text:Var_CoA_Selected_PET_Flake.Moisture_App,Height:CoA_Height_All},{Text:"",Height:CoA_Height_All},{Text:Var_CoA_Selected_PET_Flake.pH_App,Height:CoA_Height_All},{Text:"",Height:CoA_Height_All},{Text:"",Height:CoA_Height_All},{Text:"",Height:CoA_Height_All},{Text:"",Height:CoA_Height_All},{Text:Var_CoA_Selected_PET_Flake.PVC_App,Height:CoA_Height_All},{Text:"",Height:CoA_Height_All},{Text:Var_CoA_Selected_PET_Flake.Glue_App,Height:CoA_Height_All},{Text:"",Height:CoA_Height_All},{Text:Var_CoA_Selected_PET_Flake.Metal_App,Height:CoA_Height_All},{Text:"",Height:CoA_Height_All},{Text:Var_CoA_Selected_PET_Flake.Colour_App,Height:CoA_Height_All},{Text:"",Height:CoA_Height_All},{Text:Var_CoA_Selected_PET_Flake.Polyolefins_App,Height:CoA_Height_All}], {Value: ThisRecord}),
+            
+            Var_Product_Selected_Text="HDPE Natural",
+            ForAll([{Text:"",Height:CoA_Height_HDPE},{Text:"",Height:CoA_Height_HDPE},{Text:"",Height:CoA_Height_HDPE},{Text:"",Height:CoA_Height_HDPE},{Text:"",Height:CoA_Height_HDPE},{Text:"",Height:CoA_Height_HDPE},{Text:Var_Customer_Selected.Customer,Height:CoA_Height_HDPE},{Text:"",Height:CoA_Height_HDPE},{Text:Text_Input_Order_Number.Text,Height:CoA_Height_HDPE},{Text:"",Height:CoA_Height_HDPE},{Text:Var_CoA_Selected_HDPE_Nat.Production_Date_App,Height:CoA_Height_HDPE},{Text:"",Height:CoA_Height_HDPE},{Text:Var_CoA_Selected_HDPE_Nat.Batch_No_Storage_Silo,Height:CoA_Height_HDPE},{Text:"",Height:CoA_Height_HDPE},{Text:"",Height:CoA_Height_HDPE},{Text:"",Height:CoA_Height_HDPE},{Text:"",Height:CoA_Height_HDPE},{Text:"",Height:CoA_Height_HDPE},{Text:"",Height:CoA_Height_HDPE},{Text:"",Height:CoA_Height_HDPE},{Text:"",Height:CoA_Height_HDPE},{Text:"",Height:CoA_Height_HDPE},{Text:"",Height:CoA_Height_HDPE},{Text:Var_CoA_Selected_HDPE_Nat.Density,Height:CoA_Height_HDPE},{Text:"",Height:CoA_Height_HDPE},{Text:Var_CoA_Selected_HDPE_Nat.'Bulk Density',Height:CoA_Height_HDPE},{Text:"",Height:CoA_Height_HDPE},{Text:"",Height:CoA_Height_HDPE},{Text:Var_CoA_Selected_HDPE_Nat.MFI_App,Height:CoA_Height_HDPE},{Text:"",Height:CoA_Height_HDPE},{Text:"",Height:CoA_Height_HDPE},{Text:Var_CoA_Selected_HDPE_Nat.Moisture_App,Height:39},{Text:"",Height:CoA_Height_HDPE},{Text:"",Height:CoA_Height_HDPE},{Text:"",Height:CoA_Height_HDPE},{Text:Var_CoA_Selected_HDPE_Nat.'L*_App',Height:CoA_Height_HDPE},{Text:"",Height:CoA_Height_HDPE},{Text:Var_CoA_Selected_HDPE_Nat.'a*_App',Height:CoA_Height_HDPE},{Text:"",Height:CoA_Height_HDPE},{Text:Var_CoA_Selected_HDPE_Nat.'b*_App',Height:CoA_Height_HDPE},{Text:"",Height:CoA_Height_HDPE},{Text:"",Height:CoA_Height_HDPE},{Text:Var_CoA_Selected_HDPE_Nat.Black_Spec_App,Height:CoA_Height_HDPE},{Text:"",Height:CoA_Height_HDPE},{Text:"",Height:CoA_Height_HDPE},{Text:Var_CoA_Selected_HDPE_Nat.Limonene_App,Height:39},{Text:"",Height:CoA_Height_HDPE},{Text:"",Height:CoA_Height_HDPE},{Text:"",Height:CoA_Height_HDPE},{Text:"",Height:CoA_Height_HDPE},{Text:"",Height:CoA_Height_HDPE},{Text:"",Height:CoA_Height_HDPE},{Text:Var_CoA_Selected_HDPE_Nat.'Stress Crack Resistance',Height:39},{Text:"",Height:CoA_Height_HDPE},{Text:"",Height:CoA_Height_HDPE},{Text:"",Height:CoA_Height_HDPE},{Text:Var_CoA_Selected_HDPE_Nat.'Charpy Impact Strengh',Height:CoA_Height_HDPE},{Text:"",Height:CoA_Height_HDPE},{Text:Var_CoA_Selected_HDPE_Nat.'Flex modulus 23 °C',Height:CoA_Height_HDPE},{Text:"",Height:CoA_Height_HDPE},{Text:Var_CoA_Selected_HDPE_Nat.Crystallinity,Height:CoA_Height_HDPE}], {Value: ThisRecord}),
+            
+            Var_Product_Selected_Text="PP",
+            ForAll([{Text:"",Height:CoA_Height_All},{Text:"",Height:CoA_Height_All},{Text:"",Height:CoA_Height_All},{Text:"",Height:CoA_Height_All},{Text:"",Height:CoA_Height_All},{Text:"",Height:CoA_Height_All},{Text:Var_Customer_Selected.Customer,Height:CoA_Height_All},{Text:"",Height:CoA_Height_All},{Text:Text_Input_Order_Number.Text,Height:CoA_Height_All},{Text:"",Height:CoA_Height_All},{Text:Var_CoA_Selected_PP.Production_Date_App,Height:CoA_Height_All},{Text:"",Height:CoA_Height_All},{Text:Var_CoA_Selected_PP.Batch_No_Storage_Silo,Height:CoA_Height_All},{Text:"",Height:CoA_Height_All},{Text:"",Height:CoA_Height_All},{Text:"",Height:CoA_Height_All},{Text:"",Height:CoA_Height_All},{Text:"",Height:CoA_Height_All},{Text:"",Height:CoA_Height_All},{Text:"",Height:CoA_Height_All},{Text:"",Height:CoA_Height_All},{Text:"",Height:CoA_Height_All},{Text:"",Height:CoA_Height_All},{Text:Var_CoA_Selected_PP.Density,Height:CoA_Height_All},{Text:"",Height:CoA_Height_All},{Text:Var_CoA_Selected_PP.'Bulk Density',Height:CoA_Height_All},{Text:"",Height:CoA_Height_All},{Text:"",Height:CoA_Height_All},{Text:Var_CoA_Selected_PP.MFI_App,Height:CoA_Height_All},{Text:"",Height:CoA_Height_All},{Text:"",Height:CoA_Height_All},{Text:"",Height:CoA_Height_All},{Text:Var_CoA_Selected_PP.Limonene_App,Height:CoA_Height_All},{Text:"",Height:CoA_Height_All},{Text:"",Height:CoA_Height_All},{Text:"",Height:CoA_Height_All},{Text:Var_CoA_Selected_PP.Moisture_App,Height:CoA_Height_All},{Text:"",Height:CoA_Height_All},{Text:"",Height:CoA_Height_All},{Text:"",Height:CoA_Height_All},{Text:"",Height:CoA_Height_All},{Text:"",Height:CoA_Height_All},{Text:Var_CoA_Selected_PP.'Tensile strength',Height:CoA_Height_All},{Text:"",Height:CoA_Height_All},{Text:Var_CoA_Selected_PP.'Elongation at break',Height:CoA_Height_All},{Text:"",Height:CoA_Height_All},{Text:Var_CoA_Selected_PP.'Youngs Modulus',Height:CoA_Height_All},{Text:"",Height:CoA_Height_All},{Text:Var_CoA_Selected_PP.'Charpy Impact Strengh',Height:CoA_Height_All},{Text:"",Height:CoA_Height_All},{Text:Var_CoA_Selected_PP.'Flex strengh 23°C',Height:CoA_Height_All},{Text:"",Height:CoA_Height_All},{Text:Var_CoA_Selected_PP.'Melting Temperature',Height:CoA_Height_All},{Text:"",Height:CoA_Height_All},{Text:Var_CoA_Selected_PP.Crystallinity,Height:CoA_Height_All}], {Value: ThisRecord}),
+            
+            
+            Var_Product_Selected_Text="PP P&G",
+            ForAll([{Text:"",Height:CoA_Height_All},{Text:"",Height:CoA_Height_All},{Text:"",Height:CoA_Height_All},{Text:"",Height:CoA_Height_All},{Text:"",Height:CoA_Height_All},{Text:"",Height:CoA_Height_All},{Text:Var_Customer_Selected.Customer,Height:CoA_Height_All},{Text:"",Height:CoA_Height_All},{Text:Text_Input_Order_Number.Text,Height:CoA_Height_All},{Text:"",Height:CoA_Height_All},{Text:Var_CoA_Selected_PP.Production_Date_App,Height:CoA_Height_All},{Text:"",Height:CoA_Height_All},{Text:Var_CoA_Selected_PP.Batch_No_Storage_Silo,Height:CoA_Height_All},{Text:"",Height:CoA_Height_All},{Text:"",Height:CoA_Height_All},{Text:"",Height:CoA_Height_All},{Text:"",Height:CoA_Height_All},{Text:"",Height:CoA_Height_All},{Text:"",Height:CoA_Height_All},{Text:"",Height:CoA_Height_All},{Text:"",Height:CoA_Height_All},{Text:"",Height:CoA_Height_All},{Text:"",Height:CoA_Height_All},{Text:Var_CoA_Selected_PP.Density,Height:CoA_Height_All},{Text:"",Height:CoA_Height_All},{Text:Var_CoA_Selected_PP.'Bulk Density',Height:CoA_Height_All},{Text:"",Height:CoA_Height_All},{Text:"",Height:CoA_Height_All},{Text:Var_CoA_Selected_PP.MFI_App,Height:CoA_Height_All},{Text:"",Height:CoA_Height_All},{Text:"",Height:CoA_Height_All},{Text:"",Height:CoA_Height_All},{Text:Var_CoA_Selected_PP.Limonene_App,Height:CoA_Height_All},{Text:"",Height:CoA_Height_All},{Text:"",Height:CoA_Height_All},{Text:"",Height:CoA_Height_All},{Text:Var_CoA_Selected_PP.Moisture_App,Height:CoA_Height_All},{Text:"",Height:CoA_Height_All},{Text:"",Height:CoA_Height_All},{Text:"",Height:CoA_Height_All},{Text:"",Height:CoA_Height_All},{Text:"",Height:CoA_Height_All}], {Value: ThisRecord})
+            
+            )
+            
+            //[{Text:"1",Height:CoA_Height_All},{Text:"",Height:CoA_Height_All},{Text:"2",Height:CoA_Height_All},{Text:"",Height:CoA_Height_All},{Text:"3",Height:CoA_Height_All},{Text:"",Height:CoA_Height_All},{Text:"4",Height:CoA_Height_All},{Text:"",Height:CoA_Height_All},{Text:"5",Height:CoA_Height_All},{Text:"",Height:CoA_Height_All},{Text:"6",Height:CoA_Height_All},{Text:"",Height:CoA_Height_All},{Text:"7",Height:CoA_Height_All},{Text:"",Height:CoA_Height_All},{Text:"8",Height:CoA_Height_All},{Text:"",Height:CoA_Height_All},{Text:"9",Height:CoA_Height_All},{Text:"",Height:CoA_Height_All},{Text:"10",Height:CoA_Height_All},{Text:"",Height:CoA_Height_All},{Text:"",Height:CoA_Height_All},{Text:"11",Height:CoA_Height_All},{Text:"",Height:CoA_Height_All},{Text:"12",Height:CoA_Height_All},{Text:"",Height:CoA_Height_All},{Text:"13",Height:CoA_Height_All},{Text:"",Height:CoA_Height_All},{Text:"14",Height:CoA_Height_All},{Text:"",Height:CoA_Height_All},{Text:"15",Height:CoA_Height_All},{Text:"",Height:CoA_Height_All},{Text:"",Height:CoA_Height_All},{Text:"16",Height:CoA_Height_All},{Text:"",Height:CoA_Height_All},{Text:"17",Height:CoA_Height_All},{Text:"",Height:CoA_Height_All},{Text:"18",Height:CoA_Height_All},{Text:"",Height:CoA_Height_All},{Text:"19",Height:CoA_Height_All},{Text:"",Height:CoA_Height_All},{Text:CoA_Height_All,Height:CoA_Height_All},{Text:"",Height:CoA_Height_All},{Text:"21",Height:CoA_Height_All}]
+        Layout: =Layout.Vertical
+        ShowScrollbar: =false
+        TemplatePadding: =1
+        TemplateSize: |+
+            =If(
+            Var_Product_Selected_Text="PET",9.5,
+            Var_Product_Selected_Text="PET Standard",9.5,
+            Var_Product_Selected_Text="PET Flake",9.5,
+            Var_Product_Selected_Text="HDPE Natural",8.7,
+            Var_Product_Selected_Text="HDPE Self Coloured",9.5,
+            Var_Product_Selected_Text="PP",9.5,
+            9.5)
+            
+            
+        Width: =392
+        X: =781
+        Y: =121
+        ZIndex: =10
+
+        Label2_12 As label:
+            BorderStyle: =BorderStyle.None
+            BorderThickness: =1
+            Fill: =Color.Transparent
+            Font: =Font.Arial
+            FontWeight: =FontWeight.Lighter
+            Height: =ThisItem.Value.Height
+            OnSelect: =
+            Size: =Text_size_CoA
+            Text: =ThisItem.Value.Text
+            Width: =Parent.Width
+            ZIndex: =1
+
+    "Gallery_CoA_Choice_PET As gallery.'BrowseLayout_Vertical_OneTextVariant_ver4.0'":
+        Fill: =Color.Transparent
+        Height: =243
+        Items: =Col_CoA_PET_Filtered_Sorted
+        Layout: =Layout.Vertical
+        OnSelect: |
+            =Set(Var_CoA_Selected_PET,ThisItem);Set(Var_CoA_Selected_PET_Flake,Blank());Set(Var_CoA_Selected_HDPE_Nat,Blank());Set(Var_CoA_Selected_HDPE_Col,Blank()); Set(Var_CoA_Selected_PP,Blank());
+            
+            If(And(Var_Product_Selected_Text <> "PET Plus",Var_Product_Selected_Text <> "PET Std"),Set(Var_Customer_Selected, Blank()));
+            
+            If(Var_Product_Selected_Text <> "PET Std",Set(Var_Product_Selected_Text,"PET Plus"));
+            
+            //Set(Var_Customer_Selected, Blank());
+        ShowScrollbar: =false
+        TemplatePadding: =0
+        TemplateSize: =32
+        Width: =622/4
+        Y: =162
+        ZIndex: =11
+
+        Storage_Silo_Batch_6 As label:
+            Align: =Align.Center
+            Color: =If(ThisItem.Batch_No_Storage_Silo=Var_CoA_Selected_PET.Batch_No_Storage_Silo,Color.White,Color.Black)
+            Fill: =If(ThisItem.Batch_No_Storage_Silo=Var_CoA_Selected_PET.Batch_No_Storage_Silo,Colour_Viridor_Purple,Color.Transparent)
+            FontWeight: =FontWeight.Normal
+            Height: =Parent.TemplateHeight
+            HoverColor: =Color.White
+            HoverFill: =Colour_Viridor_Purple
+            OnSelect: =Select(Parent)
+            PaddingBottom: =0
+            PaddingLeft: =0
+            PaddingRight: =0
+            PaddingTop: =0
+            Size: =Text_size
+            Text: =ThisItem.Batch_No_Storage_Silo
+            Width: =Parent.Width
+            ZIndex: =7
+
+    "Gallery_CoA_Choice_6 As gallery.'BrowseLayout_Vertical_OneTextVariant_ver4.0'":
+        Fill: =Color.Transparent
+        Height: =244
+        Items: =Col_CoA_HDPE_Natural_Filtered_Sorted
+        Layout: =Layout.Vertical
+        OnSelect: |-
+            =Set(Var_CoA_Selected_PET,Blank());Set(Var_CoA_Selected_PET_Flake,Blank());Set(Var_CoA_Selected_HDPE_Nat,ThisItem);Set(Var_CoA_Selected_HDPE_Col,Blank()); Set(Var_CoA_Selected_PP,Blank());
+            
+            If(Var_Product_Selected_Text <> "HDPE Natural",Set(Var_Customer_Selected, Blank()));
+            
+            Set(Var_Product_Selected_Text,"HDPE Natural");
+            
+            //Set(Var_Customer_Selected, Blank());
+        ShowScrollbar: =false
+        TemplatePadding: =0
+        TemplateSize: =32
+        Width: =622/4
+        X: =311
+        Y: =162
+        ZIndex: =12
+
+        Storage_Silo_Batch_8 As label:
+            Align: =Align.Center
+            Color: =If(ThisItem.Batch_No_Storage_Silo=Var_CoA_Selected_HDPE_Nat.Batch_No_Storage_Silo,Color.White,Color.Black)
+            Fill: =If(ThisItem.Batch_No_Storage_Silo=Var_CoA_Selected_HDPE_Nat.Batch_No_Storage_Silo,Colour_Viridor_Purple,Color.Transparent)
+            FontWeight: =FontWeight.Normal
+            Height: =Parent.TemplateHeight
+            HoverColor: =Color.White
+            HoverFill: =Colour_Viridor_Purple
+            OnSelect: =Select(Parent)
+            PaddingBottom: =0
+            PaddingLeft: =0
+            PaddingRight: =0
+            PaddingTop: =0
+            Size: =Text_size
+            Text: =ThisItem.Batch_No_Storage_Silo
+            Width: =Parent.Width
+            ZIndex: =7
+
+    "Gallery_CoA_Choice_PP As gallery.'BrowseLayout_Vertical_OneTextVariant_ver4.0'":
+        Fill: =Color.Transparent
+        Height: =244
+        Items: =Col_CoA_PP_Filtered_Sorted
+        Layout: =Layout.Vertical
+        OnSelect: |
+            =Set(Var_CoA_Selected_PET,Blank());Set(Var_CoA_Selected_PET_Flake,Blank());Set(Var_CoA_Selected_HDPE_Nat,Blank());Set(Var_CoA_Selected_HDPE_Col,Blank()); Set(Var_CoA_Selected_PP,ThisItem);
+            
+            If(And(Var_Product_Selected_Text <> "PP P&G",Var_Product_Selected_Text <> "PP"),Set(Var_Customer_Selected, Blank()));
+            
+            If(Var_Product_Selected_Text <> "PP P&G",Set(Var_Product_Selected_Text,"PP"));
+            
+            //Set(Var_Customer_Selected, Blank());
+        ShowScrollbar: =false
+        TemplatePadding: =0
+        TemplateSize: =32
+        Width: =622/4
+        X: =466
+        Y: =162
+        ZIndex: =13
+
+        Storage_Silo_Batch_7 As label:
+            Align: =Align.Center
+            Color: =If(ThisItem.Batch_No_Storage_Silo=Var_CoA_Selected_PP.Batch_No_Storage_Silo,Color.White,Color.Black)
+            Fill: =If(ThisItem.Batch_No_Storage_Silo=Var_CoA_Selected_PP.Batch_No_Storage_Silo,Colour_Viridor_Purple,Color.Transparent)
+            FontWeight: =FontWeight.Normal
+            Height: =Parent.TemplateHeight
+            HoverColor: =Color.White
+            HoverFill: =Colour_Viridor_Purple
+            OnSelect: =Select(Parent)
+            PaddingBottom: =0
+            PaddingLeft: =0
+            PaddingRight: =0
+            PaddingTop: =0
+            Size: =Text_size
+            Text: =ThisItem.Batch_No_Storage_Silo
+            Width: =Parent.Width
+            ZIndex: =7
+
+    "Gallery_CoA_Choice_7 As gallery.'BrowseLayout_Vertical_OneTextVariant_ver4.0'":
+        Fill: =Color.Transparent
+        Height: =244
+        Items: =Col_CoA_PET_Flake_Filtered_Sorted
+        Layout: =Layout.Vertical
+        OnSelect: |-
+            =Set(Var_CoA_Selected_PET,Blank());Set(Var_CoA_Selected_PET_Flake,ThisItem);Set(Var_CoA_Selected_HDPE_Nat,Blank());Set(Var_CoA_Selected_HDPE_Col,Blank()); Set(Var_CoA_Selected_PP,Blank());
+            
+            If(Var_Product_Selected_Text <> "PET Flake Standard",Set(Var_Customer_Selected, Blank()));
+            
+            Set(Var_Product_Selected_Text,"PET Flake Standard");
+            
+            //Set(Var_Customer_Selected, Blank());
+        ShowScrollbar: =false
+        TemplatePadding: =0
+        TemplateSize: =32
+        Width: =622/4
+        X: =156
+        Y: =162
+        ZIndex: =14
+
+        Storage_Silo_Batch_9 As label:
+            Align: =Align.Center
+            Color: =If(ThisItem.Batch_No_Storage_Silo=Var_CoA_Selected_PET_Flake.Batch_No_Storage_Silo,Color.White,Color.Black)
+            Fill: =If(ThisItem.Batch_No_Storage_Silo=Var_CoA_Selected_PET_Flake.Batch_No_Storage_Silo,Colour_Viridor_Purple,Color.Transparent)
+            FontWeight: =FontWeight.Normal
+            Height: =Parent.TemplateHeight
+            HoverColor: =Color.White
+            HoverFill: =Colour_Viridor_Purple
+            OnSelect: =Select(Parent)
+            PaddingBottom: =0
+            PaddingLeft: =0
+            PaddingRight: =0
+            PaddingTop: =0
+            Size: =Text_size
+            Text: =ThisItem.Batch_No_Storage_Silo
+            Width: =Parent.Width
+            ZIndex: =7
+
+    Text_Not_Routinely_Main As label:
+        Align: =Align.Right
+        Font: =Font.Arial
+        FontWeight: =FontWeight.Bold
+        Height: =18
+        LineHeight: =1.1
+        PaddingBottom: =0
+        PaddingLeft: =0
+        PaddingRight: =0
+        PaddingTop: =0
+        Size: =7
+        Text: ="(*) Tested every batch              (**) Tested Periodically"
+        VerticalAlign: =VerticalAlign.Top
+        Width: =253
+        X: =1092
+        Y: =748
+        ZIndex: =15
+
+    Title_Select_CoA_3 As label:
+        Align: =TextPosition.Left
+        Color: =RGBA(255, 255, 255, 1)
+        Fill: =RGBA(0, 155, 62, 100)
+        Font: =Font.'Segoe UI'
+        Height: =51
+        PaddingLeft: =14
+        Size: =Text_size_Title
+        Text: ="Customer"
+        Width: =622
+        Y: =406
+        ZIndex: =16
+
+    Title_Select_CoA_4 As label:
+        Align: =TextPosition.Left
+        Color: =RGBA(255, 255, 255, 1)
+        Fill: =Colour_Viridor_GreenTint
+        Font: =Font.'Segoe UI'
+        Height: =210
+        PaddingLeft: =20
+        Size: =Text_size_Title
+        Text: =
+        Width: =622
+        Y: =457
+        ZIndex: =17
+
+    Title_Select_CoA_5 As label:
+        Align: =TextPosition.Left
+        Color: =RGBA(255, 255, 255, 1)
+        Fill: =Colour_Viridor_Purple
+        Font: =Font.'Segoe UI'
+        Height: =51
+        PaddingLeft: =20
+        Size: =Text_size_Title
+        Text: =
+        Width: =622
+        Y: =667
+        ZIndex: =18
+
+    Title_Select_CoA_6 As label:
+        Align: =TextPosition.Left
+        Color: =RGBA(255, 255, 255, 1)
+        Fill: =Colour_Viridor_GreenTint
+        Font: =Font.'Segoe UI'
+        Height: =51
+        PaddingLeft: =20
+        Size: =Text_size_Title
+        Text: =
+        Width: =206
+        X: =207
+        Y: =717
+        ZIndex: =19
+
+    Title_Select_CoA_7 As label:
+        Color: =RGBA(255, 255, 255, 1)
+        Fill: =Colour_Viridor_Purple
+        Font: =Font.'Segoe UI'
+        Height: =51
+        LineHeight: =0.9
+        PaddingLeft: =14
+        Size: =23
+        Text: ="Order No."
+        Width: =207
+        Y: =667
+        ZIndex: =20
+
+    Title_Select_CoA_8 As label:
+        Color: =RGBA(255, 255, 255, 1)
+        Fill: =RGBA(0, 155, 62, 100)
+        Font: =Font.'Segoe UI'
+        Height: =51
+        LineHeight: =0.9
+        PaddingLeft: =14
+        Size: =23
+        Text: ="Delivery No."
+        Width: =206
+        X: =207
+        Y: =667
+        ZIndex: =21
+
+    Title_Select_CoA_9 As label:
+        Color: =RGBA(255, 255, 255, 1)
+        Fill: =Colour_Viridor_Purple
+        Font: =Font.'Segoe UI'
+        Height: =51
+        LineHeight: =0.9
+        PaddingLeft: =14
+        Size: =23
+        Text: ="Delivery Date"
+        Width: =207
+        X: =414
+        Y: =667
+        ZIndex: =22
+
+    Title_Select_CoA_10 As label:
+        Align: =TextPosition.Left
+        Color: =RGBA(255, 255, 255, 1)
+        Fill: =Colour_Viridor_PurpleTint
+        Font: =Font.'Segoe UI'
+        Height: =51
+        PaddingLeft: =20
+        Size: =Text_size_Title
+        Text: =
+        Width: =209
+        X: =413
+        Y: =717
+        ZIndex: =23
+
+    Title_Select_CoA_11 As label:
+        Align: =TextPosition.Left
+        Color: =RGBA(255, 255, 255, 1)
+        Fill: =Colour_Viridor_PurpleTint
+        Font: =Font.'Segoe UI'
+        Height: =51
+        PaddingLeft: =20
+        Size: =Text_size_Title
+        Text: =
+        Width: =207
+        Y: =717
+        ZIndex: =24
+
+    Text_Input_Order_Number As text:
+        BorderColor: =RGBA(0, 0, 0, 0)
+        BorderStyle: =BorderStyle.None
+        Clear: =true
+        Default: =""
+        DisabledBorderColor: =RGBA(0, 0, 0, 0)
+        DisabledColor: =RGBA(0, 0, 0, 0)
+        Fill: =RGBA(0, 0, 0, 0)
+        Height: =51
+        HintText: ="SO or SS"
+        HoverBorderColor: =RGBA(0, 0, 0, 0)
+        HoverColor: =Color.Black
+        HoverFill: =RGBA(0, 0, 0, 0)
+        PaddingLeft: =14
+        Size: =18
+        Width: =207
+        Y: =717
+        ZIndex: =25
+
+    Text_Input_Delivery_Number As text:
+        BorderColor: =RGBA(0, 0, 0, 0)
+        BorderStyle: =BorderStyle.None
+        Clear: =true
+        Default: =""
+        DisabledBorderColor: =RGBA(0, 0, 0, 0)
+        DisabledColor: =RGBA(0, 0, 0, 0)
+        Fill: =RGBA(0, 0, 0, 0)
+        Height: =51
+        HintText: ="AA"
+        HoverBorderColor: =RGBA(0, 0, 0, 0)
+        HoverColor: =Color.Black
+        HoverFill: =RGBA(0, 0, 0, 0)
+        PaddingLeft: =14
+        Size: =18
+        Width: =207
+        X: =207
+        Y: =717
+        ZIndex: =26
+
+    "Gallery_Select_Product_1 As gallery.'BrowseLayout_Vertical_OneImageThreeColumnVariant_ver4.0'":
+        Fill: =Color.Transparent
+        Height: =210
+        Items: |+
+            =If(Or(Var_Product_Selected_Text="PET Plus",Var_Product_Selected_Text="PET Std"),Filter(Col_Table_Customer_Reference_Sorted, Material = "PET"),
+            If(Var_Product_Selected_Text="PET Flake Standard",Filter(Col_Table_Customer_Reference_Sorted, Material = "PET Flake"),
+            If(Var_Product_Selected_Text="HDPE Natural",Filter(Col_Table_Customer_Reference_Sorted, Material = "HDPE Natural"),
+            If(Var_Product_Selected_Text="PP",Filter(Col_Table_Customer_Reference_Sorted, Material = "PP"),
+            If(Var_Product_Selected_Text="PP P&G",Filter(Col_Table_Customer_Reference_Sorted, Material = "PP P&G"),
+            Col_Table_Customer_Reference_Sorted)))))
+              
+            //["PET Plus Standard","PET Flake Standard","HDPE Natural","PP","","","","PP P&G"]
+            
+            
+            
+        Layout: =Layout.Vertical
+        OnSelect: =Set(Var_Customer_Selected, ThisItem)
+        ShowScrollbar: =false
+        TemplatePadding: =0
+        TemplateSize: =42
+        Width: =622
+        WrapCount: =4
+        Y: =457
+        ZIndex: =27
+
+        Label1_3 As label:
+            Align: =Align.Center
+            Color: =If(ThisItem.Customer=Var_Customer_Selected.Customer,Color.White,Color.Black)
+            Fill: =If(ThisItem.Customer=Var_Customer_Selected.Customer,Colour_Viridor_Purple,Color.Transparent)
+            Height: =42
+            HoverColor: =Colour_Viridor_White
+            HoverFill: |
+                =Colour_Viridor_Purple
+            LineHeight: =0.85
+            OnSelect: =Select(Parent)
+            PaddingBottom: =0
+            PaddingLeft: =0
+            PaddingRight: =0
+            PaddingTop: =0
+            PressedColor: =Color.White
+            PressedFill: =Colour_Viridor_Purple
+            Size: =ThisItem.'Text Size'
+            Text: =ThisItem.Customer
+            Width: =155.5
+            ZIndex: =1
+
+        Rectangle1_8 As rectangle:
+            Fill: =Colour_Viridor_Green
+            Height: =2
+            Visible: =false
+            Width: =156
+            Y: =41
+            ZIndex: =2
+
+        Rectangle1_9 As rectangle:
+            Fill: =Colour_Viridor_Green
+            Height: =42
+            Visible: =false
+            Width: =2
+            X: =155
+            ZIndex: =3
+
+    Text_Input_Date_1 As text:
+        BorderColor: =RGBA(0, 0, 0, 0)
+        BorderStyle: =BorderStyle.None
+        Clear: =true
+        Default: =
+        DisabledBorderColor: =RGBA(0, 0, 0, 0)
+        DisabledColor: =RGBA(0, 0, 0, 0)
+        Fill: =RGBA(0, 0, 0, 0)
+        Height: =51
+        HintText: ="dd/mm/yyyy"
+        HoverBorderColor: =RGBA(0, 0, 0, 0)
+        HoverColor: =Color.Black
+        HoverFill: =RGBA(0, 0, 0, 0)
+        PaddingLeft: =14
+        Size: =18
+        Width: =207
+        X: =414
+        Y: =717
+        ZIndex: =28
+
+    Title_Select_Producr As label:
+        Align: =TextPosition.Left
+        Color: =RGBA(255, 255, 255, 1)
+        Fill: =Colour_Viridor_Purple
+        Font: =Font.'Segoe UI'
+        Height: =51
+        PaddingLeft: =14
+        Size: =Text_size_Title
+        Text: ="Product & Batch Number"
+        Width: =641
+        Y: =51
+        ZIndex: =29
+
+    Title_CoA As rectangle:
+        Fill: =RGBA(0, 78, 168, 1)
+        Height: =51
+        Width: =744
+        X: =622
+        Y: =51
+        ZIndex: =30
+
+    Image4 As image:
+        Height: =51
+        Image: =First(Index(Col_CofA_Picture_List,5).Attachments).Value
+        Width: =744
+        X: =622
+        Y: =51
+        ZIndex: =31
+
+    Label_Goto_CoA As label:
+        Align: =Align.Center
+        Height: =717
+        OnSelect: =If(Var_Product_Selected.Value="",Navigate(Screen_Product_Selection,ScreenTransition.None),Navigate(Screen_CofA,ScreenTransition.None))
+        Text: =
+        Width: =744
+        X: =622
+        Y: =51
+        ZIndex: =32
+
+    Refresh_Data As icon.CancelBadge:
+        Color: =Color.White
+        Height: =34
+        HoverColor: =Colour_Viridor_Purple
+        Icon: =Icon.Reload
+        OnSelect: |-
+            =//Customer
+            ClearCollect(Col_Table_Customer_Reference,Table_Customer_Reference);
+            ClearCollect(Col_Table_Customer_Reference_Sorted,SortByColumns(Col_Table_Customer_Reference,"Customer",SortOrder.Ascending));
+            
+            //Collecting and sorting PET CoA information
+            //Set(Var_Start,"Loading PET...");
+            ClearCollect(Col_CoA_PET,CoA_PET);
+            ClearCollect(Col_CoA_PET_Filtered,Filter(Col_CoA_PET,Batch_No_Storage_Silo<>""));
+            ClearCollect(Col_CoA_PET_Filtered_Sorted,SortByColumns(Col_CoA_PET_Filtered,"Unique_App",SortOrder.Descending));
+            
+            //Collecting and sorting PET Flake CoA information
+            //Set(Var_Start,"Loading PET Flake...");
+            ClearCollect(Col_CoA_PET_Flake,CoA_PET_Flake);
+            ClearCollect(Col_CoA_PET_Flake_Filtered,Filter(Col_CoA_PET_Flake,Batch_No_Storage_Silo<>""));
+            ClearCollect(Col_CoA_PET_Flake_Filtered_Sorted,SortByColumns(Col_CoA_PET_Flake_Filtered,"Unique_App",SortOrder.Descending));
+            
+            //Collecting and sorting HDPE Natural CoA information
+            //Set(Var_Start,"Loading HDPE Natural...");
+            ClearCollect(Col_CoA_HDPE_Natural,CoA_HDPE_Natural);
+            ClearCollect(Col_CoA_HDPE_Natural_Filtered,Filter(Col_CoA_HDPE_Natural,Batch_No_Storage_Silo<>""));
+            ClearCollect(Col_CoA_HDPE_Natural_Filtered_Sorted,SortByColumns(Col_CoA_HDPE_Natural_Filtered,"Unique_App",SortOrder.Descending));
+            
+            //Collecting and sorting PP Natural CoA information
+            //Set(Var_Start,"Loading PP...");
+            ClearCollect(Col_CoA_PP,CoA_PP);
+            ClearCollect(Col_CoA_PP_Filtered,Filter(Col_CoA_PP,Batch_No_Storage_Silo<>""));
+            ClearCollect(Col_CoA_PP_Filtered_Sorted,SortByColumns(Col_CoA_PP_Filtered,"Unique_App",SortOrder.Descending));
+            
+            //Set(Var_Start,"Loaded");
+        PressedColor: =Colour_Viridor_GreenTint
+        Rotation: =90
+        Tooltip: ="Dont press unless needed, will overload server with too many requests."
+        Width: =34
+        X: =1173
+        Y: =11
+        ZIndex: =33
+
+    Rectangle1 As rectangle:
+        Fill: =Colour_Viridor_Purple
+        Height: =304
+        Width: =2
+        X: =155
+        Y: =102
+        ZIndex: =34
+
+    Rectangle1_3 As rectangle:
+        Fill: =Colour_Viridor_Purple
+        Height: =304
+        Width: =2
+        X: =465
+        Y: =102
+        ZIndex: =35
+
+    Rectangle1_2 As rectangle:
+        Fill: =Colour_Viridor_Purple
+        Height: =304
+        Width: =2
+        X: =310
+        Y: =102
+        ZIndex: =36
+

@@ -1,0 +1,195 @@
+Screen_Start As screen:
+    Fill: =Colour_Viridor_White
+
+    "Gallery_CoA_Selected_1 As gallery.'BrowseLayout_Vertical_OneImageThreeColumnVariant_ver4.0'":
+        Fill: =Colour_Viridor_PurpleTint
+        Height: =410
+        Items: |+
+            =["Make CofA"]
+            
+            
+        Layout: =Layout.Vertical
+        OnSelect: |-
+            =//Set(Var_Product_Selected,ThisItem);Set(Var_Product_Selected_Text,ThisItem.Value);
+            
+            Navigate(Screen_Product_Selection,ScreenTransition.None);
+            
+            Set(Var_Status,"Create");
+            
+            Set(Var_CoA_Selected_PET,Blank());Set(Var_CoA_Selected_PET_Flake,Blank());Set(Var_CoA_Selected_HDPE_Nat,Blank());Set(Var_CoA_Selected_HDPE_Col,Blank()); Set(Var_CoA_Selected_PP,Blank());
+        TemplatePadding: =0
+        TemplateSize: =Gallery_CoA_Selected_1.Height/2
+        Width: =683
+        WrapCount: =3
+        Y: =148
+        ZIndex: =1
+
+        Label1 As label:
+            Align: =Align.Center
+            Color: =If(ThisItem.Value=Var_Product_Selected_Text,Colour_Viridor_White,Colour_Viridor_Grey3)
+            Fill: =If(ThisItem.Value=Var_Product_Selected_Text,Colour_Viridor_Purple,RGBA(0, 0, 0, 0))
+            Height: =205
+            HoverColor: =Colour_Viridor_White
+            HoverFill: =Colour_Viridor_Green
+            OnSelect: =Select(Parent)
+            PaddingBottom: =10
+            PaddingLeft: =10
+            PaddingRight: =10
+            PaddingTop: =10
+            PressedColor: =Colour_Viridor_White
+            PressedFill: =Colour_Viridor_Purple
+            Size: =30
+            Text: =ThisItem.Value
+            Width: =227.66666666666666
+            ZIndex: =1
+
+    Title_2 As label:
+        Align: =TextPosition.Left
+        Color: =RGBA(255, 255, 255, 1)
+        Fill: =RGBA(0, 155, 62, 100)
+        Font: =Font.'Segoe UI'
+        Height: =74
+        PaddingLeft: =20
+        Size: =30
+        Text: ="CoA Maker"
+        Width: =1366
+        ZIndex: =2
+
+    "Gallery_CoA_Scanner_1 As gallery.'BrowseLayout_Vertical_OneImageThreeColumnVariant_ver4.0'":
+        BorderColor: =RGBA(0, 18, 107, 0)
+        Fill: =Colour_Viridor_GreenTint
+        Height: =336
+        Items: =["Review","Send"]
+        Layout: =Layout.Vertical
+        OnSelect: |-
+            =Set(Var_Product_Menu_2,ThisItem);
+            
+            If(Var_Product_Menu_2.Value="Review",
+            Navigate(Screen_Review_CofA,ScreenTransition.None);
+            Set(Var_CoA_Selected_PET,Blank());Set(Var_CoA_Selected_PET_Flake,Blank());Set(Var_CoA_Selected_HDPE_Nat,Blank());Set(Var_CoA_Selected_HDPE_Col,Blank()); Set(Var_CoA_Selected_PP,Blank());
+            Set(Var_Status,"Review");
+            Refresh('CofA to Review');
+            Set(var_CofA_to_review,Blank());
+            );
+            
+            If(Var_Product_Menu_2.Value="Send",
+            Navigate(Screen_Send_CofA,ScreenTransition.None);
+            ClearCollect(CofA_Sorted,Sort(CofA,ID,SortOrder.Descending));
+            );
+        TemplatePadding: =0
+        TemplateSize: =Gallery_CoA_Scanner_1.Height/2
+        Width: =683
+        WrapCount: =3
+        X: =683
+        Y: =222
+        ZIndex: =3
+
+        Label1_1 As label:
+            Align: =Align.Center
+            BorderStyle: =BorderStyle.None
+            Color: =Colour_Viridor_Grey3
+            Fill: =Color.Transparent
+            Height: =168
+            HoverColor: =Color.White
+            HoverFill: =Colour_Viridor_Purple
+            OnSelect: |+
+                =Select(Parent);
+                
+            Size: =30
+            Text: =ThisItem.Value
+            Width: =227.66666666666666
+            ZIndex: =1
+
+    Title_3 As label:
+        Align: =TextPosition.Left
+        Color: =RGBA(255, 255, 255, 1)
+        Fill: =Colour_Viridor_Purple
+        Font: =Font.'Segoe UI'
+        Height: =74
+        PaddingLeft: =20
+        Size: =30
+        Text: ="Make CoA"
+        Width: =1366
+        Y: =74
+        ZIndex: =4
+
+    Title_4 As label:
+        Align: =TextPosition.Left
+        Color: =RGBA(255, 255, 255, 1)
+        Fill: =RGBA(0, 155, 62, 100)
+        Font: =Font.'Segoe UI'
+        Height: =74
+        PaddingLeft: =20
+        Size: =30
+        Text: ="Review & Send"
+        Width: =683
+        X: =683
+        Y: =148
+        ZIndex: =5
+
+    Button_Back_3 As icon.CancelBadge:
+        Color: =Color.White
+        Height: =42
+        HoverColor: =Colour_Viridor_Purple
+        Icon: =Icon.BackArrow
+        OnSelect: =Back()
+        PressedColor: =Color.Transparent
+        Tooltip: ="Back"
+        Width: =42
+        X: =1304
+        Y: =16
+        ZIndex: =6
+
+    "Gallery_CoA_Scanner_2 As gallery.'BrowseLayout_Vertical_OneImageThreeColumnVariant_ver4.0'":
+        BorderColor: =RGBA(0, 18, 107, 0)
+        Fill: =Colour_Viridor_PinkTint
+        Height: =136
+        Items: =["Soon"]
+        Layout: =Layout.Vertical
+        OnSelect: =Set(Var_Product_Menu_2,ThisItem)
+        TemplatePadding: =0
+        TemplateSize: =Gallery_CoA_Scanner_2.Height
+        Width: =1366
+        WrapCount: =6
+        Y: =632
+        ZIndex: =7
+
+        Label1_4 As label:
+            Align: =Align.Center
+            BorderStyle: =BorderStyle.None
+            Color: =Colour_Viridor_Grey3
+            Fill: =Color.Transparent
+            Height: =136
+            HoverColor: =Color.White
+            HoverFill: =Colour_Viridor_Pink
+            OnSelect: =Select(Parent)
+            Size: =30
+            Text: =ThisItem.Value
+            Width: =227.66666666666666
+            ZIndex: =1
+
+    Title_5 As label:
+        Align: =TextPosition.Left
+        Color: =RGBA(255, 255, 255, 1)
+        Fill: =Colour_Viridor_Pink
+        Font: =Font.'Segoe UI'
+        Height: =74
+        PaddingLeft: =20
+        Size: =30
+        Text: ="Other"
+        Width: =1366
+        Y: =558
+        ZIndex: =8
+
+    Loading As label:
+        Align: =Align.Center
+        Color: =Colour_Viridor_White
+        Fill: =Colour_Viridor_Green
+        Height: =768
+        OnSelect: =
+        Size: =Text_size_large
+        Text: =Var_Start
+        Visible: =If(Var_Start="Loaded",false,true)
+        Width: =1366
+        ZIndex: =9
+
