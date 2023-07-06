@@ -289,6 +289,7 @@
             Var_Product_Selected_Text="HDPE Natural",true,
             Var_Product_Selected_Text="HDPE Self Coloured",false,
             Var_Product_Selected_Text="PP",true,
+            Var_Product_Selected_Text="PP P&G",true,
             false)
         Width: =253
         X: =495
