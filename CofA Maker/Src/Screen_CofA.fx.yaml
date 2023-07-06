@@ -283,7 +283,7 @@
         VerticalAlign: =VerticalAlign.Top
         Visible: |-
             =If(
-            Var_Product_Selected_Text="PET",false,
+            Var_Product_Selected_Text="PET",true,
             Var_Product_Selected_Text="PET Standard",false,
             Var_Product_Selected_Text="PET Flake",false,
             Var_Product_Selected_Text="HDPE Natural",true,
