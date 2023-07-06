@@ -288,7 +288,7 @@
             Var_Product_Selected_Text="PET Flake",false,
             Var_Product_Selected_Text="HDPE Natural",true,
             Var_Product_Selected_Text="HDPE Self Coloured",false,
-            Var_Product_Selected_Text="PP",false,
+            Var_Product_Selected_Text="PP",true,
             false)
         Width: =253
         X: =495
