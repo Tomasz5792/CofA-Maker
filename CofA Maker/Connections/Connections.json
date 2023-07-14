@@ -104,6 +104,16 @@
           }
         }
       },
+      "groups%252F7c8b8e69-c408-4055-aa6f-97fad6415a6f,b%2521WEuMByJ03kGfjOq-5g8-GqSjVSFLhUNAnrrmMZlIAHovPYHyg_1JQbpHdXhrRHTa,015G5YRC3F2TB2XZSI2RAL2M3NCG6PWATP": {
+        "dataSources": {
+          "CoA_PET": {
+            "tableName": "{EB65F355-86CD-4E1A-833F-BD003EF0C685}"
+          },
+          "CoA_PET_Flake": {
+            "tableName": "{E66741BB-9165-40B8-99E2-2B0B0714F202}"
+          }
+        }
+      },
       "groups%252F7c8b8e69-c408-4055-aa6f-97fad6415a6f,b%2521WEuMByJ03kGfjOq-5g8-GqSjVSFLhUNAnrrmMZlIAHovPYHyg_1JQbpHdXhrRHTa,015G5YRC6PD6CDKJ7SSZAK3SYRXWJLAJCL": {
         "dataSources": {
           "Table_All_CoA": {
@@ -148,16 +158,6 @@
           }
         }
       },
-      "groups%252F7c8b8e69-c408-4055-aa6f-97fad6415a6f,b%2521WEuMByJ03kGfjOq-5g8-GqSjVSFLhUNAnrrmMZlIAHovPYHyg_1JQbpHdXhrRHTa,015G5YRC7PUQSR4TTAWFGKRAZHTXR5IHCF": {
-        "dataSources": {
-          "CoA_PET": {
-            "tableName": "{EB65F355-86CD-4E1A-833F-BD003EF0C685}"
-          },
-          "CoA_PET_Flake": {
-            "tableName": "{E66741BB-9165-40B8-99E2-2B0B0714F202}"
-          }
-        }
-      },
       "groups%252F7c8b8e69-c408-4055-aa6f-97fad6415a6f,b%2521WEuMByJ03kGfjOq-5g8-GqSjVSFLhUNAnrrmMZlIAHovPYHyg_1JQbpHdXhrRHTa,015G5YRCZCELFS5AAV6NC3B2KBIR7LZKCF": {
         "dataSources": {
           "CoA_HDPE_Natural": {
@@ -172,17 +172,17 @@
       "Table_Not_Done",
       "Table_PET_Flake",
       "Table_HDPE_Nat",
-      "CoA_PET",
       "CoA_PP",
       "Table_PET_Plus_Std",
-      "CoA_PET_Flake",
       "Table_HDPE_Nat_New",
       "Table_All_CoA",
       "Table_Customer_Reference",
       "Table_PP_New",
       "Table_PP_PnG_New",
       "CoA_HDPE_Natural",
-      "Table_PET_Std"
+      "Table_PET_Std",
+      "CoA_PET",
+      "CoA_PET_Flake"
     ],
     "dependencies": {},
     "dependents": [],

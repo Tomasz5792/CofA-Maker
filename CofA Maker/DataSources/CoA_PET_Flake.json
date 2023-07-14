@@ -3,7 +3,7 @@
     "ApiId": "/providers/microsoft.powerapps/apis/shared_excelonlinebusiness",
     "CdpRevision": {
       "BaseUrl": "/v2",
-      "LastChangedTimeString": "2023-03-07T20:27:37.6330000Z",
+      "LastChangedTimeString": "2023-06-06T17:56:19.8760000Z",
       "RevisionNumber": 2
     },
     "ConnectedDataSourceInfoNameMapping": {
@@ -15,6 +15,8 @@
       "Colour": "Colour",
       "Colour (PET) TM": "Colour (PET) TM",
       "Colour_App": "Colour_App",
+      "Column1": "Column1",
+      "Column2": "Column2",
       "Date Completed": "Date Completed",
       "Date Domino Batch Created": "Date Domino Batch Created",
       "Don’t_Delete_4_App_Hide": "Don’t_Delete_4_App_Hide",
@@ -44,7 +46,7 @@
       "PVC_App": "PVC_App",
       "Unique_App": "Unique_App"
     },
-    "DatasetName": "groups%252F7c8b8e69-c408-4055-aa6f-97fad6415a6f,b%2521WEuMByJ03kGfjOq-5g8-GqSjVSFLhUNAnrrmMZlIAHovPYHyg_1JQbpHdXhrRHTa,015G5YRC7PUQSR4TTAWFGKRAZHTXR5IHCF",
+    "DatasetName": "groups%252F7c8b8e69-c408-4055-aa6f-97fad6415a6f,b%2521WEuMByJ03kGfjOq-5g8-GqSjVSFLhUNAnrrmMZlIAHovPYHyg_1JQbpHdXhrRHTa,015G5YRC3F2TB2XZSI2RAL2M3NCG6PWATP",
     "EncodeDataset": false,
     "IsSampleData": false,
     "IsWritable": true,
