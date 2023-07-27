@@ -1355,6 +1355,7 @@
         DefaultMode: =FormMode.New
         Fill: =RGBA(204, 231, 246, 1)
         Height: =757
+        Visible: =false
         Width: =794
         Y: =154
         ZIndex: =47
