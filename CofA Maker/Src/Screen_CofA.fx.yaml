@@ -1355,7 +1355,6 @@
         DefaultMode: =FormMode.New
         Fill: =RGBA(204, 231, 246, 1)
         Height: =757
-        Visible: =false
         Width: =794
         Y: =154
         ZIndex: =47
@@ -2056,7 +2055,7 @@
                 Y: =DataCardKey4.Y
                 ZIndex: =4
 
-        "'Delivery Date_DataCard1' As typedDataCard.dateEditCard":
+        "'Delivery Date_DataCard2' As typedDataCard.textualEditCard":
             BorderStyle: =BorderStyle.Solid
             DataField: ="DeliveryDate"
             Default: =ThisItem.'Delivery Date'
@@ -2064,14 +2063,15 @@
             DisplayName: =DataSourceInfo([@'CofA to Review'],DataSourceInfo.DisplayName,"DeliveryDate")
             Fill: =RGBA(0, 0, 0, 0)
             Height: =50
+            MaxLength: =DataSourceInfo([@'CofA to Review'], DataSourceInfo.MaxLength, "DeliveryDate")
             Required: =false
-            Update: =DataCardValue6.SelectedDate
+            Update: =DataCardValue7.Text
             Width: =264
             X: =1
             Y: =3
             ZIndex: =1
 
-            DataCardKey7 As label:
+            DataCardKey8 As label:
                 AutoHeight: =true
                 Height: =34
                 Text: =Parent.DisplayName
@@ -2081,22 +2081,24 @@
                 Y: =10
                 ZIndex: =1
 
-            DataCardValue6 As datepicker:
+            DataCardValue7 As text:
                 BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
-                DefaultDate: =Text_Input_Date_1
+                Default: =Text_Input_Date_1
+                DelayOutput: =true
                 DisplayMode: =Parent.DisplayMode
-                EndYear: =Year(Today())+100
-                IsEditable: =true
-                PaddingBottom: =0
-                PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
-                StartYear: =1899
+                MaxLength: =Parent.MaxLength
+                PaddingLeft: =5
+                RadiusBottomLeft: =0
+                RadiusBottomRight: =0
+                RadiusTopLeft: =0
+                RadiusTopRight: =0
                 Tooltip: =Parent.DisplayName
                 Width: =Parent.Width - 60
                 X: =30
-                Y: =DataCardKey7.Y + DataCardKey7.Height + 5
+                Y: =DataCardKey8.Y + DataCardKey8.Height + 5
                 ZIndex: =2
 
-            ErrorMessage7 As label:
+            ErrorMessage8 As label:
                 AutoHeight: =true
                 Height: =10
                 Live: =Live.Assertive
@@ -2108,16 +2110,16 @@
                 Visible: =Parent.DisplayMode=DisplayMode.Edit
                 Width: =Parent.Width - 60
                 X: =30
-                Y: =DataCardValue6.Y + DataCardValue6.Height
+                Y: =DataCardValue7.Y + DataCardValue7.Height
                 ZIndex: =3
 
-            StarVisible7 As label:
+            StarVisible8 As label:
                 Align: =Align.Center
-                Height: =DataCardKey7.Height
+                Height: =DataCardKey8.Height
                 Text: ="*"
                 Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
                 Width: =30
                 Wrap: =false
-                Y: =DataCardKey7.Y
+                Y: =DataCardKey8.Y
                 ZIndex: =4
 
