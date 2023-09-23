@@ -63,6 +63,7 @@ App As appinfo:
         ClearCollect(Col_CoA_PP_Filtered_Sorted,SortByColumns(Col_CoA_PP_Filtered,"Unique_App",SortOrder.Descending));
         
         Set(Var_Start,"Loaded");
+    Theme: =PowerAppsTheme
 
     Host As hostControl.DefaultHostControlVariant:
         OnCancel: =false
