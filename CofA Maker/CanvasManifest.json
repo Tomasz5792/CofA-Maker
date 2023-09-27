@@ -115,13 +115,13 @@
     "InstrumentationKey": "",
     "LocalDatabaseReferences": "{}",
     "ManualOfflineProfileId": "",
-    "Name": "CofA Maker - V6",
+    "Name": "CofA Maker",
     "OriginatingVersion": "1.326",
     "ParserErrorCount": 0,
     "ShowStatusBar": false
   },
   "PublishInfo": {
-    "AppName": "CofA Maker - V6",
+    "AppName": "CofA Maker",
     "BackgroundColor": "rgba(0, 154, 68, 1)",
     "IconColor": "#ffffff",
     "IconName": "Edit",

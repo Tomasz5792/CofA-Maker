@@ -400,7 +400,7 @@ Screen_Send_CofA As screen:
 
     Email_CC As label:
         Height: =110
-        Text: ="ADHolland@viridor.co.uk; HJudd@viridor.co.uk; NDarby@viridor.co.uk; ASlodyczka@viridor.co.uk; BSlodyczka@viridor.co.uk;   OQuinonesCastro@viridor.co.uk; SBorgheian@viridor.co.uk; YCaine-Eaves@viridor.co.uk; TOkuniewski@viridor.co.uk; IPhillips2@viridor.co.uk; emedina@viridor.co.uk;"
+        Text: ="ADHolland@viridor.co.uk; HJudd@viridor.co.uk; NDarby@viridor.co.uk; ASlodyczka@viridor.co.uk; BSlodyczka@viridor.co.uk; YCaine-Eaves@viridor.co.uk; TOkuniewski@viridor.co.uk; IPhillips2@viridor.co.uk; emedina@viridor.co.uk;"
         Visible: =false
         Width: =666
         Y: =658
