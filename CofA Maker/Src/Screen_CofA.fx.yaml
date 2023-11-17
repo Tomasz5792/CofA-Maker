@@ -317,12 +317,18 @@
         Font: =Font.Arial
         Height: =42
         Size: =12
-        Text: |+
-            =If(Var_Status="Create",User().FullName,
+        Text: |-
+            =If(Var_Status="Create",
+            
+            
+            User().FullName
+            
+            ,
             If(Var_Status="Review",var_CofA_to_review.'Created By'.DisplayName
             ))
             
             
+            //If(Var_Status="Create",User().FullName,If(Var_Status="Review",var_CofA_to_review.'Created By'.DisplayName))
         Width: =210
         X: =187
         Y: =879
@@ -549,7 +555,7 @@
         Height: =322
         Visible: =false
         Width: =794
-        Y: =618
+        Y: =135
         ZIndex: =37
 
         "'Batch Number_DataCard1_2' As typedDataCard.textualEditCard":
@@ -1357,7 +1363,7 @@
         Height: =757
         Visible: =false
         Width: =794
-        Y: =154
+        Y: =10
         ZIndex: =47
 
         "'Batch Number_DataCard1_1' As typedDataCard.textualEditCard":
