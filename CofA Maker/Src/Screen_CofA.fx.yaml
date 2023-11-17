@@ -320,8 +320,7 @@
         Text: |-
             =If(Var_Status="Create",
             
-            
-            User().FullName
+            If(User().FullName="Martin Hayman","Susan Hayman",User().FullName)
             
             ,
             If(Var_Status="Review",var_CofA_to_review.'Created By'.DisplayName
