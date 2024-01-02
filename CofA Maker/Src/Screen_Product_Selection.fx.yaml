@@ -786,7 +786,7 @@ Screen_Product_Selection As screen:
 
     Label_Goto_CoA As label:
         Align: =Align.Center
-        Height: =579
+        Height: =717
         OnSelect: =If(Var_Product_Selected.Value="",Navigate(Screen_Product_Selection,ScreenTransition.None),Navigate(Screen_CofA,ScreenTransition.None))
         Text: =
         Width: =744
