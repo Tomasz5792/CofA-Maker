@@ -254,7 +254,7 @@ Screen_Review_CofA As screen:
 
     Label_Goto_CoA_1 As label:
         Align: =Align.Center
-        Height: =507
+        Height: =717
         OnSelect: |-
             =If(var_CofA_to_review.ID=Blank(),Navigate(Screen_Review_CofA,ScreenTransition.None),Navigate(Screen_CofA,ScreenTransition.None));
             Refresh(CofA);
