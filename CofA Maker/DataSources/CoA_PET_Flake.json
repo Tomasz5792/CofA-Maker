@@ -3,7 +3,7 @@
     "ApiId": "/providers/microsoft.powerapps/apis/shared_excelonlinebusiness",
     "CdpRevision": {
       "BaseUrl": "/v2",
-      "LastChangedTimeString": "2023-06-06T17:56:19.8760000Z",
+      "LastChangedTimeString": "2023-10-09T18:08:52.9940000Z",
       "RevisionNumber": 2
     },
     "ConnectedDataSourceInfoNameMapping": {
@@ -15,14 +15,15 @@
       "Colour": "Colour",
       "Colour (PET) TM": "Colour (PET) TM",
       "Colour_App": "Colour_App",
-      "Column1": "Column1",
-      "Column2": "Column2",
       "Date Completed": "Date Completed",
       "Date Domino Batch Created": "Date Domino Batch Created",
       "Don’t_Delete_4_App_Hide": "Don’t_Delete_4_App_Hide",
+      "Flake size": "Flake size",
       "Glue": "Glue",
       "Glue TM": "Glue TM",
       "Glue_App": "Glue_App",
+      "Inorganics": "Inorganics",
+      "Inorganics TM": "Inorganics TM",
       "IV": "IV",
       "IV TM": "IV TM",
       "IV_App": "IV_App",

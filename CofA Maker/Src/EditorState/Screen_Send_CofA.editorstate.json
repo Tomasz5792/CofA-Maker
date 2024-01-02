@@ -104,6 +104,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "Button_Back_10",
+      "OptimizeForDevices": "Off",
       "ParentIndex": 7,
       "PersistMetaDataIDKey": false,
       "Properties": [
@@ -357,6 +358,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "Button_Home_4",
+      "OptimizeForDevices": "Off",
       "ParentIndex": 6,
       "PersistMetaDataIDKey": false,
       "Properties": [
@@ -609,6 +611,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "Email_Body_Text",
+      "OptimizeForDevices": "Off",
       "ParentIndex": 18,
       "PersistMetaDataIDKey": false,
       "Properties": [
@@ -884,6 +887,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "Email_CC",
+      "OptimizeForDevices": "Off",
       "ParentIndex": 20,
       "PersistMetaDataIDKey": false,
       "Properties": [
@@ -1159,6 +1163,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "Email_Send",
+      "OptimizeForDevices": "Off",
       "ParentIndex": 19,
       "PersistMetaDataIDKey": false,
       "Properties": [
@@ -1450,7 +1455,8 @@
           "InvariantPropertyName": "ShowScrollbar",
           "IsLockable": false,
           "NameMapSourceSchema": "?"
-        }
+        },
+        "MaxTemplateSize"
       ],
       "GalleryTemplateChildName": "galleryTemplate2_11",
       "HasDynamicProperties": false,
@@ -1463,6 +1469,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "Gallery_CoA_Choice_PET_1",
+      "OptimizeForDevices": "Off",
       "ParentIndex": 15,
       "PersistMetaDataIDKey": false,
       "Properties": [
@@ -1595,6 +1602,11 @@
           "Category": "Design",
           "PropertyName": "LoadingSpinnerColor",
           "RuleProviderType": "Unknown"
+        },
+        {
+          "Category": "Design",
+          "PropertyName": "MaxTemplateSize",
+          "RuleProviderType": "Unknown"
         }
       ],
       "StyleName": "defaultGalleryStyle",
@@ -1699,7 +1711,8 @@
           "InvariantPropertyName": "ShowScrollbar",
           "IsLockable": false,
           "NameMapSourceSchema": "?"
-        }
+        },
+        "MaxTemplateSize"
       ],
       "GalleryTemplateChildName": "galleryTemplate3_8",
       "HasDynamicProperties": false,
@@ -1712,6 +1725,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "Gallery_Select_Loading_Silo",
+      "OptimizeForDevices": "Off",
       "ParentIndex": 9,
       "PersistMetaDataIDKey": false,
       "Properties": [
@@ -1849,6 +1863,11 @@
           "Category": "Design",
           "PropertyName": "ShowScrollbar",
           "RuleProviderType": "Unknown"
+        },
+        {
+          "Category": "Design",
+          "PropertyName": "MaxTemplateSize",
+          "RuleProviderType": "Unknown"
         }
       ],
       "StyleName": "defaultGalleryStyle",
@@ -1877,6 +1896,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "galleryTemplate2_11",
+      "OptimizeForDevices": "Off",
       "ParentIndex": 0,
       "PersistMetaDataIDKey": false,
       "Properties": [
@@ -1917,6 +1937,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "galleryTemplate3_8",
+      "OptimizeForDevices": "Off",
       "ParentIndex": 0,
       "PersistMetaDataIDKey": false,
       "Properties": [
@@ -2002,6 +2023,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "Label_pdf_Y",
+      "OptimizeForDevices": "Off",
       "ParentIndex": 4,
       "PersistMetaDataIDKey": false,
       "Properties": [
@@ -2342,6 +2364,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "Label_Send_Main",
+      "OptimizeForDevices": "Off",
       "ParentIndex": 3,
       "PersistMetaDataIDKey": false,
       "Properties": [
@@ -2697,6 +2720,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "Label1_6",
+      "OptimizeForDevices": "Off",
       "ParentIndex": 1,
       "PersistMetaDataIDKey": false,
       "Properties": [
@@ -2972,6 +2996,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "Label6",
+      "OptimizeForDevices": "Off",
       "ParentIndex": 1,
       "PersistMetaDataIDKey": false,
       "Properties": [
@@ -3249,6 +3274,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "PdfViewer2",
+      "OptimizeForDevices": "Off",
       "ParentIndex": 0,
       "PersistMetaDataIDKey": false,
       "Properties": [
@@ -3445,6 +3471,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "Refresh_Data_3",
+      "OptimizeForDevices": "Off",
       "ParentIndex": 8,
       "PersistMetaDataIDKey": false,
       "Properties": [
@@ -3711,6 +3738,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "Refresh_Data_4",
+      "OptimizeForDevices": "Off",
       "ParentIndex": 5,
       "PersistMetaDataIDKey": false,
       "Properties": [
@@ -3977,6 +4005,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "Refresh_Data_5",
+      "OptimizeForDevices": "Off",
       "ParentIndex": 17,
       "PersistMetaDataIDKey": false,
       "Properties": [
@@ -4145,6 +4174,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "Screen_Send_CofA",
+      "OptimizeForDevices": "Off",
       "ParentIndex": 0,
       "PersistMetaDataIDKey": false,
       "Properties": [
@@ -4288,6 +4318,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "Sending",
+      "OptimizeForDevices": "Off",
       "ParentIndex": 3,
       "PersistMetaDataIDKey": false,
       "Properties": [
@@ -4628,6 +4659,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "Storage_Silo_Batch_14",
+      "OptimizeForDevices": "Off",
       "ParentIndex": 4,
       "PersistMetaDataIDKey": false,
       "Properties": [
@@ -4943,6 +4975,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "Storage_Silo_Batch_18",
+      "OptimizeForDevices": "Off",
       "ParentIndex": 6,
       "PersistMetaDataIDKey": false,
       "Properties": [
@@ -5258,6 +5291,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "Storage_Silo_Batch_20",
+      "OptimizeForDevices": "Off",
       "ParentIndex": 5,
       "PersistMetaDataIDKey": false,
       "Properties": [
@@ -5573,6 +5607,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "Storage_Silo_Batch_21",
+      "OptimizeForDevices": "Off",
       "ParentIndex": 2,
       "PersistMetaDataIDKey": false,
       "Properties": [
@@ -5886,6 +5921,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "Title_Select_CoA_13",
+      "OptimizeForDevices": "Off",
       "ParentIndex": 2,
       "PersistMetaDataIDKey": false,
       "Properties": [
@@ -6231,6 +6267,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "Title_Select_CoA_14",
+      "OptimizeForDevices": "Off",
       "ParentIndex": 11,
       "PersistMetaDataIDKey": false,
       "Properties": [
@@ -6576,6 +6613,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "Title_Select_CoA_15",
+      "OptimizeForDevices": "Off",
       "ParentIndex": 12,
       "PersistMetaDataIDKey": false,
       "Properties": [
@@ -6921,6 +6959,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "Title_Select_CoA_16",
+      "OptimizeForDevices": "Off",
       "ParentIndex": 13,
       "PersistMetaDataIDKey": false,
       "Properties": [
@@ -7266,6 +7305,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "Title_Select_CoA_17",
+      "OptimizeForDevices": "Off",
       "ParentIndex": 14,
       "PersistMetaDataIDKey": false,
       "Properties": [
@@ -7611,6 +7651,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "Title_Select_Producr_11",
+      "OptimizeForDevices": "Off",
       "ParentIndex": 10,
       "PersistMetaDataIDKey": false,
       "Properties": [
@@ -7956,6 +7997,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "Title_Select_Producr_12",
+      "OptimizeForDevices": "Off",
       "ParentIndex": 1,
       "PersistMetaDataIDKey": false,
       "Properties": [
@@ -8301,6 +8343,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "Title_Select_Producr_13",
+      "OptimizeForDevices": "Off",
       "ParentIndex": 16,
       "PersistMetaDataIDKey": false,
       "Properties": [
