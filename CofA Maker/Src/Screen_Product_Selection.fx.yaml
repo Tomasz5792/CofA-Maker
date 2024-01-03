@@ -110,7 +110,7 @@ Screen_Product_Selection As screen:
             =If(
             Var_Product_Selected_Text="PET",9.5,
             Var_Product_Selected_Text="PET Standard",9.5,
-            Var_Product_Selected_Text="PET Flake",9.5,
+            Var_Product_Selected_Text="PET Flake Standard",11,
             Var_Product_Selected_Text="HDPE Natural",8.7,
             Var_Product_Selected_Text="HDPE Self Coloured",9.5,
             Var_Product_Selected_Text="PP",9.5,
@@ -804,7 +804,7 @@ Screen_Product_Selection As screen:
 
     Label_Goto_CoA As label:
         Align: =Align.Center
-        Height: =717
+        Height: =509
         OnSelect: =If(Var_Product_Selected.Value="",Navigate(Screen_Product_Selection,ScreenTransition.None),Navigate(Screen_CofA,ScreenTransition.None))
         Text: =
         Width: =744
