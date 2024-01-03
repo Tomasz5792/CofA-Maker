@@ -6,19 +6,19 @@ Screen_Product_Selection As screen:
         Color: =RGBA(255, 255, 255, 1)
         Fill: =Colour_Viridor_GreenTint
         Font: =Font.'Segoe UI'
-        Height: =244
+        Height: =191
         PaddingLeft: =20
         Size: =Text_size_Title
         Text: =
         Width: =622
-        Y: =162
+        Y: =214
         ZIndex: =1
 
     "Gallery_Select_Product As gallery.'BrowseLayout_Vertical_OneImageThreeColumnVariant_ver4.0'":
         Fill: =Colour_Viridor_PurpleTint
-        Height: =60
+        Height: =531
         Items: |+
-            =["PET Plus","PET Flake Standard","HDPE Natural","PP","PET Std","","","PP P&G"]
+            =["PET Plus","PET Flake Standard","HDPE Natural","PP","PET Std","","","PP P&G","PET Plus X","","","","PET Std X","","",""]
             
             //For future when needed
             //"HDPE Self Coloured",
@@ -36,7 +36,7 @@ Screen_Product_Selection As screen:
             //Set(Var_Product_Selected_Text,ThisItem.Value);
         ShowScrollbar: =false
         TemplatePadding: =0
-        TemplateSize: =60
+        TemplateSize: =112
         Width: =622
         WrapCount: =4
         Y: =102
@@ -47,11 +47,12 @@ Screen_Product_Selection As screen:
             Color: =If(ThisItem.Value=Var_Product_Selected_Text,Colour_Viridor_White,Color.Black)
             Fill: =If(ThisItem.Value=Var_Product_Selected_Text,Colour_Viridor_Purple,Color.Transparent)
             Height: |-
-                =If(ThisItem.Value="PP",30,
-                If(ThisItem.Value="PP P&G",30,
-                If(ThisItem.Value="PET Plus",30,
-                If(ThisItem.Value="PET Std",30,
-                60))))
+                =If(
+                ThisItem.Value="PET Flake Standard",Parent.TemplateHeight/1,
+                ThisItem.Value="HDPE Natural",Parent.TemplateHeight/1,
+                ThisItem.Value="PP",Parent.TemplateHeight/2,
+                ThisItem.Value="PP P&G",Parent.TemplateHeight/2,
+                Parent.TemplateHeight/4)
             HoverColor: =Colour_Viridor_White
             HoverFill: |
                 =If(ThisItem.Value="",Color.Transparent,Colour_Viridor_Green)
@@ -65,11 +66,15 @@ Screen_Product_Selection As screen:
             PressedFill: =If(ThisItem.Value="",Color.Transparent,Colour_Viridor_Purple)
             Size: =Text_size_Menu
             Text: =ThisItem.Value
-            Width: =Parent.Width/4
+            Width: =155
             Y: |-
-                =If(ThisItem.Value="PP P&G",-30,
-                If(ThisItem.Value="PET Std",-30,
-                0))
+                =If(
+                ThisItem.Value="PP P&G",-Parent.TemplateHeight/2,
+                ThisItem.Value="PET Plus",0,
+                ThisItem.Value="PET Std",-Parent.TemplateHeight*1+Parent.TemplateHeight*1/4,
+                ThisItem.Value="PET Plus X",-Parent.TemplateHeight*2+Parent.TemplateHeight*2/4,
+                ThisItem.Value="PET Std X",-Parent.TemplateHeight*3+Parent.TemplateHeight*3/4,
+                0)
             ZIndex: =1
 
     Gallery_CoA_Main As gallery.galleryVertical:
@@ -342,7 +347,7 @@ Screen_Product_Selection As screen:
 
     "Gallery_CoA_Choice_PET As gallery.'BrowseLayout_Vertical_OneTextVariant_ver4.0'":
         Fill: =Color.Transparent
-        Height: =243
+        Height: =192
         Items: =Col_CoA_PET_Filtered_Sorted
         Layout: =Layout.Vertical
         OnSelect: |
@@ -357,7 +362,7 @@ Screen_Product_Selection As screen:
         TemplatePadding: =0
         TemplateSize: =32
         Width: =622/4
-        Y: =162
+        Y: =214
         ZIndex: =11
 
         Storage_Silo_Batch_6 As label:
@@ -380,7 +385,7 @@ Screen_Product_Selection As screen:
 
     "Gallery_CoA_Choice_6 As gallery.'BrowseLayout_Vertical_OneTextVariant_ver4.0'":
         Fill: =Color.Transparent
-        Height: =244
+        Height: =191
         Items: =Col_CoA_HDPE_Natural_Filtered_Sorted
         Layout: =Layout.Vertical
         OnSelect: |-
@@ -396,7 +401,7 @@ Screen_Product_Selection As screen:
         TemplateSize: =32
         Width: =622/4
         X: =311
-        Y: =162
+        Y: =214
         ZIndex: =12
 
         Storage_Silo_Batch_8 As label:
@@ -419,7 +424,7 @@ Screen_Product_Selection As screen:
 
     "Gallery_CoA_Choice_PP As gallery.'BrowseLayout_Vertical_OneTextVariant_ver4.0'":
         Fill: =Color.Transparent
-        Height: =244
+        Height: =192
         Items: =Col_CoA_PP_Filtered_Sorted
         Layout: =Layout.Vertical
         OnSelect: |
@@ -435,7 +440,7 @@ Screen_Product_Selection As screen:
         TemplateSize: =32
         Width: =622/4
         X: =466
-        Y: =162
+        Y: =214
         ZIndex: =13
 
         Storage_Silo_Batch_7 As label:
@@ -458,7 +463,7 @@ Screen_Product_Selection As screen:
 
     "Gallery_CoA_Choice_7 As gallery.'BrowseLayout_Vertical_OneTextVariant_ver4.0'":
         Fill: =Color.Transparent
-        Height: =244
+        Height: =191
         Items: =Col_CoA_PET_Flake_Filtered_Sorted
         Layout: =Layout.Vertical
         OnSelect: |-
@@ -474,7 +479,7 @@ Screen_Product_Selection As screen:
         TemplateSize: =32
         Width: =622/4
         X: =156
-        Y: =162
+        Y: =214
         ZIndex: =14
 
         Storage_Silo_Batch_9 As label:
