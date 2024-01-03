@@ -3,7 +3,7 @@
     "ApiId": "/providers/microsoft.powerapps/apis/shared_excelonlinebusiness",
     "CdpRevision": {
       "BaseUrl": "/v2",
-      "LastChangedTimeString": "2023-03-07T20:27:37.6330000Z",
+      "LastChangedTimeString": "2023-10-09T18:08:52.9940000Z",
       "RevisionNumber": 2
     },
     "ConnectedDataSourceInfoNameMapping": {
@@ -11,6 +11,7 @@
       "Colour_Column": "Colour_Column",
       "Height_1": "Height_1",
       "Height_2": "Height_2",
+      "Height_3": "Height_3",
       "Text": "Text",
       "Width": "Width"
     },

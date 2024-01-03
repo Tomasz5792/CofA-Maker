@@ -196,7 +196,7 @@ Screen_Product_Selection As screen:
                 =If(
                 Var_Product_Selected_Text="PET",ThisItem.Height_1,
                 Var_Product_Selected_Text="PET Standard",ThisItem.Height_1,
-                Var_Product_Selected_Text="PET Flake Standard",ThisItem.Height_1,
+                Var_Product_Selected_Text="PET Flake Standard",23,
                 Var_Product_Selected_Text="HDPE Natural",ThisItem.Height_2,
                 Var_Product_Selected_Text="PP",ThisItem.Height_1,
                 ThisItem.Height_1)
@@ -277,7 +277,7 @@ Screen_Product_Selection As screen:
             =If(
             Var_Product_Selected_Text="PET",9.5,
             Var_Product_Selected_Text="PET Standard",9.5,
-            Var_Product_Selected_Text="PET Flake",9.5,
+            Var_Product_Selected_Text="PET Flake Standard",11,
             Var_Product_Selected_Text="HDPE Natural",8.7,
             Var_Product_Selected_Text="HDPE Self Coloured",9.5,
             Var_Product_Selected_Text="PP",9.5,
@@ -333,7 +333,7 @@ Screen_Product_Selection As screen:
             =If(
             Var_Product_Selected_Text="PET",9.5,
             Var_Product_Selected_Text="PET Standard",9.5,
-            Var_Product_Selected_Text="PET Flake",9.5,
+            Var_Product_Selected_Text="PET Flake Standard",11,
             Var_Product_Selected_Text="HDPE Natural",8.7,
             Var_Product_Selected_Text="HDPE Self Coloured",9.5,
             Var_Product_Selected_Text="PP",9.5,
@@ -807,7 +807,7 @@ Screen_Product_Selection As screen:
         Height: =717
         OnSelect: =If(Var_Product_Selected.Value="",Navigate(Screen_Product_Selection,ScreenTransition.None),Navigate(Screen_CofA,ScreenTransition.None))
         Text: =
-        Width: =617
+        Width: =522
         X: =622
         Y: =51
         ZIndex: =33
