@@ -1,22 +1,22 @@
 Screen_Product_Selection As screen:
     Fill: =Colour_Viridor_White
 
-    Title_Select_CoA_2 As label:
+    Title_Select_CoA_18 As label:
         Align: =TextPosition.Left
         Color: =RGBA(255, 255, 255, 1)
-        Fill: =Colour_Viridor_GreenTint
+        Fill: =Colour_Viridor_PurpleTint
         Font: =Font.'Segoe UI'
-        Height: =191
+        Height: =163
         PaddingLeft: =20
         Size: =Text_size_Title
         Text: =
         Width: =622
-        Y: =214
+        Y: =51
         ZIndex: =1
 
     "Gallery_Select_Product As gallery.'BrowseLayout_Vertical_OneImageThreeColumnVariant_ver4.0'":
-        Fill: =Colour_Viridor_PurpleTint
-        Height: =531
+        Fill: =Color.Transparent
+        Height: =304
         Items: |+
             =["PET Plus","PET Flake Standard","HDPE Natural","PP","PET Std","","","PP P&G","PET Plus X","","","","PET Std X","","",""]
             
@@ -77,6 +77,19 @@ Screen_Product_Selection As screen:
                 0)
             ZIndex: =1
 
+    Title_Select_CoA_2 As label:
+        Align: =TextPosition.Left
+        Color: =RGBA(255, 255, 255, 1)
+        Fill: =Colour_Viridor_GreenTint
+        Font: =Font.'Segoe UI'
+        Height: =243
+        PaddingLeft: =20
+        Size: =Text_size_Title
+        Text: =
+        Width: =622
+        Y: =214
+        ZIndex: =3
+
     Gallery_CoA_Main As gallery.galleryVertical:
         Fill: =Color.Transparent
         Height: =648
@@ -106,7 +119,7 @@ Screen_Product_Selection As screen:
         WrapCount: =5
         X: =641
         Y: =120
-        ZIndex: =3
+        ZIndex: =4
 
         Label2_10 As label:
             BorderStyle: =BorderStyle.None
@@ -138,7 +151,7 @@ Screen_Product_Selection As screen:
         Size: =Text_size_Title
         Text: ="Select CoA"
         Width: =1366
-        ZIndex: =4
+        ZIndex: =5
 
     Gallery_CoA_All As gallery.galleryVertical:
         Fill: =Color.Transparent
@@ -165,7 +178,7 @@ Screen_Product_Selection As screen:
         WrapCount: =10
         X: =641
         Y: =120
-        ZIndex: =5
+        ZIndex: =6
 
         Label2_11 As label:
             BorderStyle: =BorderStyle.None
@@ -206,7 +219,7 @@ Screen_Product_Selection As screen:
         Width: =38
         X: =1322
         Y: =7
-        ZIndex: =6
+        ZIndex: =7
 
     Button_Home_1 As icon.CancelBadge:
         Color: =Color.White
@@ -219,7 +232,7 @@ Screen_Product_Selection As screen:
         Width: =38
         X: =Button_Back_1.X-50
         Y: =Button_Back_1.Y
-        ZIndex: =7
+        ZIndex: =8
 
     Button_Print_2 As icon.CancelBadge:
         Color: =Color.White
@@ -232,7 +245,7 @@ Screen_Product_Selection As screen:
         Width: =38
         X: =Button_Back_1.X-100
         Y: =Button_Back_1.Y
-        ZIndex: =8
+        ZIndex: =9
 
     Gallery_Results_Main_2 As gallery.galleryVertical:
         Fill: =Color.Transparent
@@ -274,7 +287,7 @@ Screen_Product_Selection As screen:
         Width: =233
         X: =1133
         Y: =121
-        ZIndex: =9
+        ZIndex: =10
 
         Label2_14 As label:
             BorderStyle: =BorderStyle.None
@@ -330,7 +343,7 @@ Screen_Product_Selection As screen:
         Width: =392
         X: =781
         Y: =121
-        ZIndex: =10
+        ZIndex: =11
 
         Label2_12 As label:
             BorderStyle: =BorderStyle.None
@@ -363,7 +376,7 @@ Screen_Product_Selection As screen:
         TemplateSize: =32
         Width: =622/4
         Y: =214
-        ZIndex: =11
+        ZIndex: =12
 
         Storage_Silo_Batch_6 As label:
             Align: =Align.Center
@@ -402,7 +415,7 @@ Screen_Product_Selection As screen:
         Width: =622/4
         X: =311
         Y: =214
-        ZIndex: =12
+        ZIndex: =13
 
         Storage_Silo_Batch_8 As label:
             Align: =Align.Center
@@ -441,7 +454,7 @@ Screen_Product_Selection As screen:
         Width: =622/4
         X: =466
         Y: =214
-        ZIndex: =13
+        ZIndex: =14
 
         Storage_Silo_Batch_7 As label:
             Align: =Align.Center
@@ -480,7 +493,7 @@ Screen_Product_Selection As screen:
         Width: =622/4
         X: =156
         Y: =214
-        ZIndex: =14
+        ZIndex: =15
 
         Storage_Silo_Batch_9 As label:
             Align: =Align.Center
@@ -516,7 +529,7 @@ Screen_Product_Selection As screen:
         Width: =253
         X: =1092
         Y: =748
-        ZIndex: =15
+        ZIndex: =16
 
     Title_Select_CoA_3 As label:
         Align: =TextPosition.Left
@@ -529,7 +542,7 @@ Screen_Product_Selection As screen:
         Text: ="Customer"
         Width: =622
         Y: =406
-        ZIndex: =16
+        ZIndex: =17
 
     Title_Select_CoA_4 As label:
         Align: =TextPosition.Left
@@ -542,7 +555,7 @@ Screen_Product_Selection As screen:
         Text: =
         Width: =622
         Y: =457
-        ZIndex: =17
+        ZIndex: =18
 
     Title_Select_CoA_5 As label:
         Align: =TextPosition.Left
@@ -555,7 +568,7 @@ Screen_Product_Selection As screen:
         Text: =
         Width: =622
         Y: =667
-        ZIndex: =18
+        ZIndex: =19
 
     Title_Select_CoA_6 As label:
         Align: =TextPosition.Left
@@ -569,7 +582,7 @@ Screen_Product_Selection As screen:
         Width: =206
         X: =207
         Y: =717
-        ZIndex: =19
+        ZIndex: =20
 
     Title_Select_CoA_7 As label:
         Color: =RGBA(255, 255, 255, 1)
@@ -582,7 +595,7 @@ Screen_Product_Selection As screen:
         Text: ="Order No."
         Width: =207
         Y: =667
-        ZIndex: =20
+        ZIndex: =21
 
     Title_Select_CoA_8 As label:
         Color: =RGBA(255, 255, 255, 1)
@@ -596,7 +609,7 @@ Screen_Product_Selection As screen:
         Width: =206
         X: =207
         Y: =667
-        ZIndex: =21
+        ZIndex: =22
 
     Title_Select_CoA_9 As label:
         Color: =RGBA(255, 255, 255, 1)
@@ -610,7 +623,7 @@ Screen_Product_Selection As screen:
         Width: =207
         X: =414
         Y: =667
-        ZIndex: =22
+        ZIndex: =23
 
     Title_Select_CoA_10 As label:
         Align: =TextPosition.Left
@@ -624,7 +637,7 @@ Screen_Product_Selection As screen:
         Width: =209
         X: =413
         Y: =717
-        ZIndex: =23
+        ZIndex: =24
 
     Title_Select_CoA_11 As label:
         Align: =TextPosition.Left
@@ -637,7 +650,7 @@ Screen_Product_Selection As screen:
         Text: =
         Width: =207
         Y: =717
-        ZIndex: =24
+        ZIndex: =25
 
     Text_Input_Order_Number As text:
         BorderColor: =RGBA(0, 0, 0, 0)
@@ -656,7 +669,7 @@ Screen_Product_Selection As screen:
         Size: =18
         Width: =207
         Y: =717
-        ZIndex: =25
+        ZIndex: =26
 
     Text_Input_Delivery_Number As text:
         BorderColor: =RGBA(0, 0, 0, 0)
@@ -676,7 +689,7 @@ Screen_Product_Selection As screen:
         Width: =207
         X: =207
         Y: =717
-        ZIndex: =26
+        ZIndex: =27
 
     "Gallery_Select_Product_1 As gallery.'BrowseLayout_Vertical_OneImageThreeColumnVariant_ver4.0'":
         Fill: =Color.Transparent
@@ -701,7 +714,7 @@ Screen_Product_Selection As screen:
         Width: =622
         WrapCount: =4
         Y: =457
-        ZIndex: =27
+        ZIndex: =28
 
         Label1_3 As label:
             Align: =Align.Center
@@ -758,7 +771,7 @@ Screen_Product_Selection As screen:
         Width: =207
         X: =414
         Y: =717
-        ZIndex: =28
+        ZIndex: =29
 
     Title_Select_Producr As label:
         Align: =TextPosition.Left
@@ -771,7 +784,7 @@ Screen_Product_Selection As screen:
         Text: ="Product & Batch Number"
         Width: =641
         Y: =51
-        ZIndex: =29
+        ZIndex: =30
 
     Title_CoA As rectangle:
         Fill: =RGBA(0, 78, 168, 1)
@@ -779,7 +792,7 @@ Screen_Product_Selection As screen:
         Width: =744
         X: =622
         Y: =51
-        ZIndex: =30
+        ZIndex: =31
 
     Image4 As image:
         Height: =51
@@ -787,7 +800,7 @@ Screen_Product_Selection As screen:
         Width: =744
         X: =622
         Y: =51
-        ZIndex: =31
+        ZIndex: =32
 
     Label_Goto_CoA As label:
         Align: =Align.Center
@@ -797,7 +810,7 @@ Screen_Product_Selection As screen:
         Width: =744
         X: =622
         Y: =51
-        ZIndex: =32
+        ZIndex: =33
 
     Refresh_Data As icon.CancelBadge:
         Color: =Color.White
@@ -840,7 +853,7 @@ Screen_Product_Selection As screen:
         Width: =34
         X: =1173
         Y: =11
-        ZIndex: =33
+        ZIndex: =34
 
     Rectangle1 As rectangle:
         Fill: =Colour_Viridor_Purple
@@ -848,7 +861,7 @@ Screen_Product_Selection As screen:
         Width: =2
         X: =155
         Y: =102
-        ZIndex: =34
+        ZIndex: =35
 
     Rectangle1_3 As rectangle:
         Fill: =Colour_Viridor_Purple
@@ -856,7 +869,7 @@ Screen_Product_Selection As screen:
         Width: =2
         X: =465
         Y: =102
-        ZIndex: =35
+        ZIndex: =36
 
     Rectangle1_2 As rectangle:
         Fill: =Colour_Viridor_Purple
@@ -864,5 +877,5 @@ Screen_Product_Selection As screen:
         Width: =2
         X: =310
         Y: =102
-        ZIndex: =36
+        ZIndex: =37
 
