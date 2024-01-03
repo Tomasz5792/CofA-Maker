@@ -807,7 +807,7 @@ Screen_Product_Selection As screen:
         Height: =717
         OnSelect: =If(Var_Product_Selected.Value="",Navigate(Screen_Product_Selection,ScreenTransition.None),Navigate(Screen_CofA,ScreenTransition.None))
         Text: =
-        Width: =522
+        Width: =744
         X: =622
         Y: =51
         ZIndex: =33
