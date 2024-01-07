@@ -18,6 +18,7 @@ App As appinfo:
         //Set(Var_Loading_Silo, "12.1");  //doesn't work
         
         //Collecting Pictures
+        //I had a problem with pictures loading at a low resolution and this fixed it.
         ClearCollect(Col_CofA_Picture_List,'CofA Picture List');
         //Set(Image_CoA_Banner_PET,CoA_Banner_PET);
         //Set(Image_CoA_Banner_PET_Flake,CoA_Banner_PET_Flake);
@@ -27,6 +28,8 @@ App As appinfo:
         //Collecting CoA Tables
         ClearCollect(Col_Table_PET_Plus_Std,Table_PET_Plus_Std);
         ClearCollect(Col_Table_PET_Std,Table_PET_Std);
+        ClearCollect(Col_Table_PET_Plus_Std_X,Table_PET_Plus_X);
+        ClearCollect(Col_Table_PET_Std_X,Table_PET_Std_X);
         ClearCollect(Col_Table_PET_Flake,Table_PET_Flake);
         ClearCollect(Col_Table_HDPE_Nat,Table_HDPE_Nat_New);
         ClearCollect(Col_Table_PP,Table_PP_New);

@@ -134,8 +134,14 @@
           "Table_PET_Plus_Std": {
             "tableName": "{836953F9-55B3-43A4-AEF3-A1467EE8DE1A}"
           },
+          "Table_PET_Plus_X": {
+            "tableName": "{1AA1CD6F-588C-440D-8B0A-2758905ED36A}"
+          },
           "Table_PET_Std": {
             "tableName": "{F1987478-E697-450B-AA02-9CC3425D833E}"
+          },
+          "Table_PET_Std_X": {
+            "tableName": "{C66176DE-A9D3-4EBB-9127-54689F05AC2D}"
           },
           "Table_PP_New": {
             "tableName": "{B7AB6FA7-3835-4793-AC16-C8986E547748}"
@@ -182,7 +188,9 @@
       "CoA_HDPE_Natural",
       "Table_PET_Std",
       "CoA_PET",
-      "CoA_PET_Flake"
+      "CoA_PET_Flake",
+      "Table_PET_Plus_X",
+      "Table_PET_Std_X"
     ],
     "dependencies": {},
     "dependents": [],
