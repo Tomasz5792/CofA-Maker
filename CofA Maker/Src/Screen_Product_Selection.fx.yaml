@@ -697,7 +697,7 @@ Screen_Product_Selection As screen:
         Fill: =Color.Transparent
         Height: =210
         Items: |+
-            =If(Or(Var_Product_Selected_Text="PET Plus",Var_Product_Selected_Text="PET Std"),Filter(Col_Table_Customer_Reference_Sorted, Material = "PET"),
+            =If(Or(Var_Product_Selected_Text="PET Plus",Var_Product_Selected_Text="PET Std",Var_Product_Selected_Text="PET Plus X",Var_Product_Selected_Text="PET Std X"),Filter(Col_Table_Customer_Reference_Sorted, Material = "PET"),
             If(Var_Product_Selected_Text="PET Flake Standard",Filter(Col_Table_Customer_Reference_Sorted, Material = "PET Flake"),
             If(Var_Product_Selected_Text="HDPE Natural",Filter(Col_Table_Customer_Reference_Sorted, Material = "HDPE Natural"),
             If(Var_Product_Selected_Text="PP",Filter(Col_Table_Customer_Reference_Sorted, Material = "PP"),
