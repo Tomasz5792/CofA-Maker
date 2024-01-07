@@ -34,7 +34,7 @@ Screen_Review_CofA As screen:
                 =If(
                 Var_Product_Selected_Text="PET",ThisItem.Height_1,
                 Var_Product_Selected_Text="PET Standard",ThisItem.Height_1,
-                Var_Product_Selected_Text="PET Flake",ThisItem.Height_1,
+                Var_Product_Selected_Text="PET Flake Standard",ThisItem.Height_3,
                 Var_Product_Selected_Text="HDPE Natural",ThisItem.Height_2,
                 Var_Product_Selected_Text="PP",ThisItem.Height_1,
                 ThisItem.Height_1)
@@ -52,6 +52,8 @@ Screen_Review_CofA As screen:
             =If(
             Var_Product_Selected_Text="PET Plus",Col_Table_PET_Plus_Std,
             Var_Product_Selected_Text="PET Std",Col_Table_PET_Std,
+            Var_Product_Selected_Text="PET Plus X",Col_Table_PET_Plus_Std_X,
+            Var_Product_Selected_Text="PET Std X",Col_Table_PET_Std_X,
             Var_Product_Selected_Text="PET Flake Standard",Col_Table_PET_Flake,
             Var_Product_Selected_Text="HDPE Natural",Col_Table_HDPE_Nat,
             Var_Product_Selected_Text="PP",Col_Table_PP,
@@ -60,11 +62,11 @@ Screen_Review_CofA As screen:
         Layout: =Layout.Vertical
         ShowScrollbar: =false
         TemplatePadding: =1
-        TemplateSize: |
+        TemplateSize: |-
             =If(
             Var_Product_Selected_Text="PET",9.5,
             Var_Product_Selected_Text="PET Standard",9.5,
-            Var_Product_Selected_Text="PET Flake",9.5,
+            Var_Product_Selected_Text="PET Flake Standard",11,
             Var_Product_Selected_Text="HDPE Natural",8.7,
             Var_Product_Selected_Text="HDPE Self Coloured",9.5,
             Var_Product_Selected_Text="PP",9.5,
@@ -123,16 +125,14 @@ Screen_Review_CofA As screen:
         Layout: =Layout.Vertical
         ShowScrollbar: =false
         TemplatePadding: =1
-        TemplateSize: |+
+        TemplateSize: |
             =If(
             var_CofA_to_review.Material="PET",9.5,
-            var_CofA_to_review.Material="PET Flake",9.5,
+            Var_Product_Selected_Text="PET Flake Standard",11,
             var_CofA_to_review.Material="HDPE Natural",8.7,
             var_CofA_to_review.Material="PP",9.5,
             var_CofA_to_review.Material="PP" && var_CofA_to_review.Customer="Proctor and Gamble",9.5,
             9.5)
-            
-            
         Width: =233
         X: =1133
         Y: =121
@@ -177,16 +177,14 @@ Screen_Review_CofA As screen:
         Layout: =Layout.Vertical
         ShowScrollbar: =false
         TemplatePadding: =1
-        TemplateSize: |+
+        TemplateSize: |
             =If(
             var_CofA_to_review.Material="PET",9.5,
-            var_CofA_to_review.Material="PET Flake",9.5,
+            Var_Product_Selected_Text="PET Flake Standard",11,
             var_CofA_to_review.Material="HDPE Natural",8.7,
             var_CofA_to_review.Material="PP",9.5,
             var_CofA_to_review.Material="PP" && var_CofA_to_review.Customer="Proctor and Gamble",9.5,
             9.5)
-            
-            
         Width: =392
         X: =781
         Y: =121

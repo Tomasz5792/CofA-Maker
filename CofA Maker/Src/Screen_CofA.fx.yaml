@@ -1364,6 +1364,8 @@
             =If(
             Var_Product_Selected_Text="PET Plus",First(Index(Col_CofA_Picture_List,1).Attachments).Value,
             Var_Product_Selected_Text="PET Std",First(Index(Col_CofA_Picture_List,1).Attachments).Value,
+            Var_Product_Selected_Text="PET Plus X",First(Index(Col_CofA_Picture_List,1).Attachments).Value,
+            Var_Product_Selected_Text="PET Std X",First(Index(Col_CofA_Picture_List,1).Attachments).Value,
             Var_Product_Selected_Text="PET Flake Standard",First(Index(Col_CofA_Picture_List,2).Attachments).Value,
             Var_Product_Selected_Text="HDPE Natural",First(Index(Col_CofA_Picture_List,3).Attachments).Value,
             Var_Product_Selected_Text="PP",First(Index(Col_CofA_Picture_List,4).Attachments).Value,
