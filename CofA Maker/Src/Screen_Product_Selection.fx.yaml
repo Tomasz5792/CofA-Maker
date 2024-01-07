@@ -368,9 +368,9 @@ Screen_Product_Selection As screen:
         OnSelect: |
             =Set(Var_CoA_Selected_PET,ThisItem);Set(Var_CoA_Selected_PET_Flake,Blank());Set(Var_CoA_Selected_HDPE_Nat,Blank());Set(Var_CoA_Selected_HDPE_Col,Blank()); Set(Var_CoA_Selected_PP,Blank());
             
-            If(And(Var_Product_Selected_Text <> "PET Plus",Var_Product_Selected_Text <> "PET Std"),Set(Var_Customer_Selected, Blank()));
+            If(And(Var_Product_Selected_Text <> "PET Plus",Var_Product_Selected_Text <> "PET Std",Var_Product_Selected_Text <> "PET Plus X",Var_Product_Selected_Text <> "PET Std X"),Set(Var_Customer_Selected, Blank()));
             
-            If(Var_Product_Selected_Text <> "PET Std",Set(Var_Product_Selected_Text,"PET Plus"));
+            If(And(Var_Product_Selected_Text <> "PET Plus",Var_Product_Selected_Text <> "PET Std",Var_Product_Selected_Text <> "PET Plus X",Var_Product_Selected_Text <> "PET Std X"),Set(Var_Product_Selected_Text,"PET Plus"));
             
             //Set(Var_Customer_Selected, Blank());
         ShowScrollbar: =false
