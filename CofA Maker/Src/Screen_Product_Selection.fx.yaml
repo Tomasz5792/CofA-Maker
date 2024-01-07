@@ -414,12 +414,12 @@ Screen_Product_Selection As screen:
         Height: =191
         Items: =Col_CoA_HDPE_Natural_Filtered_Sorted
         Layout: =Layout.Vertical
-        OnSelect: |-
+        OnSelect: |
             =Set(Var_CoA_Selected_PET,Blank());Set(Var_CoA_Selected_PET_Flake,Blank());Set(Var_CoA_Selected_HDPE_Nat,ThisItem);Set(Var_CoA_Selected_HDPE_Col,Blank()); Set(Var_CoA_Selected_PP,Blank());
             
-            If(Var_Product_Selected_Text <> "HDPE Natural",Set(Var_Customer_Selected, Blank()));
+            If(And(Var_Product_Selected_Text <> "HDPE Natural",Var_Product_Selected_Text <> "Natural Low White"),Set(Var_Customer_Selected, Blank()));
             
-            Set(Var_Product_Selected_Text,"HDPE Natural");
+            If(Var_Product_Selected_Text <> "Natural Low White",Set(Var_Product_Selected_Text,"HDPE Natural"));
             
             //Set(Var_Customer_Selected, Blank());
         ShowScrollbar: =false
