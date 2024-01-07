@@ -18,7 +18,7 @@ Screen_Product_Selection As screen:
         Fill: =Color.Transparent
         Height: =304
         Items: |+
-            =["PET Plus","PET Flake Standard","HDPE Natural","PP","PET Std","","","PP P&G","PET Plus X","","","","PET Std X","","",""]
+            =["PET Plus","PET Flake Standard","HDPE Natural","PP","PET Std","","","PP P&G","PET Plus X","","Natural Low White","","PET Std X","","",""]
             
             //For future when needed
             //"HDPE Self Coloured",
@@ -46,17 +46,18 @@ Screen_Product_Selection As screen:
             Align: =Align.Center
             Color: =If(ThisItem.Value=Var_Product_Selected_Text,Colour_Viridor_White,Color.Black)
             Fill: =If(ThisItem.Value=Var_Product_Selected_Text,Colour_Viridor_Purple,Color.Transparent)
-            Height: |-
+            Height: |
                 =If(
                 ThisItem.Value="PET Flake Standard",Parent.TemplateHeight/1,
-                ThisItem.Value="HDPE Natural",Parent.TemplateHeight/1,
+                ThisItem.Value="HDPE Natural",Parent.TemplateHeight/2,
+                ThisItem.Value="Natural Low White",Parent.TemplateHeight/2,
                 ThisItem.Value="PP",Parent.TemplateHeight/2,
                 ThisItem.Value="PP P&G",Parent.TemplateHeight/2,
                 Parent.TemplateHeight/4)
             HoverColor: =Colour_Viridor_White
             HoverFill: |
                 =If(ThisItem.Value="",Color.Transparent,Colour_Viridor_Green)
-            LineHeight: =1
+            LineHeight: =0.9
             OnSelect: =Select(Parent)
             PaddingBottom: =10
             PaddingLeft: =10
@@ -74,6 +75,7 @@ Screen_Product_Selection As screen:
                 ThisItem.Value="PET Std",-Parent.TemplateHeight*1+Parent.TemplateHeight*1/4,
                 ThisItem.Value="PET Plus X",-Parent.TemplateHeight*2+Parent.TemplateHeight*2/4,
                 ThisItem.Value="PET Std X",-Parent.TemplateHeight*3+Parent.TemplateHeight*3/4,
+                ThisItem.Value="Natural Low White",-Parent.TemplateHeight*2+Parent.TemplateHeight*2/4,
                 0)
             ZIndex: =1
 
