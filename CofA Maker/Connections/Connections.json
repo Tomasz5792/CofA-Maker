@@ -125,6 +125,9 @@
           "Table_HDPE_Nat": {
             "tableName": "{45810EB2-FBFC-41AC-88EE-74F2ACED499B}"
           },
+          "Table_HDPE_Nat_Low_White": {
+            "tableName": "{32A73741-ADFA-40C7-A719-DF5C550D6599}"
+          },
           "Table_HDPE_Nat_New": {
             "tableName": "{1E51090D-B52E-40A8-9531-4D8553981A5C}"
           },
@@ -190,7 +193,8 @@
       "CoA_PET",
       "CoA_PET_Flake",
       "Table_PET_Plus_X",
-      "Table_PET_Std_X"
+      "Table_PET_Std_X",
+      "Table_HDPE_Nat_Low_White"
     ],
     "dependencies": {},
     "dependents": [],

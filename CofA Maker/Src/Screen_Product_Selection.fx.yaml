@@ -95,7 +95,7 @@ Screen_Product_Selection As screen:
     Gallery_CoA_Main As gallery.galleryVertical:
         Fill: =Color.Transparent
         Height: =648
-        Items: |+
+        Items: |-
             =If(
             Var_Product_Selected_Text="PET Plus",Col_Table_PET_Plus_Std,
             Var_Product_Selected_Text="PET Std",Col_Table_PET_Std,
@@ -103,10 +103,12 @@ Screen_Product_Selection As screen:
             Var_Product_Selected_Text="PET Std X",Col_Table_PET_Std_X,
             Var_Product_Selected_Text="PET Flake Standard",Col_Table_PET_Flake,
             Var_Product_Selected_Text="HDPE Natural",Col_Table_HDPE_Nat,
+            Var_Product_Selected_Text="Natural Low White",Col_Table_HDPE_Nat_Low_White,
             Var_Product_Selected_Text="PP",Col_Table_PP,
             Var_Product_Selected_Text="PP P&G",Col_Table_PP_PnG
             )
             
+            //Natural Low White
         Layout: =Layout.Vertical
         ShowScrollbar: =false
         TemplatePadding: =1

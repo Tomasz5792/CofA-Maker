@@ -32,6 +32,7 @@ App As appinfo:
         ClearCollect(Col_Table_PET_Std_X,Table_PET_Std_X);
         ClearCollect(Col_Table_PET_Flake,Table_PET_Flake);
         ClearCollect(Col_Table_HDPE_Nat,Table_HDPE_Nat_New);
+        ClearCollect(Col_Table_HDPE_Nat_Low_White,Table_HDPE_Nat_Low_White);
         ClearCollect(Col_Table_PP,Table_PP_New);
         ClearCollect(Col_Table_PP_PnG,Table_PP_PnG_New);
         ClearCollect(Col_Table_All_Sign,Table_All_Sign);
