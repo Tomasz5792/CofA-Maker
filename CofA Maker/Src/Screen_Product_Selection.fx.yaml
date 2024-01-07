@@ -205,6 +205,7 @@ Screen_Product_Selection As screen:
                 Var_Product_Selected_Text="PET Standard",ThisItem.Height_1,
                 Var_Product_Selected_Text="PET Flake Standard",23,
                 Var_Product_Selected_Text="HDPE Natural",ThisItem.Height_2,
+                Var_Product_Selected_Text="Natural Low White",17,
                 Var_Product_Selected_Text="PP",ThisItem.Height_1,
                 ThisItem.Height_1)
                 
@@ -811,7 +812,7 @@ Screen_Product_Selection As screen:
 
     Label_Goto_CoA As label:
         Align: =Align.Center
-        Height: =538
+        Height: =637
         OnSelect: =If(Var_Product_Selected.Value="",Navigate(Screen_Product_Selection,ScreenTransition.None),Navigate(Screen_CofA,ScreenTransition.None))
         Text: =
         Width: =744

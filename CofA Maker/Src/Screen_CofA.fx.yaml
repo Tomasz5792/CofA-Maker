@@ -1368,6 +1368,7 @@
             Var_Product_Selected_Text="PET Std X",First(Index(Col_CofA_Picture_List,1).Attachments).Value,
             Var_Product_Selected_Text="PET Flake Standard",First(Index(Col_CofA_Picture_List,2).Attachments).Value,
             Var_Product_Selected_Text="HDPE Natural",First(Index(Col_CofA_Picture_List,3).Attachments).Value,
+            Var_Product_Selected_Text="Natural Low White",First(Index(Col_CofA_Picture_List,3).Attachments).Value,
             Var_Product_Selected_Text="PP",First(Index(Col_CofA_Picture_List,4).Attachments).Value,
             Var_Product_Selected_Text="PP P&G",First(Index(Col_CofA_Picture_List,4).Attachments).Value
             )
@@ -1531,6 +1532,7 @@
                 Var_Product_Selected_Text="PET Standard",ThisItem.Height_1,
                 Var_Product_Selected_Text="PET Flake Standard",23,
                 Var_Product_Selected_Text="HDPE Natural",ThisItem.Height_2,
+                Var_Product_Selected_Text="Natural Low White",16,
                 Var_Product_Selected_Text="PP",ThisItem.Height_1,
                 ThisItem.Height_1)
             OnSelect: =

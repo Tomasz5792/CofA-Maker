@@ -144,7 +144,7 @@ Screen_Start As screen:
         BorderColor: =RGBA(0, 18, 107, 0)
         Fill: =Colour_Viridor_PinkTint
         Height: =136
-        Items: =["Soon"]
+        Items: =[""]
         Layout: =Layout.Vertical
         OnSelect: =Set(Var_Product_Menu_2,ThisItem)
         TemplatePadding: =0
