@@ -714,7 +714,7 @@ Screen_Product_Selection As screen:
             If(Var_Product_Selected_Text="PET Flake Standard",
             Filter(Col_Table_Customer_Reference_Sorted, Material = "PET Flake"),
             
-            If(Or(Var_Product_Selected_Text="HDPE Natural",Var_Product_Selected_Text="HDPE Natural"),
+            If(Or(Var_Product_Selected_Text="HDPE Natural",Var_Product_Selected_Text="Natural Low White"),
             Filter(Col_Table_Customer_Reference_Sorted, Material = "HDPE Natural"),
             
             If(Var_Product_Selected_Text="PP",
