@@ -5352,36 +5352,6 @@
             {
               "logicalLocations": [
                 {
-                  "fullyQualifiedName": "Screen_Review_CofA.Gallery_Results_Review.Items"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "Screen_Review_CofA.Gallery_Results_Review.Items",
-                  "relativeAddress": 0
-                }
-              },
-              "properties": {
-                "member": "Items",
-                "module": "Screen_Review_CofA",
-                "type": "Screen_Review_CofA.Gallery_Results_Review"
-              }
-            }
-          ],
-          "message": {
-            "id": "issue"
-          },
-          "properties": {
-            "level": "Medium"
-          },
-          "ruleId": "app-InefficientDelayLoading",
-          "ruleIndex": 8
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
                   "fullyQualifiedName": "Screen_CofA.Form_add_data_to_CofA_review.'Order Number_DataCard1_1'.DataCardValue3_1.Default"
                 }
               ],
