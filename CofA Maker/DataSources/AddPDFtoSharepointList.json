@@ -1,0 +1,10 @@
+[
+  {
+    "ApiId": "/providers/microsoft.powerapps/apis/shared_logicflows",
+    "FlowNameId": "4952de40-e5c6-4de3-b775-7d214a0e8cc1",
+    "Name": "AddPDFtoSharepointList",
+    "ServiceKind": "ConnectedWadl",
+    "Type": "ServiceInfo",
+    "WorkflowEntityId": "9c54e545-53ae-ee11-a569-002248c5e743"
+  }
+]
