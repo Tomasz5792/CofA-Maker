@@ -108,13 +108,13 @@ Screen_Review_CofA As screen:
         Height: =647
         Items: |
             =If(
-            Or(var_CofA_to_review.Material="PET",var_CofA_to_review.Material="PET Plus"),
+            Or(var_CofA_to_review.Material="PET",var_CofA_to_review.Material="PET Plus",var_CofA_to_review.Material="PET X",var_CofA_to_review.Material="PET Plus X"),
             ForAll([{Text:"",Height:CoA_Height_All},{Text:"",Height:CoA_Height_All},{Text:"",Height:CoA_Height_All},{Text:"",Height:CoA_Height_All},{Text:"",Height:CoA_Height_All},{Text:"",Height:CoA_Height_All},{Text:var_CofA_to_review.'Customer Product Code',Height:CoA_Height_All},{Text:"",Height:CoA_Height_All},{Text:var_CofA_to_review.'Delivery Number',Height:CoA_Height_All},{Text:"",Height:CoA_Height_All},{Text:var_CofA_to_review.'Delivery Date',Height:CoA_Height_All},{Text:"",Height:CoA_Height_All},{Text:"Avonmouth, UK",Height:CoA_Height_All}], {Value: ThisRecord}),
             
             var_CofA_to_review.Material="PET Flake",
             ForAll([{Text:"",Height:CoA_Height_All},{Text:"",Height:CoA_Height_All},{Text:"",Height:CoA_Height_All},{Text:"",Height:CoA_Height_All},{Text:"",Height:CoA_Height_All},{Text:"",Height:CoA_Height_All},{Text:var_CofA_to_review.'Customer Product Code',Height:CoA_Height_All},{Text:"",Height:CoA_Height_All},{Text:var_CofA_to_review.'Delivery Number',Height:CoA_Height_All},{Text:"",Height:CoA_Height_All},{Text:var_CofA_to_review.'Delivery Date',Height:CoA_Height_All},{Text:"",Height:CoA_Height_All},{Text:"Avonmouth, UK",Height:CoA_Height_All}], {Value: ThisRecord}),
             
-            var_CofA_to_review.Material="HDPE Natural",
+            Or(var_CofA_to_review.Material="HDPE Natural",var_CofA_to_review.Material="HDPE Natural LW"),
             ForAll([{Text:"",Height:CoA_Height_All},{Text:"",Height:CoA_Height_All},{Text:"",Height:CoA_Height_All},{Text:"",Height:CoA_Height_All},{Text:"",Height:CoA_Height_All},{Text:"",Height:CoA_Height_All},{Text:var_CofA_to_review.'Customer Product Code',Height:CoA_Height_All},{Text:"",Height:CoA_Height_All},{Text:var_CofA_to_review.'Delivery Number',Height:CoA_Height_All},{Text:"",Height:CoA_Height_All},{Text:var_CofA_to_review.'Delivery Date',Height:CoA_Height_All},{Text:"",Height:CoA_Height_All},{Text:"Avonmouth, UK",Height:CoA_Height_All}], {Value: ThisRecord}),
             
             var_CofA_to_review.Material="PP",
@@ -136,6 +136,7 @@ Screen_Review_CofA As screen:
             var_CofA_to_review.Material="PET",9.5,
             Var_Product_Selected_Text="PET Flake Standard",11,
             var_CofA_to_review.Material="HDPE Natural",8.7,
+            var_CofA_to_review.Material="HDPE Natural LW",8,
             var_CofA_to_review.Material="PP",9.5,
             var_CofA_to_review.Material="PP" && var_CofA_to_review.Customer="Proctor and Gamble",9.5,
             9.5)
