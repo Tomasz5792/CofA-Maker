@@ -191,6 +191,7 @@ Screen_Review_CofA As screen:
             var_CofA_to_review.Material="PET",9.5,
             Var_Product_Selected_Text="PET Flake Standard",11,
             var_CofA_to_review.Material="HDPE Natural",8.7,
+            var_CofA_to_review.Material="HDPE Natural LW",8,
             var_CofA_to_review.Material="PP",9.5,
             var_CofA_to_review.Material="PP" && var_CofA_to_review.Customer="Proctor and Gamble",9.5,
             9.5)
