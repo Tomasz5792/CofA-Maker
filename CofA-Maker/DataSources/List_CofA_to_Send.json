@@ -1,0 +1,9 @@
+[
+  {
+    "IsComponentScoped": false,
+    "IsSampleData": false,
+    "IsWritable": true,
+    "Name": "List_CofA_to_Send",
+    "Type": "CollectionDataSourceInfo"
+  }
+]

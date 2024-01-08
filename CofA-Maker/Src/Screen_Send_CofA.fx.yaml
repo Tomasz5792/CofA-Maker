@@ -1,0 +1,467 @@
+Screen_Send_CofA As screen:
+
+    PdfViewer2 As pdfViewer:
+        BorderColor: =RGBA(0, 0, 0, 1)
+        Document: =First(Var_CoA_Selected_to_Send.Attachments).Value
+        Fill: =RGBA(0, 0, 0, 0.5)
+        Height: =920
+        Width: =677
+        X: =725
+        Y: =Label_pdf_Y
+        ZIndex: =1
+        Zoom: =Zoom.FitBoth
+
+    Title_Select_Producr_12 As label:
+        Align: =TextPosition.Left
+        Color: =RGBA(255, 255, 255, 1)
+        Fill: =Color.White
+        Font: =Font.'Segoe UI'
+        Height: =768
+        PaddingLeft: =14
+        Size: =Text_size_Title
+        Text: =""
+        Width: =760
+        ZIndex: =2
+
+    Title_Select_CoA_13 As label:
+        Align: =TextPosition.Left
+        Color: =RGBA(255, 255, 255, 1)
+        Fill: =RGBA(0, 155, 62, 100)
+        Font: =Font.'Segoe UI'
+        Height: =51
+        PaddingLeft: =14
+        Size: =Text_size_Title
+        Text: ="Send CofA"
+        Width: =1366
+        ZIndex: =3
+
+    "Gallery_Select_Loading_Silo As gallery.'BrowseLayout_Vertical_OneImageThreeColumnVariant_ver4.0'":
+        Fill: =Colour_Viridor_PurpleTint
+        Height: =101
+        Items: |+
+            =["All","HDPE","","PP","PET","PET Flake","","12.1","12.2","12.3","12.4","Sample Silo"]
+            
+            //[{Name:"12.1",Text:"loading silo 12.1"},{Name:"12.2",Text:"loading silo 12.2"},{Name:"12.3",Text:"loading silo 12.3"},{Name:"12.4",Text:"loading silo 12.4"},{Name:"PET Flake",Text:"PET Flake"}]
+            
+        Layout: =Layout.Vertical
+        OnSelect: |-
+            =If(ThisItem.Value <> "",Set(Var_Loading_Silo, ThisItem));
+            
+            Clear(Collection_CofA_to_Send);
+            Clear(List_CofA_to_Send);
+            Set(Var_CoA_Selected_to_Send,Blank());
+            
+            ClearCollect(CofA_Sorted,Sort(CofA,ID,SortOrder.Descending));
+        ShowScrollbar: =false
+        TemplatePadding: =0
+        TemplateSize: =51
+        Width: =760
+        WrapCount: =6
+        Y: =51
+        ZIndex: =4
+
+        Label1_6 As label:
+            Align: =Align.Center
+            Color: =If(ThisItem.Value=Var_Loading_Silo.Value,Color.White,Color.Black)
+            Fill: =If(ThisItem.Value=Var_Loading_Silo.Value,Colour_Viridor_Purple,Color.Transparent)
+            Height: =If(ThisItem.Value="All",102,51)
+            HoverColor: =Colour_Viridor_White
+            HoverFill: |
+                =Colour_Viridor_Green
+            LineHeight: =0.9
+            OnSelect: =Select(Parent)
+            PaddingBottom: =10
+            PaddingLeft: =10
+            PaddingRight: =10
+            PaddingTop: =10
+            PressedColor: =Color.White
+            PressedFill: =Colour_Viridor_Purple
+            Size: =Text_size_Menu
+            Text: =ThisItem.Value
+            Width: =If(ThisItem.Value="HDPE",126.6666666667*2,If(ThisItem.Value="",0,126.6666666667))
+            ZIndex: =1
+
+    Button_Back_10 As icon.CancelBadge:
+        Color: =Color.White
+        Height: =38
+        HoverColor: =Colour_Viridor_Purple
+        Icon: =Icon.BackArrow
+        OnSelect: =Back()
+        PressedColor: =Colour_Viridor_GreenTint
+        Tooltip: ="Back"
+        Width: =38
+        X: =1318
+        Y: =6
+        ZIndex: =5
+
+    Button_Home_4 As icon.CancelBadge:
+        Color: =Color.White
+        Height: =38
+        HoverColor: =Colour_Viridor_Purple
+        Icon: =Icon.Home
+        OnSelect: =Navigate(Screen_Start,ScreenTransition.None);
+        PressedColor: =Colour_Viridor_GreenTint
+        Tooltip: ="Home"
+        Width: =38
+        X: =Button_Back_10.X-(46*1)
+        Y: =Button_Back_10.Y
+        ZIndex: =6
+
+    Refresh_Data_3 As icon.CancelBadge:
+        Color: =Color.White
+        Height: =34
+        HoverColor: =Colour_Viridor_Purple
+        Icon: =Icon.Reload
+        OnSelect: |
+            =Refresh(CofA);
+            ClearCollect(CofA_Sorted,Sort(CofA,ID,SortOrder.Descending));
+        PressedColor: =Colour_Viridor_GreenTint
+        Rotation: =90
+        Tooltip: ="Dont press unless needed, will overload server with too many requests."
+        Width: =34
+        X: =Button_Back_10.X-(46*2)
+        Y: =Button_Back_10.Y+2
+        ZIndex: =7
+
+    "Gallery_CoA_Choice_PET_1 As gallery.'BrowseLayout_Vertical_OneTextVariant_ver4.0'":
+        Fill: =Colour_Viridor_GreenTint
+        Height: =245
+        Items: |
+            =If(Var_Loading_Silo.Value="All",CofA_Sorted,
+            If(Var_Loading_Silo.Value="HDPE",Filter(CofA_Sorted,'Loading Silo'="12.1"),
+            If(Var_Loading_Silo.Value="PP",Filter(CofA_Sorted,'Loading Silo'="12.3"),
+            If(Var_Loading_Silo.Value="PET",Filter(CofA_Sorted,'Loading Silo'="12.4"),
+            If(Var_Loading_Silo.Value="12.1",Filter(CofA_Sorted,'Loading Silo'="12.1"),
+            If(Var_Loading_Silo.Value="12.2",Filter(CofA_Sorted,'Loading Silo'="12.2"),
+            If(Var_Loading_Silo.Value="12.3",Filter(CofA_Sorted,'Loading Silo'="12.3"),
+            If(Var_Loading_Silo.Value="12.4",Filter(CofA_Sorted,'Loading Silo'="12.4"),
+            If(Var_Loading_Silo.Value="PET Flake",Filter(CofA_Sorted,'Loading Silo'="PET Flake"),
+            If(Var_Loading_Silo.Value="Sample Silo",Filter(CofA_Sorted,'Loading Silo'="N/A"),
+            Blank()))))))))))
+        Layout: =Layout.Vertical
+        OnSelect: |-
+            =Set(Var_CoA_Selected_to_Send,ThisItem);
+            
+            //Collect(Collection_CofA_to_Send,{Name:ThisItem.Title&".pdf",ContentBytes:First(ThisItem.Attachments).Value});
+            //Collect(List_CofA_to_Send,ThisItem.ID);
+            
+            
+            If(ThisItem.ID in List_CofA_to_Send,"",Collect(Collection_CofA_to_Send,{Name:ThisItem.Title&".pdf",ContentBytes:First(ThisItem.Attachments).Value});Collect(List_CofA_to_Send,ThisItem.ID););
+        ShowScrollbar: =false
+        TemplatePadding: =0
+        TemplateSize: =30
+        Width: =760
+        Y: =203
+        ZIndex: =9
+
+        Label_Send_Main As label:
+            Align: =Align.Center
+            Color: =If(ThisItem.ID=Var_CoA_Selected_to_Send.ID,Color.White,Color.Black)
+            Fill: |-
+                =If(ThisItem.ID=Var_CoA_Selected_to_Send.ID,Colour_Viridor_Purple,
+                If(ThisItem.ID in List_CofA_to_Send,Colour_Viridor_PurpleTint,Color.Transparent))
+                
+                
+                
+                //List_CofA_to_Send
+            FontWeight: =FontWeight.Normal
+            Height: =30
+            HoverColor: =Color.White
+            HoverFill: =Colour_Viridor_Purple
+            LineHeight: =0.9
+            OnSelect: =Select(Parent)
+            PaddingBottom: =0
+            PaddingLeft: =0
+            PaddingRight: =0
+            PaddingTop: =0
+            Size: =Text_size
+            Text: =ThisItem.Material
+            Width: =160
+            X: =133
+            ZIndex: =9
+
+        Storage_Silo_Batch_14 As label:
+            Align: =Align.Center
+            Color: =Label_Send_Main.Color
+            Fill: =Label_Send_Main.Fill
+            FontWeight: =FontWeight.Normal
+            Height: =30
+            HoverColor: =Color.White
+            HoverFill: =Colour_Viridor_Purple
+            LineHeight: =0.9
+            OnSelect: =Select(Parent)
+            PaddingBottom: =0
+            PaddingLeft: =0
+            PaddingRight: =0
+            PaddingTop: =0
+            Size: =Text_size
+            Text: =ThisItem.'Batch Number'
+            Width: =160
+            X: =293
+            ZIndex: =10
+
+        Storage_Silo_Batch_18 As label:
+            Align: =Align.Center
+            Color: =Label_Send_Main.Color
+            Fill: =Label_Send_Main.Fill
+            FontWeight: =FontWeight.Normal
+            Height: =30
+            HoverColor: =Color.White
+            HoverFill: =Colour_Viridor_Purple
+            LineHeight: =0.9
+            OnSelect: =Select(Parent)
+            PaddingBottom: =0
+            PaddingLeft: =0
+            PaddingRight: =0
+            PaddingTop: =0
+            Size: =Text_size
+            Text: =ThisItem.'Delivery Number'
+            Width: =140
+            X: =620
+            ZIndex: =11
+
+        Label6 As label:
+            Height: =30
+            HoverColor: =Colour_Viridor_GreenTint
+            OnSelect: =Select(Parent)
+            Text: =""
+            Width: =760
+            ZIndex: =12
+
+        Storage_Silo_Batch_21 As label:
+            Align: =Align.Center
+            Color: =Label_Send_Main.Color
+            Fill: =Label_Send_Main.Fill
+            FontWeight: =FontWeight.Normal
+            Height: =30
+            HoverColor: =Color.White
+            HoverFill: =Colour_Viridor_Purple
+            LineHeight: =0.9
+            OnSelect: =Select(Parent)
+            PaddingBottom: =0
+            PaddingLeft: =0
+            PaddingRight: =0
+            PaddingTop: =0
+            Size: =Text_size
+            Text: =Text(ThisItem.Created,DateTimeFormat.ShortDate)
+            Width: =133
+            ZIndex: =14
+
+        Storage_Silo_Batch_20 As label:
+            Align: =Align.Center
+            Color: =Label_Send_Main.Color
+            Fill: =Label_Send_Main.Fill
+            FontWeight: =FontWeight.Normal
+            Height: =30
+            HoverColor: =Color.White
+            HoverFill: =Colour_Viridor_Purple
+            LineHeight: =0.9
+            OnSelect: =Select(Parent)
+            PaddingBottom: =0
+            PaddingLeft: =0
+            PaddingRight: =0
+            PaddingTop: =0
+            Size: =Text_size
+            Text: =Left(ThisItem.Customer,12)
+            Width: =167
+            X: =453
+            ZIndex: =15
+
+    Title_Select_Producr_11 As label:
+        Align: =TextPosition.Left
+        Color: =RGBA(255, 255, 255, 1)
+        Fill: =Colour_Viridor_Green
+        Font: =Font.'Segoe UI'
+        Height: =51
+        PaddingLeft: =14
+        Size: =Text_size_Title
+        Text: =""
+        Width: =760
+        Y: =152
+        ZIndex: =10
+
+    Label_pdf_Y As label:
+        Text: =-40
+        Visible: =false
+        Width: =50
+        X: =815
+        ZIndex: =11
+
+    Refresh_Data_4 As icon.CancelBadge:
+        Color: =Color.White
+        Height: =38
+        HoverColor: =Colour_Viridor_Purple
+        Icon: =Icon.Trash
+        OnSelect: |+
+            =Clear(Collection_CofA_to_Send);
+            Clear(List_CofA_to_Send);
+            Set(Var_CoA_Selected_to_Send,Blank());
+            
+            
+            
+            
+            
+        PressedColor: =Colour_Viridor_GreenTint
+        Tooltip: ="Clear Attachments"
+        Width: =38
+        X: =Button_Back_10.X-(46*3)
+        Y: =Button_Back_10.Y
+        ZIndex: =12
+
+    Title_Select_Producr_13 As label:
+        Align: =TextPosition.Left
+        Color: =RGBA(255, 255, 255, 1)
+        Fill: =Colour_Viridor_Purple
+        Font: =Font.'Segoe UI'
+        Height: =51
+        PaddingLeft: =14
+        Size: =Text_size_Title
+        Text: ="Email"
+        Width: =760
+        Y: =448
+        ZIndex: =13
+
+    Email_Body_Text As label:
+        Fill: =Colour_Viridor_PurpleTint
+        Height: =269
+        PaddingBottom: =20
+        PaddingLeft: =20
+        PaddingRight: =20
+        PaddingTop: =20
+        Text: |-
+            ="Hi All
+            
+            Please find the CofA"&
+            If(CountRows(Collection_CofA_to_Send)=1,"","s")
+            &" for "&Var_Loading_Silo.Value&" on the "&Now()&".
+            Please check CofA's, then forward to logistics.
+            
+            "&
+            "Attachments:
+            "&Index(Collection_CofA_to_Send,1).Name&"
+            "&Index(Collection_CofA_to_Send,2).Name&"
+            "&Index(Collection_CofA_to_Send,3).Name&"
+            "&Index(Collection_CofA_to_Send,4).Name&"
+            "&Index(Collection_CofA_to_Send,5).Name&"
+            "&Index(Collection_CofA_to_Send,6).Name&"
+            "&Index(Collection_CofA_to_Send,7).Name&"
+            "&Index(Collection_CofA_to_Send,8).Name
+        VerticalAlign: =VerticalAlign.Top
+        Width: =760
+        Y: =499
+        ZIndex: =14
+
+    Refresh_Data_5 As icon.CancelBadge:
+        Color: =Color.White
+        Height: =38
+        HoverColor: =Colour_Viridor_Green
+        Icon: =Icon.Mail
+        OnSelect: |-
+            =Set(Var_Sending,true);
+            
+            Office365Outlook.SendEmail(Email_Send,"CofA",Email_Body_Text,{Cc:Email_CC,Attachments:Collection_CofA_to_Send});
+            
+            Clear(Collection_CofA_to_Send);
+            Clear(List_CofA_to_Send);
+            Set(Var_CoA_Selected_to_Send,Blank());
+            
+            Set(Var_Sending,false);
+            
+            //Email_CC
+        PressedColor: =Colour_Viridor_GreenTint
+        Tooltip: ="Send Email"
+        Width: =38
+        X: =712
+        Y: =454
+        ZIndex: =15
+
+    Sending As label:
+        Align: =Align.Center
+        Color: =Color.White
+        Fill: =Color.Transparent
+        Height: =768
+        Size: =Text_size_large
+        Text: =
+        Visible: =Var_Sending
+        Width: =1366
+        ZIndex: =16
+
+    Email_Send As label:
+        Height: =28
+        Text: |-
+            ="MRosa@viridor.co.uk; MBrugis@viridor.co.uk; "
+            
+            
+            //"JDarmanin@viridor.co.uk; SWhiting@viridor.co.uk; PBuss@viridor.co.uk"
+        Visible: =false
+        Width: =666
+        Y: =630
+        ZIndex: =17
+
+    Email_CC As label:
+        Height: =110
+        Text: ="ADHolland@viridor.co.uk; HJudd@viridor.co.uk; NDarby@viridor.co.uk; ASlodyczka@viridor.co.uk; BSlodyczka@viridor.co.uk; YCaine-Eaves@viridor.co.uk; TOkuniewski@viridor.co.uk; IPhillips2@viridor.co.uk; emedina@viridor.co.uk;"
+        Visible: =false
+        Width: =666
+        Y: =658
+        ZIndex: =18
+
+    Title_Select_CoA_14 As label:
+        Align: =Align.Center
+        Color: =RGBA(255, 255, 255, 1)
+        Fill: =Color.Transparent
+        Font: =Font.'Segoe UI'
+        Height: =51
+        LineHeight: =0.8
+        PaddingLeft: =14
+        Size: =20
+        Text: ="Date Created"
+        Width: =133
+        Y: =152
+        ZIndex: =19
+
+    Title_Select_CoA_15 As label:
+        Align: =Align.Center
+        Color: =RGBA(255, 255, 255, 1)
+        Fill: =Color.Transparent
+        Font: =Font.'Segoe UI'
+        Height: =51
+        LineHeight: =0.8
+        PaddingLeft: =14
+        Size: =25
+        Text: ="Material"
+        Width: =160
+        X: =133
+        Y: =152
+        ZIndex: =20
+
+    Title_Select_CoA_16 As label:
+        Align: =Align.Center
+        Color: =RGBA(255, 255, 255, 1)
+        Fill: =Color.Transparent
+        Font: =Font.'Segoe UI'
+        Height: =51
+        LineHeight: =0.8
+        PaddingLeft: =14
+        Size: =20
+        Text: ="Storage Silo Batch No."
+        Width: =160
+        X: =293
+        Y: =152
+        ZIndex: =21
+
+    Title_Select_CoA_17 As label:
+        Align: =Align.Center
+        Color: =RGBA(255, 255, 255, 1)
+        Fill: =Color.Transparent
+        Font: =Font.'Segoe UI'
+        Height: =51
+        LineHeight: =0.8
+        PaddingLeft: =14
+        Size: =20
+        Text: ="Delivery Number"
+        Width: =140
+        X: =620
+        Y: =152
+        ZIndex: =22
+
