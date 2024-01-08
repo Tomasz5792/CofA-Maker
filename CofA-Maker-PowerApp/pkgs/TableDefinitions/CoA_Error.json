@@ -1,7 +1,0 @@
-{
-  "DataEntityMetadataJson": {
-    "{88016141-2D0F-4489-9F2B-B4A41B28CB34}": "{\"name\":\"{88016141-2D0F-4489-9F2B-B4A41B28CB34}\",\"title\":\"CoA_Error\",\"x-ms-permission\":\"read-write\",\"x-ms-capabilities\":{\"sortRestrictions\":{\"sortable\":true},\"filterRestrictions\":{\"filterable\":true},\"filterFunctionSupport\":[\"eq\",\"ne\",\"substringof\",\"contains\",\"startswith\",\"endswith\"]},\"schema\":{\"type\":\"array\",\"items\":{\"type\":\"object\",\"properties\":{\"0\":{\"type\":\"string\",\"title\":\"0\",\"x-ms-sort\":\"none\",\"x-ms-capabilities\":{\"filterFunctions\":[\"eq\",\"ne\",\"substringof\",\"contains\",\"startswith\",\"endswith\"]},\"x-ms-permission\":\"read-write\"},\"Batch No Storage Silo\":{\"type\":\"string\",\"title\":\"Batch No Storage Silo\",\"x-ms-sort\":\"none\",\"x-ms-capabilities\":{\"filterFunctions\":[\"eq\",\"ne\",\"substringof\",\"contains\",\"startswith\",\"endswith\"]},\"x-ms-permission\":\"read-write\"}}}}}"
-  },
-  "EntityName": "CoA_Error",
-  "TableName": "{88016141-2D0F-4489-9F2B-B4A41B28CB34}"
-}
