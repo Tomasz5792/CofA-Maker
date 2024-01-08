@@ -759,6 +759,7 @@
                 Var_Product_Selected_Text="PET Flake Standard",23,
                 Var_Product_Selected_Text="HDPE Natural",ThisItem.Height_2,
                 Var_Product_Selected_Text="Natural Low White",17,
+                Var_Product_Selected_Text="HDPE Natural LW",17,
                 Var_Product_Selected_Text="PP",ThisItem.Height_1,
                 ThisItem.Height_1)
             OnSelect: =
@@ -795,7 +796,7 @@
         ShowScrollbar: =false
         TemplatePadding: =1
         TemplateSize: |+
-            =Gallery_Results_Main_1.TemplateHeight
+            =Gallery_CoA_Main.TemplateHeight
             
         Width: =213
         X: =535
@@ -826,7 +827,7 @@
         ShowScrollbar: =false
         TemplatePadding: =1
         TemplateSize: |+
-            =Gallery_Results_Main_1.TemplateHeight
+            =Gallery_CoA_Main.TemplateHeight
             
         Width: =506
         X: =186
