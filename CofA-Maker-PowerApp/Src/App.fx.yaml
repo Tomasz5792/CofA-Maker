@@ -1,0 +1,78 @@
+App As appinfo:
+    BackEnabled: =false
+    OnStart: |
+        =//Double forward slash for comment
+        Set(Var_Start,"Loading...");
+        
+        Set(Colour_Viridor_Green,RGBA(0,154,68,100));Set(Colour_Viridor_White,RGBA(255,255,255,100));Set(Colour_Viridor_Purple,RGBA(135,24,157,100));Set(Colour_Viridor_Pink,RGBA(226,24,143,100));Set(Colour_Viridor_PurpleTint,RGBA(135,24,157,0.3));Set(Colour_Viridor_GreenTint,RGBA(0,154,68,0.3));Set(Colour_Viridor_PinkTint,RGBA(226,24,143,.3));Set(Colour_Viridor_Grey3,RGBA(84,86,90,100));Set(Colour_Main,Colour_Viridor_Green);Set(Colour_Text,Colour_Viridor_White);
+        Set(Colour_Light_Grey_1,RGBA(231,230,235,100));Set(Colour_Light_Grey_2,RGBA(199,198,203,100));Set(Colour_Dark_Grey,RGBA(67,65,66,100));
+        
+        Set(Colour_CoA_Blue,RGBA(56, 96, 178, 1)); Set(Colour_CoA_Blue_Dark,RGBA(66, 85, 99, 1)); Set(Colour_CoA_Blue_Light_1,RGBA(228,234,238,100)); Set(Colour_CoA_Blue_Light_2,RGBA(201,214,221,100)); Set(Colour_CoA_PET,RGBA(208, 212, 206, 1)); Set(Colour_CoA_HDPE_Natural,RGBA(0,154,68,100));Set(Colour_CoA_HDPE_Jazz,RGBA(0,154,68,100)); Set(Colour_CoA_PP,RGBA(0,154,68,100));
+        
+        Set(Text_size,18);Set(Text_size_2,13);Set(Text_size_Menu,20);Set(Text_size_Title,25);Set(Text_size_large,40);Set(Border_Thickness,1.2);Set(Text_size_CoA,9);
+        
+        Set(CoA_Height_All,20);Set(CoA_Height_HDPE,18);
+        
+        //Variables
+        Set(Var_Product_Selected_Text,"PET Std");
+        //Set(Var_Loading_Silo, "12.1");  //doesn't work
+        
+        //Collecting Pictures
+        //I had a problem with pictures loading at a low resolution and this fixed it.
+        ClearCollect(Col_CofA_Picture_List,'CofA Picture List');
+        //Set(Image_CoA_Banner_PET,CoA_Banner_PET);
+        //Set(Image_CoA_Banner_PET_Flake,CoA_Banner_PET_Flake);
+        //Set(Image_CoA_Banner_HDPE_Natural,CoA_Banner_HDPE_Natural);
+        //Set(Image_CoA_Banner_PP,CoA_Banner_PP);
+        
+        //Collecting CoA Tables
+        ClearCollect(Col_Table_PET_Plus_Std,Table_PET_Plus_Std);
+        ClearCollect(Col_Table_PET_Std,Table_PET_Std);
+        ClearCollect(Col_Table_PET_Plus_Std_X,Table_PET_Plus_X);
+        ClearCollect(Col_Table_PET_Std_X,Table_PET_Std_X);
+        ClearCollect(Col_Table_PET_Flake,Table_PET_Flake);
+        ClearCollect(Col_Table_HDPE_Nat,Table_HDPE_Nat_New);
+        ClearCollect(Col_Table_HDPE_Nat_Low_White,Table_HDPE_Nat_Low_White);
+        ClearCollect(Col_Table_PP,Table_PP_New);
+        ClearCollect(Col_Table_PP_PnG,Table_PP_PnG_New);
+        ClearCollect(Col_Table_All_Sign,Table_All_Sign);
+        ClearCollect(Col_Table_All_CoA,Table_All_CoA);
+        
+        //Customer
+        ClearCollect(Col_Table_Customer_Reference,Table_Customer_Reference);
+        ClearCollect(Col_Table_Customer_Reference_Sorted,SortByColumns(Col_Table_Customer_Reference,"Customer",SortOrder.Ascending));
+        
+        //Collecting and sorting PET CoA information
+        Set(Var_Start,"Loading PET...");
+        ClearCollect(Col_CoA_PET,CoA_PET);
+        ClearCollect(Col_CoA_PET_Filtered,Filter(Col_CoA_PET,Batch_No_Storage_Silo<>""));
+        ClearCollect(Col_CoA_PET_Filtered_Sorted,SortByColumns(Col_CoA_PET_Filtered,"Unique_App",SortOrder.Descending));
+        
+        //Collecting and sorting PET Flake CoA information
+        Set(Var_Start,"Loading PET Flake...");
+        ClearCollect(Col_CoA_PET_Flake,CoA_PET_Flake);
+        ClearCollect(Col_CoA_PET_Flake_Filtered,Filter(Col_CoA_PET_Flake,Batch_No_Storage_Silo<>""));
+        ClearCollect(Col_CoA_PET_Flake_Filtered_Sorted,SortByColumns(Col_CoA_PET_Flake_Filtered,"Unique_App",SortOrder.Descending));
+        
+        //Collecting and sorting HDPE Natural CoA information
+        Set(Var_Start,"Loading HDPE Natural...");
+        ClearCollect(Col_CoA_HDPE_Natural,CoA_HDPE_Natural);
+        ClearCollect(Col_CoA_HDPE_Natural_Filtered,Filter(Col_CoA_HDPE_Natural,Batch_No_Storage_Silo<>""));
+        ClearCollect(Col_CoA_HDPE_Natural_Filtered_Sorted,SortByColumns(Col_CoA_HDPE_Natural_Filtered,"Unique_App",SortOrder.Descending));
+        
+        //Collecting and sorting PP Natural CoA information
+        Set(Var_Start,"Loading PP...");
+        ClearCollect(Col_CoA_PP,CoA_PP);
+        ClearCollect(Col_CoA_PP_Filtered,Filter(Col_CoA_PP,Batch_No_Storage_Silo<>""));
+        ClearCollect(Col_CoA_PP_Filtered_Sorted,SortByColumns(Col_CoA_PP_Filtered,"Unique_App",SortOrder.Descending));
+        
+        Set(Var_Start,"Loaded");
+    Theme: =PowerAppsTheme
+
+    Host As hostControl.DefaultHostControlVariant:
+        OnCancel: =false
+        OnEdit: =false
+        OnNew: =false
+        OnSave: =false
+        OnView: =false
+
