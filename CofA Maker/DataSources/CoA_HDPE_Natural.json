@@ -3,10 +3,12 @@
     "ApiId": "/providers/microsoft.powerapps/apis/shared_excelonlinebusiness",
     "CdpRevision": {
       "BaseUrl": "/v2",
-      "LastChangedTimeString": "2023-03-07T20:27:37.6330000Z",
+      "LastChangedTimeString": "2023-10-09T18:08:52.9940000Z",
       "RevisionNumber": 2
     },
     "ConnectedDataSourceInfoNameMapping": {
+      "% of white on flake": "% of white on flake",
+      "%_of_white_on_flake_App": "%_of_white_on_flake_App",
       "23": "23",
       "a* Average": "a* Average",
       "a* TM": "a* TM",
@@ -24,6 +26,8 @@
       "Calculated Weight in Piovan Storage Silo Batch": "Calculated Weight in Piovan Storage Silo Batch",
       "Charpy Impact Strengh": "Charpy Impact Strengh",
       "Charpy Impact Strengh TM": "Charpy Impact Strengh TM",
+      "Column3": "Column3",
+      "Column4": "Column4",
       "Crystallinity": "Crystallinity",
       "Crystallinity TM": "Crystallinity TM",
       "Date Completed": "Date Completed",
@@ -52,6 +56,7 @@
       "Stress Crack Resistance": "Stress Crack Resistance",
       "Stress Crack Resistance TM": "Stress Crack Resistance TM",
       "Total Weight of Sampling Silo Batches in Storage Silo Batch": "Total Weight of Sampling Silo Batches in Storage Silo Batch",
+      "Translucence": "Translucence",
       "Unique_App": "Unique_App",
       "Volatile Measurement (Limonene)": "Volatile Measurement (Limonene)",
       "Weights of Sampling Silo Batches in Storage Silo Batch": "Weights of Sampling Silo Batches in Storage Silo Batch"
