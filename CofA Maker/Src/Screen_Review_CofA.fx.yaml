@@ -11,7 +11,7 @@ Screen_Review_CofA As screen:
         Layout: =Layout.Vertical
         ShowScrollbar: =false
         TemplatePadding: =1
-        TemplateSize: =Gallery_CoA_Main.TemplateHeight
+        TemplateSize: =Gallery_CoA_3.TemplateHeight
         Width: =706
         WrapCount: =10
         X: =641
@@ -34,8 +34,11 @@ Screen_Review_CofA As screen:
                 =If(
                 Var_Product_Selected_Text="PET",ThisItem.Height_1,
                 Var_Product_Selected_Text="PET Standard",ThisItem.Height_1,
+                Var_Product_Selected_Text="PET X",ThisItem.Height_1,
+                Var_Product_Selected_Text="PET Standard X",ThisItem.Height_1,
                 Var_Product_Selected_Text="PET Flake Standard",ThisItem.Height_3,
                 Var_Product_Selected_Text="HDPE Natural",ThisItem.Height_2,
+                Var_Product_Selected_Text="HDPE Natural LW",17,
                 Var_Product_Selected_Text="PP",ThisItem.Height_1,
                 ThisItem.Height_1)
             OnSelect: =
@@ -56,8 +59,10 @@ Screen_Review_CofA As screen:
             Var_Product_Selected_Text="PET Std X",Col_Table_PET_Std_X,
             Var_Product_Selected_Text="PET Flake Standard",Col_Table_PET_Flake,
             Var_Product_Selected_Text="HDPE Natural",Col_Table_HDPE_Nat,
+            Var_Product_Selected_Text="HDPE Natural LW",Col_Table_HDPE_Nat_Low_White,
             Var_Product_Selected_Text="PP",Col_Table_PP,
             Var_Product_Selected_Text="PP P&G",Col_Table_PP_PnG
+            ,Col_Table_PP
             )
         Layout: =Layout.Vertical
         ShowScrollbar: =false
@@ -68,6 +73,7 @@ Screen_Review_CofA As screen:
             Var_Product_Selected_Text="PET Standard",9.5,
             Var_Product_Selected_Text="PET Flake Standard",11,
             Var_Product_Selected_Text="HDPE Natural",8.7,
+            Var_Product_Selected_Text="HDPE Natural LW",8,
             Var_Product_Selected_Text="HDPE Self Coloured",9.5,
             Var_Product_Selected_Text="PP",9.5,
             9.5)
@@ -285,10 +291,13 @@ Screen_Review_CofA As screen:
             
             If(ThisItem.Material="PET",Set(Var_Product_Selected_Text,"PET Std"),
             If(ThisItem.Material="PET Plus",Set(Var_Product_Selected_Text,"PET Plus"),
+            If(ThisItem.Material="PET X",Set(Var_Product_Selected_Text,"PET Std X"),
+            If(ThisItem.Material="PET Plus X",Set(Var_Product_Selected_Text,"PET Plus X"),
             If(ThisItem.Material="PET Flake",Set(Var_Product_Selected_Text,"PET Flake Standard"),
-            If(ThisItem.Material="HDPE Natural",Set(Var_Product_Selected_Text,"HDPE Natural"),
+            If(ThisItem.Material="HDPE Natural LW",Set(Var_Product_Selected_Text,"HDPE Natural LW"),
+            
             If(ThisItem.Material="PP"&&ThisItem.Customer="Proctor and Gamble",Set(Var_Product_Selected_Text,"PP P&G"),
-            If(ThisItem.Material="PP",Set(Var_Product_Selected_Text,"PP")))))));
+            If(ThisItem.Material="PP",Set(Var_Product_Selected_Text,"PP")))))))));
             
             Set(Var_CoA_Selected_PET,Blank());Set(Var_CoA_Selected_PET_Flake,Blank());Set(Var_CoA_Selected_HDPE_Nat,Blank());Set(Var_CoA_Selected_HDPE_Col,Blank()); Set(Var_CoA_Selected_PP,Blank());
             
@@ -541,10 +550,13 @@ Screen_Review_CofA As screen:
         Items: |+
             =If(var_CofA_to_review.Material="PET",Filter(Col_CoA_PET_Filtered_Sorted,Batch_No_Storage_Silo=var_CofA_to_review.'Batch Number'),
             If(var_CofA_to_review.Material="PET Plus",Filter(Col_CoA_PET_Filtered_Sorted,Batch_No_Storage_Silo=var_CofA_to_review.'Batch Number'),
+            If(var_CofA_to_review.Material="PET X",Filter(Col_CoA_PET_Filtered_Sorted,Batch_No_Storage_Silo=var_CofA_to_review.'Batch Number'),
+            If(var_CofA_to_review.Material="PET Plus X",Filter(Col_CoA_PET_Filtered_Sorted,Batch_No_Storage_Silo=var_CofA_to_review.'Batch Number'),
             If(var_CofA_to_review.Material="PET Flake",Filter(Col_CoA_PET_Flake_Filtered_Sorted,Batch_No_Storage_Silo=var_CofA_to_review.'Batch Number'),
             If(var_CofA_to_review.Material="HDPE Natural",Filter(Col_CoA_HDPE_Natural_Filtered_Sorted,Batch_No_Storage_Silo=var_CofA_to_review.'Batch Number'),
+            If(var_CofA_to_review.Material="HDPE Natural LW",Filter(Col_CoA_HDPE_Natural_Filtered_Sorted,Batch_No_Storage_Silo=var_CofA_to_review.'Batch Number'),
             If(var_CofA_to_review.Material="PP",Filter(Col_CoA_PP_Filtered_Sorted,Batch_No_Storage_Silo=var_CofA_to_review.'Batch Number')
-            )))))
+            ))))))))
             
             
         Layout: =Layout.Vertical
@@ -558,9 +570,8 @@ Screen_Review_CofA As screen:
         ShowScrollbar: =false
         TemplatePadding: =0
         TemplateSize: =26
-        Visible: =false
         Width: =179
-        X: =246
+        X: =324
         ZIndex: =22
 
         Storage_Silo_Batch_10 As label:
@@ -579,7 +590,7 @@ Screen_Review_CofA As screen:
             Size: =Text_size
             Text: =ThisItem.Batch_No_Storage_Silo
             Width: =155
-            Y: =7
+            X: =24
             ZIndex: =7
 
     Button_Select_review As button:
