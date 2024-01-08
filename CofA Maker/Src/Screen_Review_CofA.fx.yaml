@@ -550,7 +550,7 @@ Screen_Review_CofA As screen:
 
     "Gallery_CoA_Choice_Review As gallery.'BrowseLayout_Vertical_OneTextVariant_ver4.0'":
         Fill: =RGBA(186, 202, 226, 1)
-        Height: =74
+        Height: =40
         Items: |+
             =If(var_CofA_to_review.Material="PET",Filter(Col_CoA_PET_Filtered_Sorted,Batch_No_Storage_Silo=var_CofA_to_review.'Batch Number'),
             If(var_CofA_to_review.Material="PET Plus",Filter(Col_CoA_PET_Filtered_Sorted,Batch_No_Storage_Silo=var_CofA_to_review.'Batch Number'),
