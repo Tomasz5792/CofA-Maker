@@ -577,16 +577,797 @@
                 Y: =10
                 ZIndex: =5
 
+    Rectangle_3 As rectangle:
+        Fill: =RGBA(208, 212, 206, 1)
+        Height: =166
+        Width: =794
+        ZIndex: =2
+
+    Image_Banner As image:
+        Height: =215
+        Image: |-
+            =If(
+            Var_Product_Selected_Text="PET Plus",First(Index(Col_CofA_Picture_List,1).Attachments).Value,
+            Var_Product_Selected_Text="PET Std",First(Index(Col_CofA_Picture_List,1).Attachments).Value,
+            Var_Product_Selected_Text="PET Plus X",First(Index(Col_CofA_Picture_List,1).Attachments).Value,
+            Var_Product_Selected_Text="PET Std X",First(Index(Col_CofA_Picture_List,1).Attachments).Value,
+            Var_Product_Selected_Text="PET Flake Standard",First(Index(Col_CofA_Picture_List,2).Attachments).Value,
+            Var_Product_Selected_Text="HDPE Natural",First(Index(Col_CofA_Picture_List,3).Attachments).Value,
+            Var_Product_Selected_Text="Natural Low White",First(Index(Col_CofA_Picture_List,3).Attachments).Value,
+            Var_Product_Selected_Text="PP",First(Index(Col_CofA_Picture_List,4).Attachments).Value,
+            Var_Product_Selected_Text="PP P&G",First(Index(Col_CofA_Picture_List,4).Attachments).Value
+            )
+        ImagePosition: =ImagePosition.Stretch
+        Width: =794
+        ZIndex: =3
+
+    Rectangle_4 As rectangle:
+        Fill: =RGBA(0, 78, 168, 1)
+        Height: =49
+        Width: =794
+        Y: =166
+        ZIndex: =4
+
+    Gallery_Signature As gallery.galleryVertical:
+        Fill: =Color.Transparent
+        Height: =179
+        Items: =Col_Table_All_Sign
+        Layout: =Layout.Vertical
+        ShowScrollbar: =false
+        TemplatePadding: =1
+        TemplateSize: =20
+        Width: =706
+        WrapCount: =10
+        X: =44
+        Y: =857
+        ZIndex: =5
+
+        Label2_5 As label:
+            BorderStyle: =BorderStyle.None
+            BorderThickness: =1
+            Color: |-
+                =If(ThisItem.Colour_Column="CoA_Colour_Dark",Color.White,
+                Color.Black)
+            Fill: |-
+                =If(ThisItem.Colour_Column="CoA_Colour_Dark",Colour_CoA_Blue_Dark,
+                If(ThisItem.Colour_Column="CoA_Colour_Light_1",Colour_CoA_Blue_Light_1,
+                If(ThisItem.Colour_Column="CoA_Colour_Light_2",Colour_CoA_Blue_Light_2,
+                If(ThisItem.Colour_Column="Transparent",Color.Transparent,
+                Color.Red))))
+            Font: =Font.Arial
+            FontWeight: =FontWeight.Lighter
+            Height: =ThisItem.Box_Height
+            OnSelect: =
+            Size: =Text_size_CoA
+            Text: =ThisItem.Column_1
+            Width: =ThisItem.Box_Width
+            ZIndex: =1
+
+    Rectangle2_4 As rectangle:
+        Fill: =Color.Transparent
+        Height: =11
+        Width: =702
+        X: =46
+        Y: =215
+        ZIndex: =7
+
+    Rectangle2_5 As rectangle:
+        Fill: =Color.Transparent
+        Height: =15
+        Width: =706
+        X: =50
+        Y: =405
+        ZIndex: =8
+
+    Rectangle2_6 As rectangle:
+        Fill: =Color.Transparent
+        Height: =15
+        Width: =706
+        X: =50
+        Y: =536
+        ZIndex: =9
+
+    Gallery_CoA_2 As gallery.galleryVertical:
+        Fill: =Color.Transparent
+        Height: =631
+        Items: =Gallery_CoA_Main.AllItems
+        Layout: =Layout.Vertical
+        ShowScrollbar: =false
+        TemplatePadding: =1
+        TemplateSize: |+
+            =Gallery_CoA_Main.TemplateHeight
+            
+            
+        Width: =706
+        WrapCount: =5
+        X: =44
+        Y: =226
+        ZIndex: =10
+
+        Label2_8 As label:
+            BorderStyle: =BorderStyle.None
+            BorderThickness: =1
+            Color: =If(ThisItem.Colour_Column="CoA_Colour_Dark",Color.White,Color.Black)
+            Fill: |-
+                =If(ThisItem.Colour_Column="CoA_Colour_Dark",Colour_CoA_Blue_Dark,
+                If(ThisItem.Colour_Column="CoA_Colour_Light_1",Colour_CoA_Blue_Light_1,
+                If(ThisItem.Colour_Column="CoA_Colour_Light_2",Colour_CoA_Blue_Light_2,
+                If(ThisItem.Colour_Column="Transparent",Color.Transparent,
+                Color.Red))))
+            Font: =Font.Arial
+            FontWeight: =If(ThisItem.Font_Weight="bold",FontWeight.Semibold,FontWeight.Lighter)
+            Height: =ThisItem.Height
+            OnSelect: =
+            PaddingRight: =0
+            Size: =Text_size_CoA
+            Text: =ThisItem.Text
+            Width: =ThisItem.Width
+            ZIndex: =1
+
+    Label4 As label:
+        Align: =Align.Right
+        Font: =Font.Arial
+        Height: =30
+        LineHeight: =1.1
+        PaddingBottom: =0
+        PaddingLeft: =0
+        PaddingRight: =0
+        PaddingTop: =0
+        Size: =7
+        Text: |-
+            ="Copyright Viridor:  not to be reproduced without permission
+            Registered in England No: 5499464"
+        VerticalAlign: =VerticalAlign.Top
+        Width: =253
+        X: =495
+        Y: =1064
+        ZIndex: =11
+
+    Gallery_CoA_All_1 As gallery.galleryVertical:
+        Fill: =Color.Transparent
+        Height: =173
+        Items: |+
+            =Col_Table_All_CoA
+            
+        Layout: =Layout.Vertical
+        ShowScrollbar: =false
+        TemplatePadding: =1
+        TemplateSize: =Gallery_CoA_Main.TemplateHeight
+        Width: =706
+        WrapCount: =10
+        X: =44
+        Y: =226
+        ZIndex: =14
+
+        Label2_13 As label:
+            BorderStyle: =BorderStyle.None
+            BorderThickness: =1
+            Color: =If(ThisItem.Colour_Column="CoA_Colour_Dark",Color.White,Color.Black)
+            Fill: |-
+                =If(ThisItem.Colour_Column="CoA_Colour_Dark",Colour_CoA_Blue_Dark,
+                If(ThisItem.Colour_Column="CoA_Colour_Light_1",Colour_CoA_Blue_Light_1,
+                If(ThisItem.Colour_Column="CoA_Colour_Light_2",Colour_CoA_Blue_Light_2,
+                If(ThisItem.Colour_Column="Transparent",Color.Transparent,
+                Color.Red))))
+            Font: =Font.Arial
+            FontWeight: =FontWeight.Lighter
+            Height: |-
+                =If(
+                Var_Product_Selected_Text="PET",ThisItem.Height_1,
+                Var_Product_Selected_Text="PET Standard",ThisItem.Height_1,
+                Var_Product_Selected_Text="PET Flake Standard",23,
+                Var_Product_Selected_Text="HDPE Natural",ThisItem.Height_2,
+                Var_Product_Selected_Text="Natural Low White",17,
+                Var_Product_Selected_Text="PP",ThisItem.Height_1,
+                ThisItem.Height_1)
+            OnSelect: =
+            PaddingRight: =0
+            Size: =Text_size_CoA
+            Text: =ThisItem.Text
+            Width: =ThisItem.Width
+            ZIndex: =1
+
+    Rectangle1_4 As rectangle:
+        Fill: =Color.Transparent
+        Height: =10
+        Width: =703
+        X: =47
+        Y: =847
+        ZIndex: =18
+
+    Image5 As image:
+        Height: =49
+        Image: =First(Index(Col_CofA_Picture_List,5).Attachments).Value
+        Width: =794
+        Y: =166
+        ZIndex: =19
+
+    Gallery_Results_2 As gallery.galleryVertical:
+        Fill: =Color.Transparent
+        Height: =231
+        Items: |+
+            =If(Var_Status="Create",Gallery_Results_Main_2.AllItems,
+            If(Var_Status="Review",Gallery_Results_Review_2.AllItems
+            ))
+            
+        Layout: =Layout.Vertical
+        ShowScrollbar: =false
+        TemplatePadding: =1
+        TemplateSize: |+
+            =Gallery_Results_Main_1.TemplateHeight
+            
+        Width: =213
+        X: =535
+        Y: =226
+        ZIndex: =20
+
+        Label2_15 As label:
+            BorderStyle: =BorderStyle.None
+            BorderThickness: =1
+            Fill: =Color.Transparent
+            Font: =Font.Arial
+            FontWeight: =FontWeight.Lighter
+            Height: =ThisItem.Value.Height
+            OnSelect: =
+            Size: =Text_size_CoA
+            Text: =ThisItem.Value.Text
+            Width: =Parent.Width
+            ZIndex: =1
+
+    Gallery_Results_1 As gallery.galleryVertical:
+        Fill: =Color.Transparent
+        Height: =784
+        Items: |-
+            =If(Var_Status="Create",Gallery_Results_Main_1.AllItems,
+            If(Var_Status="Review",Gallery_Results_Review.AllItems
+            ))
+        Layout: =Layout.Vertical
+        ShowScrollbar: =false
+        TemplatePadding: =1
+        TemplateSize: |+
+            =Gallery_Results_Main_1.TemplateHeight
+            
+        Width: =506
+        X: =186
+        Y: =226
+        ZIndex: =21
+
+        Label2_9 As label:
+            BorderStyle: =BorderStyle.None
+            BorderThickness: =1
+            Fill: =Color.Transparent
+            Font: =Font.Arial
+            FontWeight: =FontWeight.Lighter
+            Height: =ThisItem.Value.Height
+            OnSelect: =
+            Size: =Text_size_CoA
+            Text: =ThisItem.Value.Text
+            Width: =Parent.Width
+            ZIndex: =1
+
+    Text_Not_Routinely_Main_1 As label:
+        Align: =Align.Right
+        Font: =Font.Arial
+        FontWeight: =FontWeight.Bold
+        Height: =18
+        LineHeight: =1.1
+        PaddingBottom: =0
+        PaddingLeft: =0
+        PaddingRight: =0
+        PaddingTop: =0
+        Size: =7
+        Text: ="(*) Tested every batch              (**) Tested Periodically"
+        VerticalAlign: =VerticalAlign.Top
+        Visible: |-
+            =If(
+            Var_Product_Selected_Text="PET",true,
+            Var_Product_Selected_Text="PET Standard",false,
+            Var_Product_Selected_Text="PET Flake",false,
+            Var_Product_Selected_Text="HDPE Natural",true,
+            Var_Product_Selected_Text="HDPE Self Coloured",false,
+            Var_Product_Selected_Text="PP",true,
+            Var_Product_Selected_Text="PP P&G",true,
+            false)
+        Width: =253
+        X: =495
+        Y: =1046
+        ZIndex: =22
+
+    Image1 As image:
+        Height: =41
+        Image: =Created_By.Image
+        ImagePosition: =ImagePosition.Fill
+        OnSelect: =Set(var_created_by_visible,"visible")
+        Visible: |+
+            =If(Var_Status="Create",true,
+            If(Var_Status="Review",false
+            ))
+            
+            
+        Width: =211
+        X: =397
+        Y: =879
+        ZIndex: =23
+
+    Label3 As label:
+        Align: =Align.Center
+        Font: =Font.Arial
+        Height: =42
+        Size: =12
+        Text: |-
+            =If(Var_Status="Create",
+            
+            If(User().FullName="Martin Hayman","Susan Hayman",User().FullName)
+            
+            ,
+            If(Var_Status="Review",var_CofA_to_review.'Created By'.DisplayName
+            ))
+            
+            
+            //If(Var_Status="Create",User().FullName,If(Var_Status="Review",var_CofA_to_review.'Created By'.DisplayName))
+        Width: =210
+        X: =187
+        Y: =879
+        ZIndex: =24
+
+    Label3_1 As label:
+        Align: =Align.Center
+        Font: =Font.Arial
+        Height: =42
+        Size: =12
+        Text: |+
+            =If(Var_Status="Create",Today(),
+            If(Var_Status="Review",Text(var_CofA_to_review.Created,DateTimeFormat.ShortDate)
+            ))
+            
+        Width: =138
+        X: =610
+        Y: =879
+        ZIndex: =25
+
+    Image3 As image:
+        Height: =42
+        Image: =var_CofA_to_review.'Created Signature'.Full
+        Visible: |-
+            =If(Var_Status="Create",false,
+            If(Var_Status="Review",true
+            ))
+        Width: =209
+        X: =399
+        Y: =879
+        ZIndex: =26
+
+    Group1 As group:
+        Height: =5
+        Width: =5
+        X: =40
+        Y: =40
+        ZIndex: =26
+
+        Rectangle1_1 As rectangle:
+            Height: =82
+            Width: =300
+            X: =46
+            Y: =1022
+            ZIndex: =6
+
+        Label4_2 As label:
+            Color: =Color.White
+            Font: =Font.Arial
+            Height: =79
+            PaddingBottom: =0
+            PaddingLeft: =0
+            PaddingRight: =0
+            PaddingTop: =0
+            Size: =7
+            Text: |-
+                ="polymers@viridor.co.uk
+                
+                +44(0)1732 299 200
+                
+                www.viridor.co.uk"
+            Width: =118
+            X: =226
+            Y: =1022
+            ZIndex: =12
+
+        Label4_3 As label:
+            Color: =Color.White
+            Font: =Font.Arial
+            Height: =62
+            PaddingBottom: =0
+            PaddingLeft: =0
+            PaddingRight: =0
+            PaddingTop: =0
+            Size: =12
+            Text: |-
+                ="Please contact
+                Viridor for
+                further enquiries."
+            VerticalAlign: =VerticalAlign.Top
+            Width: =136
+            X: =52
+            Y: =1026
+            ZIndex: =13
+
+        Icon1 As icon.Mail:
+            Color: =RGBA(170, 189, 218, 1)
+            Height: =18
+            Icon: =Icon.Mail
+            Width: =18
+            X: =195
+            Y: =1030
+            ZIndex: =15
+
+        Icon1_1 As icon.Mail:
+            Color: =RGBA(170, 189, 218, 1)
+            Height: =18
+            Icon: =Icon.Phone
+            Width: =18
+            X: =195
+            Y: =1052
+            ZIndex: =16
+
+        Icon1_2 As icon.Mail:
+            Color: =RGBA(170, 189, 218, 1)
+            Height: =18
+            Icon: =Icon.Globe
+            Width: =18
+            X: =195
+            Y: =1075
+            ZIndex: =17
+
+    Label3_2 As label:
+        Align: =Align.Center
+        Font: =Font.Arial
+        Height: =42
+        Size: =12
+        Text: |+
+            =Today()
+            
+        Visible: |-
+            =If(Var_Status="Create",false,
+            If(Var_Status="Review",true
+            ))
+        Width: =138
+        X: =610
+        Y: =940
+        ZIndex: =27
+
+    Image3_2 As image:
+        Height: =42
+        Image: =Reviewed_By_1
+        OnSelect: =Set(var_reviewed_by_visible,"visible")
+        Visible: |-
+            =If(Var_Status="Create",false,
+            If(Var_Status="Review",true
+            ))
+        Width: =209
+        X: =399
+        Y: =940
+        ZIndex: =28
+
+    Label3_3 As label:
+        Align: =Align.Center
+        Font: =Font.Arial
+        Height: =42
+        Size: =12
+        Text: =User().FullName
+        Visible: |-
+            =If(Var_Status="Create",false,
+            If(Var_Status="Review",true
+            ))
+        Width: =210
+        X: =187
+        Y: =940
+        ZIndex: =29
+
+    "'Sign Created' As group":
+        Height: =5
+        Width: =5
+        X: =40
+        Y: =40
+        ZIndex: =30
+
+        Label2 As label:
+            Align: =Align.Center
+            BorderColor: =Colour_CoA_Blue_Dark
+            BorderThickness: =1.5
+            Color: =Colour_CoA_Blue_Light_2
+            Fill: =Colour_CoA_Blue_Light_1
+            Font: =Font.Arial
+            Height: =154
+            Size: =100
+            Text: ="Sign Here"
+            Visible: =If(var_created_by_visible="visible",true,false)
+            Width: =784
+            X: =5
+            Y: =478
+            ZIndex: =34
+
+        Created_By As inkControl:
+            BorderColor: =RGBA(255, 255, 255, 1)
+            BorderThickness: =0
+            Color: =RGBA(0, 13, 75, 1)
+            Fill: =
+            Height: =153
+            ShowControls: =false
+            Visible: =If(var_created_by_visible="visible",true,false)
+            Width: =783
+            X: =5
+            Y: =478
+            ZIndex: =35
+
+        Button_Back_2 As icon.CancelBadge:
+            Color: =Colour_CoA_Blue_Dark
+            Height: =42
+            HoverColor: =Colour_Viridor_Purple
+            Icon: =Icon.Check
+            OnSelect: =Set(var_created_by_visible,"hidden")
+            PressedColor: =Color.White
+            Visible: =If(var_created_by_visible="visible",true,false)
+            Width: =42
+            X: =745
+            Y: =587
+            ZIndex: =36
+
+        Button_Back_4 As icon.CancelBadge:
+            Color: =Colour_CoA_Blue_Dark
+            Height: =42
+            HoverColor: =Colour_Viridor_Purple
+            Icon: =Icon.Cancel
+            OnSelect: =Reset(Created_By)
+            PressedColor: =Color.White
+            Visible: =If(var_created_by_visible="visible",true,false)
+            Width: =42
+            X: =744
+            Y: =482
+            ZIndex: =37
+
+    Label5 As label:
+        Text: =
+        X: =40
+        Y: =40
+        ZIndex: =38
+
+    Label_Filename As label:
+        Fill: =RGBA(186, 202, 226, 1)
+        Height: =68
+        Text: |+
+            =If(
+            var_CofA_to_review.Material="PET","22. PET-CLEAR-WITH-BLUE-PELLET-STANDARD_"&var_CofA_to_review.'Batch Number'&"_"&var_CofA_to_review.'Delivery Number',
+            var_CofA_to_review.Material="PET Plus","nn. PET-CLEAR-WITH-BLUE-PELLET-STANDARD-PLUS_"&var_CofA_to_review.'Batch Number'&"_"&var_CofA_to_review.'Delivery Number',
+            var_CofA_to_review.Material="PET Flake","05. PET-CLEAR-WITH-BLUE-FLAKE-STANDARD_"&var_CofA_to_review.'Batch Number'&"_"&var_CofA_to_review.'Delivery Number',
+            var_CofA_to_review.Material="HDPE Natural","02. HDPE-NATURAL-PELLET-DEODORISED_"&var_CofA_to_review.'Batch Number'&"_"&var_CofA_to_review.'Delivery Number',
+            var_CofA_to_review.Material="PP","09. PP-SELF-COLOURED-PELLET-DEODORISED_"&var_CofA_to_review.'Batch Number'&"_"&var_CofA_to_review.'Delivery Number',
+            "Filename_Error.pdf")
+            
+            
+            
+            
+        Visible: =false
+        Width: =260
+        X: =52
+        Y: =40
+        ZIndex: =39
+
+    Button_Delete_9 As icon.CancelBadge:
+        Color: =Color.White
+        Height: =42
+        HoverColor: =Colour_Viridor_Purple
+        Icon: =Icon.Trash
+        OnSelect: |-
+            =Remove('CofA to Review',var_CofA_to_review);
+            
+            Set(var_CofA_to_review,Blank());
+            
+            Back();
+        PressedColor: =Color.Transparent
+        Tooltip: ="Delete"
+        Visible: |-
+            =Not(Parent.Printing)
+            &&
+            If(Var_Status="Create",false,
+            If(Var_Status="Review",true
+            ))
+        Width: =42
+        X: =Button_Back_6.X-(52*3)
+        Y: =22
+        ZIndex: =40
+
+    Button_Create As icon.CancelBadge:
+        Color: =Color.White
+        Height: =42
+        HoverColor: =Colour_Viridor_Purple
+        Icon: =Icon.Add
+        OnSelect: |-
+            =Set(Var_Creating,true);
+            
+            SubmitForm(Form_add_data_to_CofA_review);
+            NewForm(Form_add_data_to_CofA_review);
+            
+            //Just in case an atatchment is needed
+            //AddSignaturetoSharepointList.Run("signature.bmp",Last('CofA to Review').ID,{file:{name:"signature.bmp",contentBytes:Created_By.Image }});
+            
+            
+            Back();
+            
+            Set(Var_Creating,false);
+        PressedColor: =Color.Transparent
+        Tooltip: ="Create CofA"
+        Visible: |-
+            =Not(Parent.Printing)
+            &&
+            If(Var_Status="Create",true,
+            If(Var_Status="Review",false
+            ))
+        Width: =42
+        X: =Button_Back_6.X-(52*3)
+        Y: =Button_Back_6.Y
+        ZIndex: =41
+
+    "'Sign Review' As group":
+        Height: =5
+        Width: =5
+        X: =5
+        Y: =20
+        ZIndex: =41
+
+        Label2_1 As label:
+            Align: =Align.Center
+            BorderColor: =Colour_CoA_Blue_Dark
+            BorderThickness: =1.5
+            Color: =Colour_CoA_Blue_Light_2
+            Fill: =Colour_CoA_Blue_Light_1
+            Font: =Font.Arial
+            Height: =154
+            Size: =100
+            Text: ="Sign Here"
+            Visible: =If(var_reviewed_by_visible="visible",true,false)
+            Width: =784
+            X: =6
+            Y: =478
+            ZIndex: =30
+
+        Reviewed_By_1 As inkControl:
+            BorderColor: =RGBA(255, 255, 255, 1)
+            BorderThickness: =0
+            Color: =RGBA(0, 13, 75, 1)
+            Fill: =
+            Height: =153
+            ShowControls: =false
+            Visible: =If(var_reviewed_by_visible="visible",true,false)
+            Width: =783
+            X: =6
+            Y: =478
+            ZIndex: =31
+
+        Button_Back_8 As icon.CancelBadge:
+            Color: =Colour_CoA_Blue_Dark
+            Height: =42
+            HoverColor: =Colour_Viridor_Purple
+            Icon: =Icon.Check
+            OnSelect: =Set(var_reviewed_by_visible,"hidden")
+            PressedColor: =Color.White
+            Visible: =If(var_reviewed_by_visible="visible",true,false)
+            Width: =42
+            X: =746
+            Y: =587
+            ZIndex: =32
+
+        Button_Back_7 As icon.CancelBadge:
+            Color: =Colour_CoA_Blue_Dark
+            Height: =42
+            HoverColor: =Colour_Viridor_Purple
+            Icon: =Icon.Cancel
+            OnSelect: =Reset(Reviewed_By_1)
+            PressedColor: =Color.White
+            Visible: =If(var_reviewed_by_visible="visible",true,false)
+            Width: =42
+            X: =745
+            Y: =482
+            ZIndex: =33
+
+    Button_Print_1 As icon.CancelBadge:
+        Color: =Color.White
+        Height: =42
+        HoverColor: =Colour_Viridor_Purple
+        Icon: =Icon.Print
+        OnSelect: =Print()
+        PressedColor: =Color.Transparent
+        Tooltip: ="Print"
+        Visible: =Not(Parent.Printing)
+        Width: =42
+        X: =Button_Back_6.X-(52*2)
+        Y: =Button_Back_6.Y
+        ZIndex: =42
+
+    Button_Home_8 As icon.CancelBadge:
+        Color: =Color.White
+        Height: =42
+        HoverColor: =Colour_Viridor_Purple
+        Icon: =Icon.Home
+        OnSelect: =Navigate(Screen_Start,ScreenTransition.None);
+        PressedColor: =Color.Transparent
+        Tooltip: ="Home"
+        Visible: =Not(Parent.Printing)
+        Width: =42
+        X: =Button_Back_6.X-52
+        Y: =Button_Back_6.Y
+        ZIndex: =43
+
+    Button_Back_6 As icon.CancelBadge:
+        Color: =Color.White
+        Height: =42
+        HoverColor: =Colour_Viridor_Purple
+        Icon: =Icon.BackArrow
+        OnSelect: =Back()
+        PressedColor: =Color.Transparent
+        Tooltip: ="Back"
+        Visible: =Not(Parent.Printing)
+        Width: =42
+        X: =731
+        Y: =22
+        ZIndex: =44
+
+    Button_Create_PDF As icon.CancelBadge:
+        Color: =Color.White
+        Height: =42
+        HoverColor: =Colour_Viridor_Purple
+        Icon: =Icon.DocumentPDF
+        OnSelect: |
+            =Set(Var_Creating,true);
+            
+            //Creates new list item in CofA
+            SubmitForm(Form_add_data_to_CofA);
+            NewForm(Form_add_data_to_CofA);
+            
+            //Need to trigger power automate flow to add PDF to sharepoint list.
+            AddPDFtoSharepointList.Run(Label_Filename.Text&".pdf",Last(CofA).ID,{file:{name:Label_Filename.Text&".pdf",contentBytes: PDF(Screen_CofA, {Size: PaperSize.A4, Margin: "0mm"})}});
+            //Dont know why last.ID works, thought it would be last + 1 but I guess it counts the new one too?
+            
+            //Need to delete Form_add_data_to_CofA entry.
+            Remove('CofA to Review',var_CofA_to_review);
+            
+            Set(var_CofA_to_review,Blank());
+            
+            Refresh(CofA);
+            
+            Back();
+            
+            Set(Var_Creating,false);
+        PressedColor: =Color.Transparent
+        Tooltip: ="Create PDF"
+        Visible: |-
+            =Not(Parent.Printing)
+            &&
+            If(Var_Status="Create",false,
+            If(Var_Status="Review",true
+            ))
+        Width: =42
+        X: =Button_Back_6.X-(52*4)
+        Y: =22
+        ZIndex: =45
+
+    Creating As label:
+        Align: =Align.Center
+        Color: =Color.White
+        Fill: =Color.Transparent
+        Height: =1104
+        Size: =30
+        Text: =
+        Visible: =Var_Creating
+        Width: =794
+        ZIndex: =46
+
     Form_add_data_to_CofA_review As form:
         DataSource: ='CofA to Review'
         DefaultMode: =FormMode.New
         Fill: =RGBA(204, 231, 246, 1)
-        Height: =757
-        Visible: =false
+        Height: =581
         Width: =794
-        X: =800
-        Y: =10
-        ZIndex: =2
+        Y: =401
+        ZIndex: =47
 
         "'Batch Number_DataCard1_1' As typedDataCard.textualEditCard":
             BorderStyle: =BorderStyle.Solid
@@ -620,8 +1401,11 @@
                     =If(
                     Var_Product_Selected_Text="PET Std",Var_CoA_Selected_PET.Batch_No_Storage_Silo,
                     Var_Product_Selected_Text="PET Plus",Var_CoA_Selected_PET.Batch_No_Storage_Silo,
+                    Var_Product_Selected_Text="PET Std X",Var_CoA_Selected_PET.Batch_No_Storage_Silo,
+                    Var_Product_Selected_Text="PET Plus X",Var_CoA_Selected_PET.Batch_No_Storage_Silo,
                     Var_Product_Selected_Text="PET Flake Standard",Var_CoA_Selected_PET_Flake.Batch_No_Storage_Silo,
                     Var_Product_Selected_Text="HDPE Natural",Var_CoA_Selected_HDPE_Nat.Batch_No_Storage_Silo,
+                    Var_Product_Selected_Text="Natural Low White",Var_CoA_Selected_HDPE_Nat.Batch_No_Storage_Silo,
                     Var_Product_Selected_Text="PP",Var_CoA_Selected_PP.Batch_No_Storage_Silo,
                     Var_Product_Selected_Text="PP P&G",Var_CoA_Selected_PP.Batch_No_Storage_Silo,
                     "Error")
@@ -696,8 +1480,11 @@
                     =If(
                     Var_Product_Selected_Text="PET Std","PET",
                     Var_Product_Selected_Text="PET Plus","PET Plus",
+                    Var_Product_Selected_Text="PET Std X","PET X",
+                    Var_Product_Selected_Text="PET Plus X","PET Plus X",
                     Var_Product_Selected_Text="PET Flake Standard","PET Flake",
                     Var_Product_Selected_Text="HDPE Natural","HDPE Natural",
+                    Var_Product_Selected_Text="Natural Low White","HDPE Natural LW",
                     Var_Product_Selected_Text="PP","PP",
                     Var_Product_Selected_Text="PP P&G","PP"
                     ,"Error")
@@ -1351,787 +2138,4 @@
                 Wrap: =false
                 Y: =DataCardKey8.Y
                 ZIndex: =4
-
-    Rectangle_3 As rectangle:
-        Fill: =RGBA(208, 212, 206, 1)
-        Height: =166
-        Width: =794
-        ZIndex: =3
-
-    Image_Banner As image:
-        Height: =215
-        Image: |-
-            =If(
-            Var_Product_Selected_Text="PET Plus",First(Index(Col_CofA_Picture_List,1).Attachments).Value,
-            Var_Product_Selected_Text="PET Std",First(Index(Col_CofA_Picture_List,1).Attachments).Value,
-            Var_Product_Selected_Text="PET Plus X",First(Index(Col_CofA_Picture_List,1).Attachments).Value,
-            Var_Product_Selected_Text="PET Std X",First(Index(Col_CofA_Picture_List,1).Attachments).Value,
-            Var_Product_Selected_Text="PET Flake Standard",First(Index(Col_CofA_Picture_List,2).Attachments).Value,
-            Var_Product_Selected_Text="HDPE Natural",First(Index(Col_CofA_Picture_List,3).Attachments).Value,
-            Var_Product_Selected_Text="Natural Low White",First(Index(Col_CofA_Picture_List,3).Attachments).Value,
-            Var_Product_Selected_Text="PP",First(Index(Col_CofA_Picture_List,4).Attachments).Value,
-            Var_Product_Selected_Text="PP P&G",First(Index(Col_CofA_Picture_List,4).Attachments).Value
-            )
-        ImagePosition: =ImagePosition.Stretch
-        Width: =794
-        ZIndex: =4
-
-    Rectangle_4 As rectangle:
-        Fill: =RGBA(0, 78, 168, 1)
-        Height: =49
-        Width: =794
-        Y: =166
-        ZIndex: =5
-
-    Gallery_Signature As gallery.galleryVertical:
-        Fill: =Color.Transparent
-        Height: =179
-        Items: =Col_Table_All_Sign
-        Layout: =Layout.Vertical
-        ShowScrollbar: =false
-        TemplatePadding: =1
-        TemplateSize: =20
-        Width: =706
-        WrapCount: =10
-        X: =44
-        Y: =857
-        ZIndex: =6
-
-        Label2_5 As label:
-            BorderStyle: =BorderStyle.None
-            BorderThickness: =1
-            Color: |-
-                =If(ThisItem.Colour_Column="CoA_Colour_Dark",Color.White,
-                Color.Black)
-            Fill: |-
-                =If(ThisItem.Colour_Column="CoA_Colour_Dark",Colour_CoA_Blue_Dark,
-                If(ThisItem.Colour_Column="CoA_Colour_Light_1",Colour_CoA_Blue_Light_1,
-                If(ThisItem.Colour_Column="CoA_Colour_Light_2",Colour_CoA_Blue_Light_2,
-                If(ThisItem.Colour_Column="Transparent",Color.Transparent,
-                Color.Red))))
-            Font: =Font.Arial
-            FontWeight: =FontWeight.Lighter
-            Height: =ThisItem.Box_Height
-            OnSelect: =
-            Size: =Text_size_CoA
-            Text: =ThisItem.Column_1
-            Width: =ThisItem.Box_Width
-            ZIndex: =1
-
-    Rectangle2_4 As rectangle:
-        Fill: =Color.Transparent
-        Height: =11
-        Width: =702
-        X: =46
-        Y: =215
-        ZIndex: =8
-
-    Rectangle2_5 As rectangle:
-        Fill: =Color.Transparent
-        Height: =15
-        Width: =706
-        X: =50
-        Y: =405
-        ZIndex: =9
-
-    Rectangle2_6 As rectangle:
-        Fill: =Color.Transparent
-        Height: =15
-        Width: =706
-        X: =50
-        Y: =536
-        ZIndex: =10
-
-    Gallery_CoA_2 As gallery.galleryVertical:
-        Fill: =Color.Transparent
-        Height: =631
-        Items: =Gallery_CoA_Main.AllItems
-        Layout: =Layout.Vertical
-        ShowScrollbar: =false
-        TemplatePadding: =1
-        TemplateSize: |+
-            =Gallery_CoA_Main.TemplateHeight
-            
-            
-        Width: =706
-        WrapCount: =5
-        X: =44
-        Y: =226
-        ZIndex: =11
-
-        Label2_8 As label:
-            BorderStyle: =BorderStyle.None
-            BorderThickness: =1
-            Color: =If(ThisItem.Colour_Column="CoA_Colour_Dark",Color.White,Color.Black)
-            Fill: |-
-                =If(ThisItem.Colour_Column="CoA_Colour_Dark",Colour_CoA_Blue_Dark,
-                If(ThisItem.Colour_Column="CoA_Colour_Light_1",Colour_CoA_Blue_Light_1,
-                If(ThisItem.Colour_Column="CoA_Colour_Light_2",Colour_CoA_Blue_Light_2,
-                If(ThisItem.Colour_Column="Transparent",Color.Transparent,
-                Color.Red))))
-            Font: =Font.Arial
-            FontWeight: =If(ThisItem.Font_Weight="bold",FontWeight.Semibold,FontWeight.Lighter)
-            Height: =ThisItem.Height
-            OnSelect: =
-            PaddingRight: =0
-            Size: =Text_size_CoA
-            Text: =ThisItem.Text
-            Width: =ThisItem.Width
-            ZIndex: =1
-
-    Label4 As label:
-        Align: =Align.Right
-        Font: =Font.Arial
-        Height: =30
-        LineHeight: =1.1
-        PaddingBottom: =0
-        PaddingLeft: =0
-        PaddingRight: =0
-        PaddingTop: =0
-        Size: =7
-        Text: |-
-            ="Copyright Viridor:  not to be reproduced without permission
-            Registered in England No: 5499464"
-        VerticalAlign: =VerticalAlign.Top
-        Width: =253
-        X: =495
-        Y: =1064
-        ZIndex: =12
-
-    Gallery_CoA_All_1 As gallery.galleryVertical:
-        Fill: =Color.Transparent
-        Height: =173
-        Items: |+
-            =Col_Table_All_CoA
-            
-        Layout: =Layout.Vertical
-        ShowScrollbar: =false
-        TemplatePadding: =1
-        TemplateSize: =Gallery_CoA_Main.TemplateHeight
-        Width: =706
-        WrapCount: =10
-        X: =44
-        Y: =226
-        ZIndex: =15
-
-        Label2_13 As label:
-            BorderStyle: =BorderStyle.None
-            BorderThickness: =1
-            Color: =If(ThisItem.Colour_Column="CoA_Colour_Dark",Color.White,Color.Black)
-            Fill: |-
-                =If(ThisItem.Colour_Column="CoA_Colour_Dark",Colour_CoA_Blue_Dark,
-                If(ThisItem.Colour_Column="CoA_Colour_Light_1",Colour_CoA_Blue_Light_1,
-                If(ThisItem.Colour_Column="CoA_Colour_Light_2",Colour_CoA_Blue_Light_2,
-                If(ThisItem.Colour_Column="Transparent",Color.Transparent,
-                Color.Red))))
-            Font: =Font.Arial
-            FontWeight: =FontWeight.Lighter
-            Height: |-
-                =If(
-                Var_Product_Selected_Text="PET",ThisItem.Height_1,
-                Var_Product_Selected_Text="PET Standard",ThisItem.Height_1,
-                Var_Product_Selected_Text="PET Flake Standard",23,
-                Var_Product_Selected_Text="HDPE Natural",ThisItem.Height_2,
-                Var_Product_Selected_Text="Natural Low White",17,
-                Var_Product_Selected_Text="PP",ThisItem.Height_1,
-                ThisItem.Height_1)
-            OnSelect: =
-            PaddingRight: =0
-            Size: =Text_size_CoA
-            Text: =ThisItem.Text
-            Width: =ThisItem.Width
-            ZIndex: =1
-
-    Rectangle1_4 As rectangle:
-        Fill: =Color.Transparent
-        Height: =10
-        Width: =703
-        X: =47
-        Y: =847
-        ZIndex: =19
-
-    Image5 As image:
-        Height: =49
-        Image: =First(Index(Col_CofA_Picture_List,5).Attachments).Value
-        Width: =794
-        Y: =166
-        ZIndex: =20
-
-    Gallery_Results_2 As gallery.galleryVertical:
-        Fill: =Color.Transparent
-        Height: =231
-        Items: |+
-            =If(Var_Status="Create",Gallery_Results_Main_2.AllItems,
-            If(Var_Status="Review",Gallery_Results_Review_2.AllItems
-            ))
-            
-        Layout: =Layout.Vertical
-        ShowScrollbar: =false
-        TemplatePadding: =1
-        TemplateSize: |+
-            =Gallery_Results_Main_1.TemplateHeight
-            
-        Width: =213
-        X: =535
-        Y: =226
-        ZIndex: =21
-
-        Label2_15 As label:
-            BorderStyle: =BorderStyle.None
-            BorderThickness: =1
-            Fill: =Color.Transparent
-            Font: =Font.Arial
-            FontWeight: =FontWeight.Lighter
-            Height: =ThisItem.Value.Height
-            OnSelect: =
-            Size: =Text_size_CoA
-            Text: =ThisItem.Value.Text
-            Width: =Parent.Width
-            ZIndex: =1
-
-    Gallery_Results_1 As gallery.galleryVertical:
-        Fill: =Color.Transparent
-        Height: =784
-        Items: |-
-            =If(Var_Status="Create",Gallery_Results_Main_1.AllItems,
-            If(Var_Status="Review",Gallery_Results_Review.AllItems
-            ))
-        Layout: =Layout.Vertical
-        ShowScrollbar: =false
-        TemplatePadding: =1
-        TemplateSize: |+
-            =Gallery_Results_Main_1.TemplateHeight
-            
-        Width: =506
-        X: =186
-        Y: =226
-        ZIndex: =22
-
-        Label2_9 As label:
-            BorderStyle: =BorderStyle.None
-            BorderThickness: =1
-            Fill: =Color.Transparent
-            Font: =Font.Arial
-            FontWeight: =FontWeight.Lighter
-            Height: =ThisItem.Value.Height
-            OnSelect: =
-            Size: =Text_size_CoA
-            Text: =ThisItem.Value.Text
-            Width: =Parent.Width
-            ZIndex: =1
-
-    Text_Not_Routinely_Main_1 As label:
-        Align: =Align.Right
-        Font: =Font.Arial
-        FontWeight: =FontWeight.Bold
-        Height: =18
-        LineHeight: =1.1
-        PaddingBottom: =0
-        PaddingLeft: =0
-        PaddingRight: =0
-        PaddingTop: =0
-        Size: =7
-        Text: ="(*) Tested every batch              (**) Tested Periodically"
-        VerticalAlign: =VerticalAlign.Top
-        Visible: |-
-            =If(
-            Var_Product_Selected_Text="PET",true,
-            Var_Product_Selected_Text="PET Standard",false,
-            Var_Product_Selected_Text="PET Flake",false,
-            Var_Product_Selected_Text="HDPE Natural",true,
-            Var_Product_Selected_Text="HDPE Self Coloured",false,
-            Var_Product_Selected_Text="PP",true,
-            Var_Product_Selected_Text="PP P&G",true,
-            false)
-        Width: =253
-        X: =495
-        Y: =1046
-        ZIndex: =23
-
-    Image1 As image:
-        Height: =41
-        Image: =Created_By.Image
-        ImagePosition: =ImagePosition.Fill
-        OnSelect: =Set(var_created_by_visible,"visible")
-        Visible: |+
-            =If(Var_Status="Create",true,
-            If(Var_Status="Review",false
-            ))
-            
-            
-        Width: =211
-        X: =397
-        Y: =879
-        ZIndex: =24
-
-    Label3 As label:
-        Align: =Align.Center
-        Font: =Font.Arial
-        Height: =42
-        Size: =12
-        Text: |-
-            =If(Var_Status="Create",
-            
-            If(User().FullName="Martin Hayman","Susan Hayman",User().FullName)
-            
-            ,
-            If(Var_Status="Review",var_CofA_to_review.'Created By'.DisplayName
-            ))
-            
-            
-            //If(Var_Status="Create",User().FullName,If(Var_Status="Review",var_CofA_to_review.'Created By'.DisplayName))
-        Width: =210
-        X: =187
-        Y: =879
-        ZIndex: =25
-
-    Label3_1 As label:
-        Align: =Align.Center
-        Font: =Font.Arial
-        Height: =42
-        Size: =12
-        Text: |+
-            =If(Var_Status="Create",Today(),
-            If(Var_Status="Review",Text(var_CofA_to_review.Created,DateTimeFormat.ShortDate)
-            ))
-            
-        Width: =138
-        X: =610
-        Y: =879
-        ZIndex: =26
-
-    Group1 As group:
-        Height: =5
-        Width: =5
-        X: =40
-        Y: =40
-        ZIndex: =26
-
-        Rectangle1_1 As rectangle:
-            Height: =82
-            Width: =300
-            X: =46
-            Y: =1022
-            ZIndex: =7
-
-        Label4_2 As label:
-            Color: =Color.White
-            Font: =Font.Arial
-            Height: =79
-            PaddingBottom: =0
-            PaddingLeft: =0
-            PaddingRight: =0
-            PaddingTop: =0
-            Size: =7
-            Text: |-
-                ="polymers@viridor.co.uk
-                
-                +44(0)1732 299 200
-                
-                www.viridor.co.uk"
-            Width: =118
-            X: =226
-            Y: =1022
-            ZIndex: =13
-
-        Label4_3 As label:
-            Color: =Color.White
-            Font: =Font.Arial
-            Height: =62
-            PaddingBottom: =0
-            PaddingLeft: =0
-            PaddingRight: =0
-            PaddingTop: =0
-            Size: =12
-            Text: |-
-                ="Please contact
-                Viridor for
-                further enquiries."
-            VerticalAlign: =VerticalAlign.Top
-            Width: =136
-            X: =52
-            Y: =1026
-            ZIndex: =14
-
-        Icon1 As icon.Mail:
-            Color: =RGBA(170, 189, 218, 1)
-            Height: =18
-            Icon: =Icon.Mail
-            Width: =18
-            X: =195
-            Y: =1030
-            ZIndex: =16
-
-        Icon1_1 As icon.Mail:
-            Color: =RGBA(170, 189, 218, 1)
-            Height: =18
-            Icon: =Icon.Phone
-            Width: =18
-            X: =195
-            Y: =1052
-            ZIndex: =17
-
-        Icon1_2 As icon.Mail:
-            Color: =RGBA(170, 189, 218, 1)
-            Height: =18
-            Icon: =Icon.Globe
-            Width: =18
-            X: =195
-            Y: =1075
-            ZIndex: =18
-
-    Image3 As image:
-        Height: =42
-        Image: =var_CofA_to_review.'Created Signature'.Full
-        Visible: |-
-            =If(Var_Status="Create",false,
-            If(Var_Status="Review",true
-            ))
-        Width: =209
-        X: =399
-        Y: =879
-        ZIndex: =27
-
-    Label3_2 As label:
-        Align: =Align.Center
-        Font: =Font.Arial
-        Height: =42
-        Size: =12
-        Text: |+
-            =Today()
-            
-        Visible: |-
-            =If(Var_Status="Create",false,
-            If(Var_Status="Review",true
-            ))
-        Width: =138
-        X: =610
-        Y: =940
-        ZIndex: =28
-
-    Image3_2 As image:
-        Height: =42
-        Image: =Reviewed_By_1
-        OnSelect: =Set(var_reviewed_by_visible,"visible")
-        Visible: |-
-            =If(Var_Status="Create",false,
-            If(Var_Status="Review",true
-            ))
-        Width: =209
-        X: =399
-        Y: =940
-        ZIndex: =29
-
-    Label3_3 As label:
-        Align: =Align.Center
-        Font: =Font.Arial
-        Height: =42
-        Size: =12
-        Text: =User().FullName
-        Visible: |-
-            =If(Var_Status="Create",false,
-            If(Var_Status="Review",true
-            ))
-        Width: =210
-        X: =187
-        Y: =940
-        ZIndex: =30
-
-    "'Sign Created' As group":
-        Height: =5
-        Width: =5
-        X: =40
-        Y: =40
-        ZIndex: =30
-
-        Label2 As label:
-            Align: =Align.Center
-            BorderColor: =Colour_CoA_Blue_Dark
-            BorderThickness: =1.5
-            Color: =Colour_CoA_Blue_Light_2
-            Fill: =Colour_CoA_Blue_Light_1
-            Font: =Font.Arial
-            Height: =154
-            Size: =100
-            Text: ="Sign Here"
-            Visible: =If(var_created_by_visible="visible",true,false)
-            Width: =784
-            X: =5
-            Y: =478
-            ZIndex: =35
-
-        Created_By As inkControl:
-            BorderColor: =RGBA(255, 255, 255, 1)
-            BorderThickness: =0
-            Color: =RGBA(0, 13, 75, 1)
-            Fill: =
-            Height: =153
-            ShowControls: =false
-            Visible: =If(var_created_by_visible="visible",true,false)
-            Width: =783
-            X: =5
-            Y: =478
-            ZIndex: =36
-
-        Button_Back_2 As icon.CancelBadge:
-            Color: =Colour_CoA_Blue_Dark
-            Height: =42
-            HoverColor: =Colour_Viridor_Purple
-            Icon: =Icon.Check
-            OnSelect: =Set(var_created_by_visible,"hidden")
-            PressedColor: =Color.White
-            Visible: =If(var_created_by_visible="visible",true,false)
-            Width: =42
-            X: =745
-            Y: =587
-            ZIndex: =37
-
-        Button_Back_4 As icon.CancelBadge:
-            Color: =Colour_CoA_Blue_Dark
-            Height: =42
-            HoverColor: =Colour_Viridor_Purple
-            Icon: =Icon.Cancel
-            OnSelect: =Reset(Created_By)
-            PressedColor: =Color.White
-            Visible: =If(var_created_by_visible="visible",true,false)
-            Width: =42
-            X: =744
-            Y: =482
-            ZIndex: =38
-
-    Label5 As label:
-        Text: =
-        X: =40
-        Y: =40
-        ZIndex: =39
-
-    Label_Filename As label:
-        Fill: =RGBA(186, 202, 226, 1)
-        Height: =68
-        Text: |+
-            =If(
-            var_CofA_to_review.Material="PET","22. PET-CLEAR-WITH-BLUE-PELLET-STANDARD_"&var_CofA_to_review.'Batch Number'&"_"&var_CofA_to_review.'Delivery Number',
-            var_CofA_to_review.Material="PET Plus","nn. PET-CLEAR-WITH-BLUE-PELLET-STANDARD-PLUS_"&var_CofA_to_review.'Batch Number'&"_"&var_CofA_to_review.'Delivery Number',
-            var_CofA_to_review.Material="PET Flake","05. PET-CLEAR-WITH-BLUE-FLAKE-STANDARD_"&var_CofA_to_review.'Batch Number'&"_"&var_CofA_to_review.'Delivery Number',
-            var_CofA_to_review.Material="HDPE Natural","02. HDPE-NATURAL-PELLET-DEODORISED_"&var_CofA_to_review.'Batch Number'&"_"&var_CofA_to_review.'Delivery Number',
-            var_CofA_to_review.Material="PP","09. PP-SELF-COLOURED-PELLET-DEODORISED_"&var_CofA_to_review.'Batch Number'&"_"&var_CofA_to_review.'Delivery Number',
-            "Filename_Error.pdf")
-            
-            
-            
-            
-        Visible: =false
-        Width: =260
-        X: =52
-        Y: =40
-        ZIndex: =40
-
-    Button_Delete_9 As icon.CancelBadge:
-        Color: =Color.White
-        Height: =42
-        HoverColor: =Colour_Viridor_Purple
-        Icon: =Icon.Trash
-        OnSelect: |-
-            =Remove('CofA to Review',var_CofA_to_review);
-            
-            Set(var_CofA_to_review,Blank());
-            
-            Back();
-        PressedColor: =Color.Transparent
-        Tooltip: ="Delete"
-        Visible: |-
-            =Not(Parent.Printing)
-            &&
-            If(Var_Status="Create",false,
-            If(Var_Status="Review",true
-            ))
-        Width: =42
-        X: =Button_Back_6.X-(52*3)
-        Y: =22
-        ZIndex: =41
-
-    "'Sign Review' As group":
-        Height: =5
-        Width: =5
-        X: =5
-        Y: =20
-        ZIndex: =41
-
-        Label2_1 As label:
-            Align: =Align.Center
-            BorderColor: =Colour_CoA_Blue_Dark
-            BorderThickness: =1.5
-            Color: =Colour_CoA_Blue_Light_2
-            Fill: =Colour_CoA_Blue_Light_1
-            Font: =Font.Arial
-            Height: =154
-            Size: =100
-            Text: ="Sign Here"
-            Visible: =If(var_reviewed_by_visible="visible",true,false)
-            Width: =784
-            X: =6
-            Y: =478
-            ZIndex: =31
-
-        Reviewed_By_1 As inkControl:
-            BorderColor: =RGBA(255, 255, 255, 1)
-            BorderThickness: =0
-            Color: =RGBA(0, 13, 75, 1)
-            Fill: =
-            Height: =153
-            ShowControls: =false
-            Visible: =If(var_reviewed_by_visible="visible",true,false)
-            Width: =783
-            X: =6
-            Y: =478
-            ZIndex: =32
-
-        Button_Back_8 As icon.CancelBadge:
-            Color: =Colour_CoA_Blue_Dark
-            Height: =42
-            HoverColor: =Colour_Viridor_Purple
-            Icon: =Icon.Check
-            OnSelect: =Set(var_reviewed_by_visible,"hidden")
-            PressedColor: =Color.White
-            Visible: =If(var_reviewed_by_visible="visible",true,false)
-            Width: =42
-            X: =746
-            Y: =587
-            ZIndex: =33
-
-        Button_Back_7 As icon.CancelBadge:
-            Color: =Colour_CoA_Blue_Dark
-            Height: =42
-            HoverColor: =Colour_Viridor_Purple
-            Icon: =Icon.Cancel
-            OnSelect: =Reset(Reviewed_By_1)
-            PressedColor: =Color.White
-            Visible: =If(var_reviewed_by_visible="visible",true,false)
-            Width: =42
-            X: =745
-            Y: =482
-            ZIndex: =34
-
-    Button_Create As icon.CancelBadge:
-        Color: =Color.White
-        Height: =42
-        HoverColor: =Colour_Viridor_Purple
-        Icon: =Icon.Add
-        OnSelect: |-
-            =Set(Var_Creating,true);
-            
-            SubmitForm(Form_add_data_to_CofA_review);
-            NewForm(Form_add_data_to_CofA_review);
-            
-            //Just in case an atatchment is needed
-            //AddSignaturetoSharepointList.Run("signature.bmp",Last('CofA to Review').ID,{file:{name:"signature.bmp",contentBytes:Created_By.Image }});
-            
-            
-            Back();
-            
-            Set(Var_Creating,false);
-        PressedColor: =Color.Transparent
-        Tooltip: ="Create CofA"
-        Visible: |-
-            =Not(Parent.Printing)
-            &&
-            If(Var_Status="Create",true,
-            If(Var_Status="Review",false
-            ))
-        Width: =42
-        X: =Button_Back_6.X-(52*3)
-        Y: =Button_Back_6.Y
-        ZIndex: =42
-
-    Button_Print_1 As icon.CancelBadge:
-        Color: =Color.White
-        Height: =42
-        HoverColor: =Colour_Viridor_Purple
-        Icon: =Icon.Print
-        OnSelect: =Print()
-        PressedColor: =Color.Transparent
-        Tooltip: ="Print"
-        Visible: =Not(Parent.Printing)
-        Width: =42
-        X: =Button_Back_6.X-(52*2)
-        Y: =Button_Back_6.Y
-        ZIndex: =43
-
-    Button_Home_8 As icon.CancelBadge:
-        Color: =Color.White
-        Height: =42
-        HoverColor: =Colour_Viridor_Purple
-        Icon: =Icon.Home
-        OnSelect: =Navigate(Screen_Start,ScreenTransition.None);
-        PressedColor: =Color.Transparent
-        Tooltip: ="Home"
-        Visible: =Not(Parent.Printing)
-        Width: =42
-        X: =Button_Back_6.X-52
-        Y: =Button_Back_6.Y
-        ZIndex: =44
-
-    Button_Back_6 As icon.CancelBadge:
-        Color: =Color.White
-        Height: =42
-        HoverColor: =Colour_Viridor_Purple
-        Icon: =Icon.BackArrow
-        OnSelect: =Back()
-        PressedColor: =Color.Transparent
-        Tooltip: ="Back"
-        Visible: =Not(Parent.Printing)
-        Width: =42
-        X: =731
-        Y: =22
-        ZIndex: =45
-
-    Button_Create_PDF As icon.CancelBadge:
-        Color: =Color.White
-        Height: =42
-        HoverColor: =Colour_Viridor_Purple
-        Icon: =Icon.DocumentPDF
-        OnSelect: |
-            =Set(Var_Creating,true);
-            
-            //Creates new list item in CofA
-            SubmitForm(Form_add_data_to_CofA);
-            NewForm(Form_add_data_to_CofA);
-            
-            //Need to trigger power automate flow to add PDF to sharepoint list.
-            AddPDFtoSharepointList.Run(Label_Filename.Text&".pdf",Last(CofA).ID,{file:{name:Label_Filename.Text&".pdf",contentBytes: PDF(Screen_CofA, {Size: PaperSize.A4, Margin: "0mm"})}});
-            //Dont know why last.ID works, thought it would be last + 1 but I guess it counts the new one too?
-            
-            //Need to delete Form_add_data_to_CofA entry.
-            Remove('CofA to Review',var_CofA_to_review);
-            
-            Set(var_CofA_to_review,Blank());
-            
-            Refresh(CofA);
-            
-            Back();
-            
-            Set(Var_Creating,false);
-        PressedColor: =Color.Transparent
-        Tooltip: ="Create PDF"
-        Visible: |-
-            =Not(Parent.Printing)
-            &&
-            If(Var_Status="Create",false,
-            If(Var_Status="Review",true
-            ))
-        Width: =42
-        X: =Button_Back_6.X-(52*4)
-        Y: =22
-        ZIndex: =46
-
-    Creating As label:
-        Align: =Align.Center
-        Color: =Color.White
-        Fill: =Color.Transparent
-        Height: =1104
-        Size: =30
-        Text: =
-        Visible: =Var_Creating
-        Width: =794
-        ZIndex: =47
 
