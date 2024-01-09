@@ -1139,10 +1139,17 @@
             =If(
             var_CofA_to_review.Material="PET","22. PET-CLEAR-WITH-BLUE-PELLET-STANDARD_"&var_CofA_to_review.'Batch Number'&"_"&var_CofA_to_review.'Delivery Number',
             var_CofA_to_review.Material="PET Plus","nn. PET-CLEAR-WITH-BLUE-PELLET-STANDARD-PLUS_"&var_CofA_to_review.'Batch Number'&"_"&var_CofA_to_review.'Delivery Number',
+            var_CofA_to_review.Material="PET X","38. PET-CLEAR-WITH-BLUE-PELLET-X_"&var_CofA_to_review.'Batch Number'&"_"&var_CofA_to_review.'Delivery Number',
+            var_CofA_to_review.Material="PET Plus X","nn. PET-CLEAR-WITH-BLUE-PELLET-STANDARD-PLUS-X_"&var_CofA_to_review.'Batch Number'&"_"&var_CofA_to_review.'Delivery Number',
+            
             var_CofA_to_review.Material="PET Flake","05. PET-CLEAR-WITH-BLUE-FLAKE-STANDARD_"&var_CofA_to_review.'Batch Number'&"_"&var_CofA_to_review.'Delivery Number',
+            
             var_CofA_to_review.Material="HDPE Natural","02. HDPE-NATURAL-PELLET-DEODORISED_"&var_CofA_to_review.'Batch Number'&"_"&var_CofA_to_review.'Delivery Number',
+            var_CofA_to_review.Material="HDPE Natural LW","72. HDPE-NATURAL LW-PELLET-DEODORISED P2_"&var_CofA_to_review.'Batch Number'&"_"&var_CofA_to_review.'Delivery Number',
+            var_CofA_to_review.Material="Natural Low White","72. HDPE-NATURAL LW-PELLET-DEODORISED P2_"&var_CofA_to_review.'Batch Number'&"_"&var_CofA_to_review.'Delivery Number',
+            
             var_CofA_to_review.Material="PP","09. PP-SELF-COLOURED-PELLET-DEODORISED_"&var_CofA_to_review.'Batch Number'&"_"&var_CofA_to_review.'Delivery Number',
-            "Filename_Error.pdf")
+            "Filename_Error")
             
             
             
