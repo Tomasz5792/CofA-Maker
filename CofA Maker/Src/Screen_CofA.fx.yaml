@@ -2149,3 +2149,17 @@
                 Y: =DataCardKey8.Y
                 ZIndex: =4
 
+    Label7 As label:
+        Fill: =RGBA(153, 207, 236, 1)
+        Text: =Last(CofA).ID
+        X: =107
+        Y: =24
+        ZIndex: =48
+
+    Label7_1 As label:
+        Fill: =RGBA(153, 207, 236, 1)
+        Text: =
+        X: =107
+        Y: =87
+        ZIndex: =49
+
